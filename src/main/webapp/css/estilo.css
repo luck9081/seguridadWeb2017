@@ -1,0 +1,302 @@
+a,
+a label {
+    cursor: pointer;
+}
+
+/* =====================
+
+	ESPACIADOS Y
+	PADDINGS
+
+========================*/
+
+.espaciado-superior{
+	margin-top: 50px;
+}
+
+.padding-superior{
+	padding-top: 50px;
+}
+
+.espaciado-inferior{
+	margin-bottom: 50px;
+}
+
+.espaciado-superior-inferior{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.espaciado-superior-inferior-mayor{
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.espaciado-superior-inferior-menor{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.espaciado-izquierda-derecha{
+	margin-right: 20px;
+	margin-left: 15px;
+}
+
+.espaciado-izquierda{
+	margin-left: 45px;
+}
+
+.espaciado-derecha{
+	margin-right: 45px;
+}
+
+.sin-espaciado-inferior{
+	margin-bottom:-200px;
+}
+
+
+
+
+/* =====================
+
+	DIMENSIONES DIVS
+
+========================*/
+
+.div-extra-large{
+	height: 700px !important;
+}
+
+.div-large{
+	height: 500px !important;
+}
+
+.div-small{
+	max-height: 300px !important;
+	height: 300px !important;
+	min-height: 300px !important;
+}
+
+.div-micro{
+	max-height: 150px !important;
+	height: 150px !important;
+	min-height: 150px !important;
+}
+
+.altura-total{
+	height: 100vh !important;
+}
+
+.tarjeta{
+	padding-top: 2em;
+	padding-left: 3em;
+	padding-right: 3em;
+	height: 500px;
+	overflow-y:auto;
+}
+
+.tarjeta-new{
+	padding-top: 1em;
+	padding-left: 3em;
+	padding-right: 3em;
+	padding-bottom: 2em;
+	width: 300px !important;
+}
+
+
+/* ======================
+
+	FONTS
+
+========================*/
+
+.finito{
+	font-weight: 100;
+}
+
+.span_h2{
+	font-weight: 300;
+}
+
+.span_h1{
+	font-weight: 400;
+}
+
+.font-large{
+	font-size: 6em !important;
+}
+
+.font-upper-semi-large{
+	font-size: 5.5em !important;
+}
+
+.font-semi-large{
+	font-size: 5em !important;
+}
+
+.font-medium{
+	font-size: 4em !important;
+}
+
+.font-small{
+	font-size: 2em !important;
+}
+
+.font-micro{
+	font-size: 1em !important;
+}
+
+html{
+	font-family: "Roboto", sans-serif !important;
+	margin:0;
+	background: url('../img/office4.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+nav .brand-logo {
+   left: 30%;
+   -webkit-transform: translateX(-50%);
+   -moz-transform: translateX(-50%);
+   -ms-transform: translateX(-50%);
+   -o-transform: translateX(-50%);
+   transform: translateX(-50%);
+	position: absolute;
+   color: #fff;
+   display: inline-block;
+   font-size: 2.1rem;
+   padding: 0;
+   white-space: nowrap;
+	font-family: "Roboto", sans-serif;
+}
+
+nav .brand-logo-small {
+	left: 55%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+   transform: translateX(-50%);
+	position: absolute;
+   color: #fff;
+   display: inline-block;
+   font-size: 120%;
+   padding: 0;
+	letter-spacing: 5px;
+	font-weight: 300;
+   white-space: nowrap;
+	font-family: "Roboto", sans-serif;
+}
+
+nav ul a{
+	font-family: "Roboto", sans-serif;
+	font-size: 1rem;
+	color: #fff;
+	display: block;
+	padding: 0 15px;
+	letter-spacing: 2px;
+	font-weight: 100;
+	cursor: pointer;
+	line-height: 64px;
+}
+
+.brand-logo {
+   position: absolute;
+   color: #fff;
+   display: inline-block;
+   font-size: 2.1rem;
+   font-style: normal;
+   font-weight: 300;
+   padding: 0;
+   letter-spacing: 6px;
+	font-family: "Roboto",sans-serif;
+}
+
+.copyright{
+	font-weight: 100 !important;
+}
+
+
+
+
+/* =====================
+
+	BRACKGROUNDS
+
+========================*/
+
+.preloader-background {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #eee;
+
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.cloud-background{
+	background-image: url("../img/clouds.jpeg");
+}
+
+
+
+
+/* =====================
+
+	SIDENAV
+
+========================*/
+
+.margin-nulo-sidenav{
+	margin-right: 0 !important;
+}
+
+
+
+
+/* =====================
+
+	TAREAS
+
+========================*/
+
+.subcategories-list{
+	border-width:0 !important;
+	border-color:white !important;
+	width:100% !important;
+	height: 500px !important;
+}
+
+.subcategories-item{
+	border-width:0 !important;
+	border-color:white !important;
+	padding-left: 0 !important;
+}
+
+.subcategories-item-icon{
+	position: static !important;
+}
+
+
+
+
+/* =====================
+
+	ICONOS
+
+========================*/
+
+.icono-circular{
+	line-height:42px;
+	width:42px;
+	left:15px;
+	vertical-align:middle;
+	text-align:center;
+}

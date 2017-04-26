@@ -22,18 +22,22 @@
 
 			<h:panelGrid columns="3">
 
-				<h:outputLabel for="nombre">Nombre:</h:outputLabel>
-				<h:inputText value="#{UsuarioBean.nombre}" id="nombre"></h:inputText>
+				<h:outputLabel for="firstName">Nombre:</h:outputLabel>
+				<h:inputText value="#{personBean.firstName}" id="firstName"></h:inputText>
 				<br />
 				<br />
 
-				<h:outputLabel for="pass">Contraseña:</h:outputLabel>
-				<h:inputText value="#{UsuarioBean.pass}" id="pass"></h:inputText>
+				<h:outputLabel for="lastName">Apellido:</h:outputLabel>
+				<h:inputText value="#{personBean.lastName}" id="lastName"></h:inputText>
 				<br />
 				<br />
 
+				<h:outputLabel for="email">Email:</h:outputLabel>
+				<h:inputText value="#{personBean.email}" id="email"></h:inputText>
+				<br />
+				<br />
 
-				<h:commandButton action="#{UsuarioBean.save}" value="Save">
+				<h:commandButton action="#{personBean.save}" value="Save">
 				</h:commandButton>
 				
 			</h:panelGrid>
