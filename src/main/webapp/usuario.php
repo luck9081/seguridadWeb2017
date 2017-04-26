@@ -84,7 +84,7 @@
                <i class="material-icons prefix">mode_edit</i> Perfil
             </a></li>
             <li class="divider"></li>
-            <li><a class="orange-text span_h2" href="index2.php">
+            <li><a class="orange-text span_h2" href="index.php">
                <i class="material-icons orange-text">power_settings_new</i> Salir
             </a></li>
          </ul>
@@ -155,7 +155,7 @@
                            <input type="checkbox" id="test1" />
                            <label for="test1"></label>
                            <a href="#modal2"><i class="material-icons blue-text">share</i></a>
-                           <i class="material-icons grey-text delete">delete</i>
+                           <a><i class="material-icons grey-text delete">delete</i></a>
                         </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
@@ -168,7 +168,7 @@
                            <input type="checkbox" id="test2" />
                            <label for="test2"></label>
                            <a href="#modal2"><i class="material-icons blue-text">share</i></a>
-                           <i class="material-icons grey-text delete">delete</i>
+                           <a><i class="material-icons grey-text delete">delete</i></a>
                         </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
@@ -181,7 +181,7 @@
                            <input type="checkbox" id="test3" />
                            <label for="test3"></label>
                            <a href="#modal2"><i class="material-icons blue-text">share</i></a>
-                           <i class="material-icons grey-text delete">delete</i>
+                           <a><i class="material-icons grey-text delete">delete</i></a>
                         </div>
                      </li>
                   </ul>
@@ -203,7 +203,7 @@
                         </p>
                         <div class="secondary-content">
                            <a href="#modal2"><i class="material-icons blue-text">share</i></a>
-                           <i class="material-icons grey-text delete">delete</i>
+                           <a><i class="material-icons grey-text delete">delete</i></a>
                         </a>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
@@ -214,7 +214,7 @@
                         </p>
                         <div class="secondary-content">
                            <a href="#modal2"><i class="material-icons blue-text">share</i></a>
-                           <i class="material-icons grey-text delete">delete</i>
+                           <a><i class="material-icons grey-text delete">delete</i></a>
                         </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
@@ -225,7 +225,7 @@
                         </p>
                         <div class="secondary-content">
                            <a href="#modal2"><i class="material-icons blue-text">share</i></a>
-                           <i class="material-icons grey-text delete">delete</i>
+                           <a><i class="material-icons grey-text delete">delete</i></a>
                         </div>
                      </li>
                   </ul>
@@ -282,10 +282,10 @@
                         <p>First Line <br>
                            Second Line
                         </p>
-                        <a class="secondary-content">
+                        <div class="secondary-content">
                            <i class="material-icons blue-text">share</i>
-                           <i class="material-icons grey-text delete">delete</i>
-                        </a>
+                           <a><i class="material-icons grey-text delete">delete</i></a>
+                        </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle">folder</i>
@@ -293,10 +293,10 @@
                         <p>First Line <br>
                            Second Line
                         </p>
-                        <a class="secondary-content">
+                        <div class="secondary-content">
                            <i class="material-icons blue-text">share</i>
-                           <i class="material-icons grey-text delete">delete</i>
-                        </a>
+                           <a><i class="material-icons grey-text delete">delete</i></a>
+                        </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle red">play_arrow</i>
@@ -304,10 +304,10 @@
                         <p>First Line <br>
                            Second Line
                         </p>
-                        <a class="secondary-content">
+                        <div class="secondary-content">
                            <i class="material-icons blue-text">share</i>
-                           <i class="material-icons grey-text delete">delete</i>
-                        </a>
+                           <a><i class="material-icons grey-text delete">delete</i></a>
+                        </div>
                      </li>
                   </ul>
 
