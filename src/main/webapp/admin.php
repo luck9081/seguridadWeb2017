@@ -143,7 +143,7 @@
                         </p>
                         <a class="secondary-content">
                            <i class="material-icons green-text waves-effect waves-green accept-user">done</i>
-                           <i class="material-icons red-text delete waves-effect">clear</i>
+                           <i class="material-icons red-text delete-user waves-effect">clear</i>
                         </a>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
@@ -154,7 +154,7 @@
                         </p>
                         <div class="secondary-content">
                            <a href="#modal1"><i class="material-icons blue-text waves-effect" href="#modal1">mode_edit</i></a>
-                           <i class="material-icons red-text delete waves-effect">clear</i>
+                           <i class="material-icons red-text delete-user waves-effect">clear</i>
                         </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
@@ -165,7 +165,7 @@
                         </p>
                         <div class="secondary-content">
                            <a href="#modal1"><i class="material-icons blue-text waves-effect" href="#modal1">mode_edit</i></a>
-                           <i class="material-icons red-text delete waves-effect">clear</i>
+                           <i class="material-icons red-text delete-user waves-effect">clear</i>
                         </div>
                      </li>
                   </ul>
