@@ -22,6 +22,18 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public List<Usuario> findAll() {
 		return usuarioDao.findAll();
 	}
+	
+	@Override
+	public boolean borrar(Integer idUsuario) {
+		usuarioDao.borrar(idUsuario);
+		return true;
+	}
+	
+	@Override
+	public boolean editar(Integer idUsuario) {
+		usuarioDao.editar(idUsuario);
+		return true;
+	}
 
 	public UsuarioDao getUsuarioDao() {
 		return usuarioDao;
@@ -30,7 +42,5 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public void setUsuarioDao(UsuarioDao usuarioDao) {
 		this.usuarioDao = usuarioDao;
 	}
-	
-	
 
 }

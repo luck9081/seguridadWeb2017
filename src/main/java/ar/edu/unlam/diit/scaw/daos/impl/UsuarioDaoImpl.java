@@ -29,9 +29,21 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("nombre", usuario.getNombre());
-		params.put("pass", usuario.getPass());
+		params.put("pass", usuario.getPassword());
 		jdbcTemplate.update(sql, params);
 
+	}
+	
+	//No barra el user, le cambia el estado a 'baja'
+	@Override
+	public boolean borrar(Integer idUsuario){
+		return true;
+	}
+	
+	@Override
+	public boolean editar(Integer idUsuario){
+		return true;
+		
 	}
 
 	@Override
@@ -57,9 +69,11 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 		public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Usuario usuario = new Usuario();
-			usuario.setId_usuario(rs.getInt("id_usuario"));
+			usuario.setIdUsuario(rs.getInt("idUsuario"));
 			usuario.setNombre(rs.getString("nombre"));
-			usuario.setPass(rs.getString("pass"));
+			usuario.setPassword(rs.getString("password"));
+			usuario.setApellido(rs.getString("apellido"));
+			usuario.setEmail(rs.getString("email"));
 			return usuario;
 		}
 	}

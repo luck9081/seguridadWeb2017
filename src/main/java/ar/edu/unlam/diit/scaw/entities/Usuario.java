@@ -6,21 +6,23 @@ public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer id_usuario;
+	private Integer idUsuario;
 	private String nombre;
-	private String pass;
-	private Integer id_estado_usuario;
-	private Integer id_tipo_usuario;
-
+	private String apellido;
+	private String email;
+	private String password;
+	private EstadoUsuario estadoUser;
+	private TipoUsuario	tipoUser;
+	
 	public Usuario() {
 	}
-
-	public Integer getId_usuario() {
-		return id_usuario;
+	
+	public Integer getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setId_usuario(Integer id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getNombre() {
@@ -31,30 +33,48 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getApellido() {
+		return apellido;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
-	public Integer getId_estado_usuario() {
-		return id_estado_usuario;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setId_estado_usuario(Integer id_estado_usuario) {
-		this.id_estado_usuario = id_estado_usuario;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public Integer getId_tipo_usuario() {
-		return id_tipo_usuario;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setId_tipo_usuario(Integer id_tipo_usuario) {
-		this.id_tipo_usuario = id_tipo_usuario;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	
+	public EstadoUsuario getEstadoUser() {
+		return estadoUser;
+	}
+
+	public void setEstadoUser(EstadoUsuario estadoUser) {
+		this.estadoUser = estadoUser;
+	}
+
+	public TipoUsuario getTipoUser() {
+		return tipoUser;
+	}
+
+	public void setTipoUser(TipoUsuario tipoUser) {
+		this.tipoUser = tipoUser;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }
