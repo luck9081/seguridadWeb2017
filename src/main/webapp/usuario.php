@@ -137,7 +137,7 @@
          </div>
 
          <!-- Hoy y Mañana -->
-         <div class="row container animated fadeIn">
+         <div class="row container animated zoomIn">
 
             <div class="col s12 m12 l7">
                <div class="tarjeta grey lighten-4">
@@ -151,12 +151,12 @@
                         <p>First Line <br>
                            Second Line
                         </p>
-                        <a class="secondary-content">
+                        <div class="secondary-content">
                            <input type="checkbox" id="test1" />
                            <label for="test1"></label>
-                           <i class="material-icons blue-text">share</i>
+                           <a href="#modal2"><i class="material-icons blue-text">share</i></a>
                            <i class="material-icons grey-text delete">delete</i>
-                        </a>
+                        </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle">folder</i>
@@ -164,12 +164,12 @@
                         <p>First Line <br>
                            Second Line
                         </p>
-                        <a class="secondary-content">
+                        <div class="secondary-content">
                            <input type="checkbox" id="test2" />
                            <label for="test2"></label>
-                           <i class="material-icons blue-text">share</i>
+                           <a href="#modal2"><i class="material-icons blue-text">share</i></a>
                            <i class="material-icons grey-text delete">delete</i>
-                        </a>
+                        </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle red">play_arrow</i>
@@ -177,12 +177,12 @@
                         <p>First Line <br>
                            Second Line
                         </p>
-                        <a class="secondary-content">
+                        <div class="secondary-content">
                            <input type="checkbox" id="test3" />
                            <label for="test3"></label>
-                           <i class="material-icons blue-text">share</i>
+                           <a href="#modal2"><i class="material-icons blue-text">share</i></a>
                            <i class="material-icons grey-text delete">delete</i>
-                        </a>
+                        </div>
                      </li>
                   </ul>
 
@@ -201,8 +201,8 @@
                         <p>First Line <br>
                            Second Line
                         </p>
-                        <a class="secondary-content">
-                           <i class="material-icons blue-text">share</i>
+                        <div class="secondary-content">
+                           <a href="#modal2"><i class="material-icons blue-text">share</i></a>
                            <i class="material-icons grey-text delete">delete</i>
                         </a>
                      </li>
@@ -212,10 +212,10 @@
                         <p>First Line <br>
                            Second Line
                         </p>
-                        <a class="secondary-content">
-                           <i class="material-icons blue-text">share</i>
+                        <div class="secondary-content">
+                           <a href="#modal2"><i class="material-icons blue-text">share</i></a>
                            <i class="material-icons grey-text delete">delete</i>
-                        </a>
+                        </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle red">play_arrow</i>
@@ -223,10 +223,10 @@
                         <p>First Line <br>
                            Second Line
                         </p>
-                        <a class="secondary-content">
-                           <i class="material-icons blue-text">share</i>
+                        <div class="secondary-content">
+                           <a href="#modal2"><i class="material-icons blue-text">share</i></a>
                            <i class="material-icons grey-text delete">delete</i>
-                        </a>
+                        </div>
                      </li>
                   </ul>
 
@@ -236,7 +236,7 @@
          </div>
 
          <!-- Completas - Pendientes -->
-         <div class="row container fadeIn">
+         <div class="row container animated zoomIn">
 
             <div class="col s12 m12 l7">
                <div class="tarjeta grey lighten-4">
@@ -341,6 +341,60 @@
                      <input type="checkbox">
                      <span class="lever"></span>
                   </label>
+               </div>
+               <div class="center">
+                  <button class="btn btn-floating btn-large orange waves-effect waves-light" type="submit" name="">
+                      <i class="large material-icons">done</i>
+                  </button>
+               </div>
+            </form>
+         </div>
+
+         <!-- Modal Compartir Tarea -->
+         <div id="modal2" class="modal center grey lighten-4">
+            <div class="espaciado-superior">
+               <h3 class="span_h2 orange-text">Compartir la Tarea</h3>
+            </div>
+
+            <form class="container left-align espaciado-superior-inferior">
+               <div class="tarjeta grey lighten-4">
+
+                  <ul class="collection subcategories-list">
+                     <li class="collection-item avatar grey lighten-4">
+                        <i class="material-icons circle green">insert_chart</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                           Second Line
+                        </p>
+                        <a class="secondary-content">
+                           <input type="checkbox" id="test1" />
+                           <label for="test1"></label>
+                        </a>
+                     </li>
+                     <li class="collection-item avatar grey lighten-4">
+                        <i class="material-icons circle">folder</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                           Second Line
+                        </p>
+                        <a class="secondary-content">
+                           <input type="checkbox" id="test2" />
+                           <label for="test2"></label>
+                        </a>
+                     </li>
+                     <li class="collection-item avatar grey lighten-4">
+                        <i class="material-icons circle red">play_arrow</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                           Second Line
+                        </p>
+                        <a class="secondary-content">
+                           <input type="checkbox" id="test3" />
+                           <label for="test3"></label>
+                        </a>
+                     </li>
+                  </ul>
+
                </div>
                <div class="center">
                   <button class="btn btn-floating btn-large orange waves-effect waves-light" type="submit" name="">
