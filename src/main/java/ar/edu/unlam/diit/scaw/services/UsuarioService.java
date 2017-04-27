@@ -13,7 +13,5 @@ public interface UsuarioService {
 	public boolean borrar(Integer idUsuario);
 	
 	public boolean editar(Integer idUsuario);
-	
-	public boolean privilegioUsuarioTarea(Integer idUsuarioAdjunto,Integer idTarea,Integer tipoPrivilegio);
 
 }

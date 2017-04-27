@@ -34,11 +34,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 		usuarioDao.editar(idUsuario);
 		return true;
 	}
-	
-	@Override
-	public boolean privilegioUsuarioTarea(Integer idUsuarioAdjunto,Integer idTarea,Integer tipoPrivilegio){
-		return usuarioDao.privilegioUsuarioTarea(idUsuarioAdjunto, idTarea, tipoPrivilegio);
-	}
 
 	public UsuarioDao getUsuarioDao() {
 		return usuarioDao;

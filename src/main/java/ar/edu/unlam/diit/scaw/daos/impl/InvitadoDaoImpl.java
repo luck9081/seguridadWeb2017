@@ -4,56 +4,43 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.LinkedList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import ar.edu.unlam.diit.scaw.daos.UsuarioDao;
-import ar.edu.unlam.diit.scaw.entities.Usuario;
+import ar.edu.unlam.diit.scaw.daos.InvitadoDao;
+import ar.edu.unlam.diit.scaw.entities.Invitado;
 
-public class UsuarioDaoImpl implements UsuarioDao {
+public class InvitadoDaoImpl implements InvitadoDao {
 
 	@Autowired
 	NamedParameterJdbcTemplate jdbcTemplate;
 
-	public UsuarioDaoImpl() {
+	public InvitadoDaoImpl() {
 		super();
 	}
 
 	@Override
-	public void save(Usuario usuario) {
-
-		String sql = "INSERT INTO Usuario (nombre, pass, id_estado_usuario, id_tipo_usuario) VALUES (:nombre, :pass,1,2)";
-
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("nombre", usuario.getNombre());
-		params.put("pass", usuario.getPass());
-		jdbcTemplate.update(sql, params);
-
+	public LinkedList<Invitado> consultarInvitadosTarea(Integer idTarea){
+		return new LinkedList<Invitado>();
 	}
-	
-	//No borra el user, le cambia el estado a 'baja'
+
 	@Override
-	public boolean borrar(Integer idUsuario){
+	public boolean agregarInvitados(LinkedList<Integer> idInvitados,LinkedList<Integer> idTareas,LinkedList<Integer> idPrivilegios){
 		return true;
 	}
-	
+
 	@Override
-	public boolean editar(Integer idUsuario){
-		return true;		
+	public boolean modificarPrivilegioInvitado(Integer idInvitado,Integer idTarea,Integer idPrivilegio){
+		return true;
 	}
 
 	@Override
-	public List<Usuario> findAll() {
-		Map<String, Object> params = new HashMap<String, Object>();
-
-		String sql = "SELECT * FROM Usuario";
-
-		List<Usuario> result = jdbcTemplate.query(sql, params, new PersonMapper());
-
-		return result;
+	public boolean borrarInvitado(Integer idInvitado,Integer idTarea,Integer idPrivilegio){
+		return true;
 	}
 
 	public NamedParameterJdbcTemplate getJdbcTemplate() {
@@ -64,7 +51,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	private static final class PersonMapper implements RowMapper<Usuario> {
+	/*private static final class PersonMapper implements RowMapper<Usuario> {
 
 		public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Usuario usuario = new Usuario();
@@ -75,6 +62,6 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	
 			return usuario;
 		}
-	}
+	}*/
 
 }

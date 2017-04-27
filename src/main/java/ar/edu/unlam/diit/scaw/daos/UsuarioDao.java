@@ -14,6 +14,4 @@ public interface UsuarioDao {
 	
 	public List<Usuario> findAll();
 	
-	public boolean privilegioUsuarioTarea(Integer idUsuarioAdjunto,Integer idTarea,Integer tipoPrivilegio);
-	
 }
