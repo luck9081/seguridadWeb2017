@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	>
+
+<h:head>
+	<title>Organize me</title>
+</h:head>
+
+<h:body>
+
+	<h2>Bienvenido a organize me !</h2>
+	<h4>Registrate para poder empezar a crear y organizar tareas </h4>
+
+	<div class="panel-body">
+		<h:form>
+
+
+			<h:panelGrid columns="3">
+
+				<h:outputLabel for="firstName">Nombre:</h:outputLabel>
+				<h:inputText value="#{usuarioBean.nombre}" id="firstName"></h:inputText>
+				<br />
+				<br />
+
+				<h:outputLabel for="lastName">Contraseña:</h:outputLabel>
+				<h:inputText value="#{usuarioBean.pass}" id="lastName"></h:inputText>
+				<br />
+				<br />
+
+
+				<h:commandButton action="#{usuarioBean.save}" value="Save">
+				</h:commandButton>
+				
+			</h:panelGrid>
+		</h:form>
+	</div>
+	
+</h:body>
+</html>

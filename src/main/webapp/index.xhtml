@@ -8,38 +8,163 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	>
 
-<h:head>
-	<title>Organize me</title>
-</h:head>
+	<h:head>
 
-<h:body>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+      <meta name="theme-color" content="#2196F3"/>
 
-	<h2>Bienvenido a organize me !</h2>
-	<h4>Registrate para poder empezar a crear y organizar tareas </h4>
+      <!-- FAVICON -->
+      <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 
-	<div class="panel-body">
-		<h:form>
+      <!-- TITLE -->
+      <title>OrganizeMe</title>
 
+      <!-- CSS -->
+      <link type="text/css" rel="stylesheet" href="fonts/material-design-icons/material-icons.css"/>
+      <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"/>
+      <link type="text/css" rel="stylesheet" href="css/animate.css"/>
+      <link type="text/css" rel="stylesheet" href="css/estilo.css"/>
 
-			<h:panelGrid columns="3">
+   </h:head>
 
-				<h:outputLabel for="firstName">Nombre:</h:outputLabel>
-				<h:inputText value="#{usuarioBean.nombre}" id="firstName"></h:inputText>
-				<br />
-				<br />
+   <h:body class="altura-total" style="padding-top:15%">
 
-				<h:outputLabel for="lastName">Contraseña:</h:outputLabel>
-				<h:inputText value="#{usuarioBean.pass}" id="lastName"></h:inputText>
-				<br />
-				<br />
+      <!-- PRELOADER -->
+      <div class="preloader-background">
+         <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+               <div class="circle-clipper left">
+                  <div class="circle"></div>
+               </div>
+               <div class="gap-patch">
+                  <div class="circle"></div>
+               </div>
+               <div class="circle-clipper right">
+                  <div class="circle"></div>
+               </div>
+            </div>
 
+            <div class="spinner-layer spinner-red">
+               <div class="circle-clipper left">
+                  <div class="circle"></div>
+               </div>
+               <div class="gap-patch">
+                  <div class="circle"></div>
+               </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+               </div>
+            </div>
 
-				<h:commandButton action="#{usuarioBean.save}" value="Save">
-				</h:commandButton>
-				
-			</h:panelGrid>
-		</h:form>
-	</div>
-	
-</h:body>
+            <div class="spinner-layer spinner-yellow">
+               <div class="circle-clipper left">
+                  <div class="circle"></div>
+               </div>
+               <div class="gap-patch">
+                  <div class="circle"></div>
+               </div>
+               <div class="circle-clipper right">
+                  <div class="circle"></div>
+               </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+               <div class="circle-clipper left">
+                  <div class="circle"></div>
+               </div>
+               <div class="gap-patch">
+                  <div class="circle"></div>
+               </div>
+               <div class="circle-clipper right">
+                  <div class="circle"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- MAIN SECTION -->
+      <div class="row container center">
+         <h3 class="finito animated fadeInDown">Bienvenido a</h3>
+         <h1 class="span_h1 font-large finito animated fadeInDown hide-on-small-only">
+            <span >Organize</span><span class="orange-text">Me</span>
+         </h1>
+         <h1 class="span_h1 finito animated fadeInDown hide-on-med-and-up">
+            <span>Organize</span><span class="orange-text">Me</span>
+         </h1>
+         <a href="#modal1" class="btn btn-large waves-effect waves-light blue animated fadeInUp">Ingresar</a>
+         <a href="#modal2" class="btn btn-large waves-effect waves-light orange animated fadeInUp">¿Eres nuevo?</a>
+
+         <!-- Modal Login -->
+         <div id="modal1" class="modal">
+            <div class="modal-content espaciado-superior">
+               <h4 class="blue-text finito">¡Hora de <span class="span_h2">Organizar</span>!</h4>
+            </div>
+            <form class="container left-align espaciado-inferior" action="usuario.xhtml" method="post">
+               <div class="input-field">
+                  <h:inputText id="first_name" type="text" class="validate"/>
+                  <label for="first_name">Usuario</label>
+               </div>
+               <div class="input-field">
+                  <h:inputText id="password" type="password" class="validate"/>
+                  <label for="password">Password</label>
+               </div>
+               <!-- Switch -->
+               <div class="switch">
+                  <label class="black-text">
+                     Recordar
+                     <h:inputText type="checkbox"/>
+                     <span class="lever"></span>
+                  </label>
+               </div>
+               <div class="center">
+                  <button class="btn btn-floating btn-large blue waves-effect waves-light" type="submit" name="">
+                      <i class="large material-icons">input</i>
+                  </button>
+               </div>
+            </form>
+         </div>
+
+         <!-- Modal Registro -->
+         <div id="modal2" class="modal">
+            <div class="modal-content espaciado-superior">
+               <h4 class="orange-text finito">Registrate Aquí</h4>
+            </div>
+            <h:form class="container left-align espaciado-inferior">
+               <div class="input-field">
+                  <h:inputText id="first_name" type="text" class="validate" value="#{usuarioBean.nombre}"/>
+                  <label for="first_name">Nombre</label>
+               </div>
+               <div class="input-field">
+                  <input id="last_name" type="text" class="validate"/>
+                  <label for="last_name">Apellido</label>
+               </div>
+               <div class="input-field">
+                  <input id="email" type="email" class="validate"/>
+                  <label for="email">Email</label>
+               </div>
+               <div class="input-field">
+                  <h:inputSecret id="password1" type="password" class="validate" value="#{usuarioBean.pass}"/>
+                  <label for="password1">Password</label>                  
+               </div>
+               <div class="input-field">
+                  <input id="password2" type="password" class="validate"/>
+                  <label for="password2">Confirmación Password</label>
+               </div>
+               <div class="center input-field">
+                  <h:commandButton action="#{usuarioBean.save}" type="submit" class="btn btn-large orange waves-effect waves-light" value="Confirmar"/>
+               </div>
+            </h:form>
+         </div>
+
+      </div>
+
+   </h:body>
+
+   <!-- SCRIPTS -->
+   <script src="js/jquery-2.1.1.min.js"></script>
+   <script src="js/materialize.js"></script>
+   <script src="js/pre-loader.js"></script>
+   <script src="js/init.js"></script>
+
 </html>
