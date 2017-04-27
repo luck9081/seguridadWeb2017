@@ -8,15 +8,13 @@ public class Usuario implements Serializable {
 
 	private Integer idUsuario;
 	private String nombre;
-	private String apellido;
-	private String email;
-	private String password;
-	private EstadoUsuario estadoUser;
-	private TipoUsuario	tipoUser;
+	private String pass;
+	private Integer id_estado_usuario;
+	private Integer	id_tipo_usuario;
 	
 	public Usuario() {
 	}
-	
+
 	public Integer getIdUsuario() {
 		return idUsuario;
 	}
@@ -33,48 +31,34 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getPass() {
+		return pass;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
-	public String getEmail() {
-		return email;
+	public Integer getId_estado_usuario() {
+		return id_estado_usuario;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setId_estado_usuario(Integer id_estado_usuario) {
+		this.id_estado_usuario = id_estado_usuario;
 	}
 
-	public String getPassword() {
-		return password;
+	public Integer getId_tipo_usuario() {
+		return id_tipo_usuario;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public EstadoUsuario getEstadoUser() {
-		return estadoUser;
-	}
-
-	public void setEstadoUser(EstadoUsuario estadoUser) {
-		this.estadoUser = estadoUser;
-	}
-
-	public TipoUsuario getTipoUser() {
-		return tipoUser;
-	}
-
-	public void setTipoUser(TipoUsuario tipoUser) {
-		this.tipoUser = tipoUser;
+	public void setId_tipo_usuario(Integer id_tipo_usuario) {
+		this.id_tipo_usuario = id_tipo_usuario;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	
 
 }

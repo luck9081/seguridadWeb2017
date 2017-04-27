@@ -18,15 +18,13 @@ public class UsuarioBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String nombre = null;
-	private String pass = null;
-	private String apellido = null;
-	private String email = null;
+	private String nombre;
+	private String pass;
 
 	
 	//Spring Inject
 	ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"beans.xml"});
-	UsuarioService service = (UsuarioService) context.getBean("UsuarioService");
+	UsuarioService service = (UsuarioService) context.getBean("usuarioService");
 	
 	
 	public UsuarioBean() {
@@ -66,17 +64,14 @@ public class UsuarioBean implements Serializable {
 	private Usuario buildPerson() {
 		Usuario usuario = new Usuario();
 		usuario.setNombre(this.nombre);
-		usuario.setPassword(this.pass);
-		usuario.setApellido(this.apellido);
-		usuario.setEmail(this.email);
+		usuario.setPass(this.pass);
+
 		return usuario;
 	}
 
-	public UsuarioBean(String nombre, String pass, String apellido, String email) {
+	public UsuarioBean(String nombre, String pass) {
 		super();
 		this.nombre = nombre;
-		this.apellido = apellido;
-		this.email = email;
 		this.pass = pass;
 	}
 

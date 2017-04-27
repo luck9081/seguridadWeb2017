@@ -6,20 +6,18 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-	<title>SCAW - Presentación de JSF</title>
+	<title>Organize me </title>
 	<link rel="stylesheet" type="text/css" href="css/table-style.css" />
 </h:head>
 
 <h:body>
-	<h2>Bienvenido!</h2>
+	<h2>Bienvenido a organize me !</h2>
+
 	<h:form>
-		<h:outputLabel value="#{personBean.firstName}" />
+		<h:outputLabel value="#{usuarioBean.nombre}" />
 		<br />
 		<br />
-		<h:outputLabel value="#{personBean.lastName}" />
-		<br />
-		<br />
-		<h:outputLabel value="#{personBean.email}" />
+		<h:outputLabel value="#{usuarioBean.pass}" />
 		<br />
 		<br />
 		<h:commandButton value="Back" action="index" >
@@ -30,24 +28,30 @@
 	<br />
 	<br />
 
-	<h:dataTable value="#{personBean.findAll}" var="person"
+	<h:dataTable value="#{usuarioBean.findAll}" var="usuario"
 		styleClass="order-table" headerClass="order-table-header"
 		rowClasses="order-table-odd-row,order-table-even-row">
 
 		<h:column>
 			<f:facet name="header">Nombre</f:facet>    				
-      		#{person.firstName}
+      		#{usuario.nombre}
   		 </h:column>
 
 		<h:column>
-			<f:facet name="header">Apellido</f:facet>
-      		#{person.lastName}
+			<f:facet name="header">Contraseña</f:facet>
+      		#{usuario.pass}
    		</h:column>
-
-		<h:column>
-			<f:facet name="header">Email</f:facet>
-    	  	#{person.email}
-	   </h:column>
+   		
+   			<h:column>
+			<f:facet name="header">id_estado_usuario</f:facet>
+      		#{usuario.id_estado_usuario}
+   		</h:column>
+	
+			<h:column>
+			<f:facet name="header">id_tipo_usuario</f:facet>
+      		#{usuario.id_tipo_usuario}
+   		</h:column>
+	
 
 	</h:dataTable>
 

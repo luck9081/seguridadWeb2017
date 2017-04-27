@@ -1,11 +1,12 @@
-DROP TABLE Tipo_Usuario IF EXISTS;
-DROP TABLE Estado_De_Usuario IF EXISTS;
-DROP TABLE Usuario IF EXISTS;
-DROP TABLE Privilegio IF EXISTS;
-DROP TABLE Modo_Acceso IF EXISTS;
-DROP TABLE Estado_De_Tarea IF EXISTS;
-DROP TABLE Tarea IF EXISTS;
-DROP TABLE Usuario_Privilegio_Tarea IF EXISTS;
+DROP TABLE Usuario_Privilegio_Tarea IF EXISTS   ;
+DROP TABLE Tarea IF EXISTS  ;
+DROP TABLE Usuario IF EXISTS  ;
+DROP TABLE Estado_De_Usuario IF EXISTS ;
+DROP TABLE Tipo_Usuario IF EXISTS  ;
+DROP TABLE Privilegio IF EXISTS  ;
+DROP TABLE Modo_Acceso IF EXISTS  ;
+DROP TABLE Estado_De_Tarea IF EXISTS  ;
+
 
 
 

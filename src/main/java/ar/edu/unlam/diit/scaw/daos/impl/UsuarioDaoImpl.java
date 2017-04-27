@@ -29,7 +29,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("nombre", usuario.getNombre());
-		params.put("pass", usuario.getPassword());
+		params.put("pass", usuario.getPass());
 		jdbcTemplate.update(sql, params);
 
 	}
@@ -69,11 +69,11 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 		public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Usuario usuario = new Usuario();
-			usuario.setIdUsuario(rs.getInt("idUsuario"));
 			usuario.setNombre(rs.getString("nombre"));
-			usuario.setPassword(rs.getString("password"));
-			usuario.setApellido(rs.getString("apellido"));
-			usuario.setEmail(rs.getString("email"));
+			usuario.setPass(rs.getString("pass"));
+			usuario.setId_estado_usuario(rs.getInt("id_estado_usuario"));
+			usuario.setId_tipo_usuario(rs.getInt("id_tipo_usuario"));
+	
 			return usuario;
 		}
 	}

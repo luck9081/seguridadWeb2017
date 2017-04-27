@@ -9,35 +9,32 @@
 	>
 
 <h:head>
-	<title>SCAW - Presentacióin de JSF</title>
+	<title>Organize me</title>
 </h:head>
 
 <h:body>
 
+	<h2>Bienvenido a organize me !</h2>
+	<h4>Registrate para poder empezar a crear y organizar tareas </h4>
 
 	<div class="panel-body">
 		<h:form>
 
-			<h3>Formulario de adhesión a la materia</h3>
 
 			<h:panelGrid columns="3">
 
 				<h:outputLabel for="firstName">Nombre:</h:outputLabel>
-				<h:inputText value="#{personBean.firstName}" id="firstName"></h:inputText>
+				<h:inputText value="#{usuarioBean.nombre}" id="firstName"></h:inputText>
 				<br />
 				<br />
 
-				<h:outputLabel for="lastName">Apellido:</h:outputLabel>
-				<h:inputText value="#{personBean.lastName}" id="lastName"></h:inputText>
+				<h:outputLabel for="lastName">Contraseña:</h:outputLabel>
+				<h:inputText value="#{usuarioBean.pass}" id="lastName"></h:inputText>
 				<br />
 				<br />
 
-				<h:outputLabel for="email">Email:</h:outputLabel>
-				<h:inputText value="#{personBean.email}" id="email"></h:inputText>
-				<br />
-				<br />
 
-				<h:commandButton action="#{personBean.save}" value="Save">
+				<h:commandButton action="#{usuarioBean.save}" value="Save">
 				</h:commandButton>
 				
 			</h:panelGrid>
