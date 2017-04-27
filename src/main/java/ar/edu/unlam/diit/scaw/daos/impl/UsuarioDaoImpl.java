@@ -34,7 +34,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	}
 	
-	//No barra el user, le cambia el estado a 'baja'
+	//No borra el user, le cambia el estado a 'baja'
 	@Override
 	public boolean borrar(Integer idUsuario){
 		return true;
@@ -42,8 +42,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	
 	@Override
 	public boolean editar(Integer idUsuario){
-		return true;
-		
+		return true;		
 	}
 
 	@Override
@@ -55,6 +54,10 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		List<Usuario> result = jdbcTemplate.query(sql, params, new PersonMapper());
 
 		return result;
+	}
+	
+	public boolean privilegioUsuarioTarea(Integer idUsuarioAdjunto,Integer idTarea,Integer tipoPrivilegio){
+		return true;
 	}
 
 	public NamedParameterJdbcTemplate getJdbcTemplate() {
