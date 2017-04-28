@@ -15,7 +15,7 @@ public class InvitadoServiceImpl implements InvitadoService {
 	
 	@Override
 	public LinkedList<Invitado> consultarInvitadosTarea(Integer idTarea){
-		return new LinkedList<Invitado>();
+		return invitadoDao.consultarInvitadosTarea(idTarea);
 	}
 	
 	@Override

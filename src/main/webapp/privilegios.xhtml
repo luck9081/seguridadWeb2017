@@ -133,128 +133,77 @@
       <!-- SECTION MAIN -->
       <div class="section scrollspy">
 
-         <!-- Nueva Tarea Trigger -->
-         <div class="row container">
-            <div class="col s12 m12 l4">
-               <a href="#modal1">
-                  <div class="tarjeta-new light-blue darken-1 waves-effect waves-light animated fadeInLeft">
-                     <h4 class="span_h2 white-text">Añadir Tarea</h4>
-                  </div>
-               </a>
-            </div>
-         </div>
-
-         <!-- Completas - Pendientes -->
+         <!-- Compartir Tarea -->
          <div class="row container animated zoomIn">
 
-            <div class="col s12 m12 l7">
+            <div class="col s12 m12 l9 offset-l1">
                <div class="tarjeta grey lighten-4">
 
-                  <h3 class="span_h2">Pendientes</h3>
+                  <div class="row center">
+	               <h3 class="span_h2 orange-text">Privilegios</h3>
+	            </div>
 
                   <ul class="collection subcategories-list">
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle green">insert_chart</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
+                        <span class="title">Juan Carlos</span>
+                        <p>15-0001-0002<br/>
+                           juanca_looser@hotmail.com
                         </p>
                         <div class="secondary-content">
-                           <a href=""><i class="material-icons green-text accept-user">done</i></a>
-                           <a href="compartir.xhtml"><i class="material-icons blue-text">share</i></a>
-                           <a href="privilegios.xhtml"><i class="material-icons orange-text">person_pin</i></a>
-                           <a><i class="material-icons grey-text delete">delete</i></a>
-                        </div>
+                           <!-- Switch -->
+                           <div class="switch">
+                           	<label class="black-text">
+                           		<i class="material-icons grey-text waves-effect waves-green accept-user">remove_red_eye</i>
+                           		<h:selectBooleanCheckbox type="checkbox"/>
+                           		<span class="lever"></span>
+                           		<i class="material-icons blue-text waves-effect waves-green accept-user">mode_edit</i>
+                           	</label>
+                           </div>
+				</div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle">folder</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
+                        <span class="title">Pepe</span>
+                        <p>15-0004-0007<br/>
+                           pepito_master@gmail.com
                         </p>
                         <div class="secondary-content">
-                           <a href=""><i class="material-icons green-text accept-user">done</i></a>
-                           <a href="compartir.xhtml"><i class="material-icons blue-text">share</i></a>
-                           <a href="privilegios.xhtml"><i class="material-icons orange-text">person_pin</i></a>
-                           <a><i class="material-icons grey-text delete">delete</i></a>
-                        </div>
+                           <!-- Switch -->
+                           <div class="switch">
+                           	<label class="black-text">
+                           		<i class="material-icons grey-text waves-effect waves-green accept-user">remove_red_eye</i>
+                           		<h:selectBooleanCheckbox type="checkbox"/>
+                           		<span class="lever"></span>
+                           		<i class="material-icons blue-text waves-effect waves-green accept-user">mode_edit</i>
+                           	</label>
+                           </div>
+				</div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle red">play_arrow</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
+                        <span class="title">Tomas</span>
+                        <p>15-0008-0009<br/>
+                           tomatela@yahoo.com.ar
                         </p>
                         <div class="secondary-content">
-                           <a href=""><i class="material-icons green-text accept-user">done</i></a>
-                           <a href="compartir.xhtml"><i class="material-icons blue-text">share</i></a>
-                           <a href="privilegios.xhtml"><i class="material-icons orange-text">person_pin</i></a>
-                           <a><i class="material-icons grey-text delete">delete</i></a>
-                        </div>
+                           <!-- Switch -->
+                           <div class="switch">
+                           	<label class="black-text">
+                           		<i class="material-icons grey-text waves-effect waves-green accept-user">remove_red_eye</i>
+                           		<h:selectBooleanCheckbox type="checkbox"/>
+                           		<span class="lever"></span>
+                           		<i class="material-icons blue-text waves-effect waves-green accept-user">mode_edit</i>
+                           	</label>
+                           </div>
+				</div>
                      </li>
                   </ul>
 
                </div>
             </div>
-            
-            <div class="col s12 m12 l5">
-               <div class="tarjeta grey lighten-4">
-
-                  <h3 class="span_h2">Completas</h3>
-
-                  <ul class="collection subcategories-list">
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle green">insert_chart</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle">folder</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle red">play_arrow</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                     </li>
-                  </ul>
-
-               </div>
-            </div>
-
-            
-
          </div>
-
-         <!-- Modal Nueva Tarea -->
-         <div id="modal1" class="modal center">
-            <form class="container left-align espaciado-superior-inferior">
-               <div class="input-field">
-                  <input id="last_name" type="text" class="validate"/>
-                  <label for="last_name">Descripción</label>
-               </div>
-               <div class="switch">
-                  <label>
-                     Privada
-                     <input type="checkbox"/>
-                     <span class="lever"></span>
-                  </label>
-               </div>
-               <div class="center">
-                  <button class="btn btn-floating btn-large orange waves-effect waves-light" type="submit" name="">
-                      <i class="large material-icons">done</i>
-                  </button>
-               </div>
-            </form>
-         </div>
-
+                  
       </div>
 
    </body>
