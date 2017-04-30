@@ -1,4 +1,4 @@
-INSERT INTO Estado_De_Usuario
+/*INSERT INTO Estado_De_Usuario
 VALUES (1,'Pendiente'),
 		(2,'Aceptada');
 
@@ -17,5 +17,5 @@ VALUES (1,'Pendiente'),
 		
 INSERT INTO Privilegio
 VALUES (1,'Edicion'),
-		(2,'Solo Lectura');
+		(2,'Solo Lectura');*/
 --COMMIT;

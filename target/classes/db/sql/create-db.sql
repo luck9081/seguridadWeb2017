@@ -1,4 +1,4 @@
-DROP TABLE Usuario_Privilegio_Tarea IF EXISTS   ;
+/*DROP TABLE Usuario_Privilegio_Tarea IF EXISTS   ;
 DROP TABLE Tarea IF EXISTS  ;
 DROP TABLE Usuario IF EXISTS  ;
 DROP TABLE Estado_De_Usuario IF EXISTS ;
@@ -68,4 +68,4 @@ CREATE TABLE Usuario_Privilegio_Tarea(
 	FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
 	FOREIGN KEY (id_tarea) REFERENCES Tarea(id_tarea),
 	FOREIGN KEY (id_privilegio) REFERENCES Privilegio(id_privilegio)
-);
+);*/
