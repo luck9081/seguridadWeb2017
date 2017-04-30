@@ -42,5 +42,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public void setUsuarioDao(UsuarioDao usuarioDao) {
 		this.usuarioDao = usuarioDao;
 	}
+	
+	public void crearTarea(){}
 
 }

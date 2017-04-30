@@ -13,5 +13,7 @@ public interface UsuarioService {
 	public boolean borrar(Integer idUsuario);
 	
 	public boolean editar(Integer idUsuario);
+	
+	public void crearTarea();
 
 }

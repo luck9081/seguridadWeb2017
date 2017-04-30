@@ -8,6 +8,8 @@ import javax.faces.bean.ManagedBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import ar.edu.unlam.diit.scaw.services.UsuarioService;
+
 @ManagedBean(name = "controller", eager = true)
 @RequestScoped
 public class Controller implements Serializable {
@@ -17,7 +19,8 @@ public class Controller implements Serializable {
 		
 	//Spring Inject
 	ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"beans.xml"});
-	
+	UsuarioService service = (UsuarioService) context.getBean("usuarioService");
+
 	
 	public Controller() {
 		super();
@@ -49,6 +52,10 @@ public class Controller implements Serializable {
 	
 	public String registro(){
 		return "index";
+	}
+	
+	public void crearTarea(){
+		
 	}
 
 
