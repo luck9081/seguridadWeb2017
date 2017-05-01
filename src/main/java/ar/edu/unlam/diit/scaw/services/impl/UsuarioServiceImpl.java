@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.edu.unlam.diit.scaw.beans.UsuarioBean;
 import ar.edu.unlam.diit.scaw.daos.UsuarioDao;
+import ar.edu.unlam.diit.scaw.entities.Tarea;
 import ar.edu.unlam.diit.scaw.entities.Usuario;
 import ar.edu.unlam.diit.scaw.services.UsuarioService;
 
@@ -50,7 +51,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 		usuarioDao.editar(idUsuario);
 		return true;
 	}
+	
 
+	
+	//GETTERS / SETTERS
 	public UsuarioDao getUsuarioDao() {
 		return usuarioDao;
 	}
@@ -58,5 +62,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public void setUsuarioDao(UsuarioDao usuarioDao) {
 		this.usuarioDao = usuarioDao;
 	}
+	
+
 
 }

@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import ar.edu.unlam.diit.scaw.daos.UsuarioDao;
+import ar.edu.unlam.diit.scaw.entities.Tarea;
 import ar.edu.unlam.diit.scaw.entities.Usuario;
 
 public class UsuarioDaoImpl implements UsuarioDao {
@@ -84,5 +85,8 @@ public class UsuarioDaoImpl implements UsuarioDao {
 			return usuario;
 		}
 	}
+
+
+
 
 }
