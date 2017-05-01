@@ -41,29 +41,33 @@ public class Controller implements Serializable {
 	
 	/* ---- VISTAS ---- */
 	
+	public String index(){
+		return "index?faces-redirect=true";
+	}
+	
 	public String usuarioHome(){
-		return "usuario";
+		return "usuario?faces-redirect=true";
 	}
 	
 	public String adminHome(){
-		return "admin";
+		return "admin?faces-redirect=true";
 	}
 	
-	public String compartir(){
-		return "compartir";
+	public String compartir(Integer idTarea){
+		return "compartir?faces-redirect=true&id="+idTarea;
 	}
 	
 	public String privilegios(){
-		return "privilegios";
+		return "privilegios?faces-redirect=true";
 	}
 	
 	public String login(UsuarioBean usuario){
 		if(usuarioService.loguear(usuario) == true){
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user",usuario.getNombre());
-			return "usuario";
+			return usuarioHome();
 		}
 		else{
-			return "index";
+			return index();
 		}
 	}
 	
@@ -74,7 +78,7 @@ public class Controller implements Serializable {
 	public String registro(UsuarioBean usuario){
 		
 		usuarioService.save(usuario);
-		return "index";
+		return index();
 	}
 	
 	/* -------------------------------------------------------- */
@@ -86,7 +90,7 @@ public class Controller implements Serializable {
 		
 		tareaService.crearTarea(tarea);
 		
-		return "usuario";
+		return usuarioHome();
 		
 	}
 	
@@ -117,7 +121,7 @@ public class Controller implements Serializable {
 	public String modificarEstadoTareaACompleto(Integer id_tarea){
 		tareaService.modificarEstadoTareaACompleto(id_tarea);
 		
-		return "usuario";
+		return usuarioHome();
 	}
 	
 	public LinkedList<ColaboradorBean> listarUsuariosParaCompartir(Integer idTarea,Integer idAutor){
