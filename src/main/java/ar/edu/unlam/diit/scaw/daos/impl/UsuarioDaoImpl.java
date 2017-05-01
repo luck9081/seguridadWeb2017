@@ -78,25 +78,6 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		}
 	}
 
-	@Override
-	public void crearTarea(String descripcion, Integer id_modo_acceso, Integer id_estado_tarea) {
-		
-		Tarea tarea = new Tarea();
-		
-		tarea.setDescripcion(descripcion);
-		tarea.setId_modo_acceso(id_modo_acceso);
-		tarea.setId_estado_tarea(1);//1 es pendiente
-		
-		
-		String sql = "INSERT INTO Tarea (descripcion,id_modo_acceso,id_estado_tarea) VALUES (:descripcion, :id_modo_acceso,:id_estado_tarea)";
-
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("descripcion", tarea.getDescripcion());
-		params.put("id_modo_acceso", tarea.getId_modo_acceso());
-		params.put("id_estado_tarea", tarea.getId_estado_tarea());
-		jdbcTemplate.update(sql, params);
-		
-	}
 
 
 

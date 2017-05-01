@@ -1,6 +1,7 @@
 package ar.edu.unlam.diit.scaw.beans;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
@@ -8,6 +9,8 @@ import javax.faces.bean.ManagedBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import ar.edu.unlam.diit.scaw.entities.Tarea;
+import ar.edu.unlam.diit.scaw.services.TareaService;
 import ar.edu.unlam.diit.scaw.services.UsuarioService;
 
 @ManagedBean(name = "controller", eager = true)
@@ -19,8 +22,8 @@ public class Controller implements Serializable {
 		
 	//Spring Inject
 	ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"beans.xml"});
-	UsuarioService service = (UsuarioService) context.getBean("usuarioService");
-
+	UsuarioService usuarioService = (UsuarioService) context.getBean("usuarioService");
+	TareaService tareaService = (TareaService) context.getBean("tareaService");
 	
 	public Controller() {
 		super();
@@ -54,7 +57,21 @@ public class Controller implements Serializable {
 		return "index";
 	}
 	
-	public void crearTarea(){
+	public String crearTarea(TareaBean tareaBean){
+	
+		Tarea tarea=tareaBean.buildTarea();
+		
+		tareaService.crearTarea(tarea);
+		
+		return "usuario";
+		
+	}
+	
+	public List<Tarea> listarTareas(Integer id_usuario){
+		
+		List<Tarea> lista = tareaService.listarTareas(id_usuario);
+		
+		return lista;
 		
 	}
 

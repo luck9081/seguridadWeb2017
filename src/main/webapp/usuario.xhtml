@@ -153,7 +153,11 @@
                   <h3 class="span_h2">Pendientes</h3>
 
                   <ul class="collection subcategories-list">
-                     <li class="collection-item avatar grey lighten-4">
+
+
+
+
+                    <!--  <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle green">insert_chart</i>
                         <span class="title">Title</span>
                         <p>First Line <br/>
@@ -191,7 +195,11 @@
                            <a href="privilegios.xhtml"><i class="material-icons orange-text">person_pin</i></a>
                            <a><i class="material-icons grey-text delete">delete</i></a>
                         </div>
-                     </li>
+                     </li> -->
+
+
+
+
                   </ul>
 
                </div>
@@ -235,25 +243,59 @@
 
          <!-- Modal Nueva Tarea -->
          <div id="modal1" class="modal center">
-            <form class="container left-align espaciado-superior-inferior">
+
+            <h:form class="container left-align espaciado-superior-inferior">
+
+            
                <div class="input-field">
-                  <input id="last_name" type="text" class="validate"/>
-                  <label for="last_name">Descripción</label>
-               </div>
+              
+
+                  <h:outputLabel for="descripcion">Descripcion</h:outputLabel>
+                  <h:inputText value="#{tareaBean.descripcion}" id="descripcion" class="validate"></h:inputText>
+              
+              
+               </div><!-- input-field -->
+
+
+
                <div class="switch">
+                  
                   <label>
                      Privada
-                     <input type="checkbox"/>
+
+
+
+                     <!--<input type="checkbox"/> -->
+                     <h:selectBooleanCheckbox value = "#{tareaBean.id_modo_acceso}" id = "id_modo_acceso" />
+
                      <span class="lever"></span>
+
+
                   </label>
-               </div>
+               </div><!-- class swtich -->
+
+
+
+
                <div class="center">
-                  <button class="btn btn-floating btn-large orange waves-effect waves-light" type="submit" name="">
+                  
+                  <h:commandButton action="#{controller.crearTarea(tareaBean)}" type="submit" class="btn btn-large orange waves-effect waves-light" value="Crear Tarea"/>
+
+               <!--    <button class="btn btn-floating btn-large orange waves-effect waves-light" type="submit" name="">
                       <i class="large material-icons">done</i>
-                  </button>
-               </div>
-            </form>
+                  </button> -->
+
+               </div><!-- center -->
+            
+            </h:form> <!-- FORM -->
+         
+
+
          </div>
+
+
+
+
 
       </div>
 

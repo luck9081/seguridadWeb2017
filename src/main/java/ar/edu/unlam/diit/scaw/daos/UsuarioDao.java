@@ -2,6 +2,7 @@ package ar.edu.unlam.diit.scaw.daos;
 
 import java.util.List;
 
+import ar.edu.unlam.diit.scaw.entities.Tarea;
 import ar.edu.unlam.diit.scaw.entities.Usuario;
 
 public interface UsuarioDao {
@@ -14,7 +15,5 @@ public interface UsuarioDao {
 	
 	public List<Usuario> findAll();
 	
-	void crearTarea(String descripcion, Integer id_modo_acceso,
-			Integer id_estado_tarea);
 	
 }
