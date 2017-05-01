@@ -55,8 +55,10 @@ CREATE TABLE Tarea(
 	descripcion VARCHAR(30),
 	id_modo_acceso INTEGER,
 	id_estado_tarea INTEGER,
+	id_usuario INTEGER,
 	FOREIGN KEY(id_modo_acceso) REFERENCES Modo_Acceso(id_modo_acceso),
-	FOREIGN KEY(id_estado_tarea) REFERENCES Estado_De_Tarea(id_estado_tarea)
+	FOREIGN KEY(id_estado_tarea) REFERENCES Estado_De_Tarea(id_estado_tarea),
+	FOREIGN KEY(id_usuario) REFERENCES Usuario(id_usuario)
 
 );
 

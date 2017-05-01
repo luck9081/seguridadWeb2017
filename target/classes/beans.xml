@@ -59,6 +59,27 @@
 		<property name="tareaDao" ref="tareaDao" />
 	</bean>
 	
+	
+	<bean name="compartirDao" class="ar.edu.unlam.diit.scaw.daos.impl.CompartirDaoImpl">
+	<property name="jdbcTemplate" ref="jdbcTemplate" />
+</bean>
+
+	<bean name="compartirService"
+		class="ar.edu.unlam.diit.scaw.services.impl.CompartirServiceImpl">
+		<property name="compartirDao" ref="compartirDao" />
+	</bean>
+	
+	
+		<bean name="privilegioDao" class="ar.edu.unlam.diit.scaw.daos.impl.PrivilegioDaoImpl">
+	<property name="jdbcTemplate" ref="jdbcTemplate" />
+</bean>
+
+	<bean name="privilegioService"
+		class="ar.edu.unlam.diit.scaw.services.impl.PrivilegioServiceImpl">
+		<property name="privilegioDao" ref="privilegioDao" />
+	</bean>
+	
+	
 
 </beans>
 

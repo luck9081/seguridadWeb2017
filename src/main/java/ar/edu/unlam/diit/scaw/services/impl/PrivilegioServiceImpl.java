@@ -31,7 +31,7 @@ public class PrivilegioServiceImpl implements PrivilegioService {
 			else
 				colaborador.setPrivilegio(2);
 			
-			colaborador.setNombreInvitado(usuarioDao.buscarNombreUsuario(item.getIdUsuario()));
+		//	colaborador.setNombreInvitado(usuarioDao.buscarNombreUsuario(item.getIdUsuario()));
 			listaColaboradores.add(colaborador);
 		}
 		
@@ -44,5 +44,25 @@ public class PrivilegioServiceImpl implements PrivilegioService {
 		Integer idUsuario = 0;
 		return privilegioDao.cambiarPrivilegio(idTarea,idUsuario,nuevoPrivilegio);
 	}
+	
+	
+//GETTERS Y SETTERS
+	public PrivilegioDao getPrivilegioDao() {
+		return privilegioDao;
+	}
 
+	public void setPrivilegioDao(PrivilegioDao privilegioDao) {
+		this.privilegioDao = privilegioDao;
+	}
+
+	public UsuarioDao getUsuarioDao() {
+		return usuarioDao;
+	}
+
+	public void setUsuarioDao(UsuarioDao usuarioDao) {
+		this.usuarioDao = usuarioDao;
+	}
+
+	
+	
 }

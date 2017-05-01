@@ -1,4 +1,6 @@
-/*INSERT INTO Estado_De_Usuario
+
+/*
+INSERT INTO Estado_De_Usuario
 VALUES (1,'Pendiente'),
 		(2,'Aceptada');
 
@@ -17,5 +19,12 @@ VALUES (1,'Pendiente'),
 		
 INSERT INTO Privilegio
 VALUES (1,'Edicion'),
-		(2,'Solo Lectura');*/
+		(2,'Solo Lectura');
+		
+INSERT INTO Usuario(nombre,pass,id_estado_usuario,id_tipo_usuario)
+VALUES('rodrigo','peperino',1,1),
+		('cristian','isamel',1,1);
+
+INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
+VALUES ('tarea nro 1',1,1,2);*/
 --COMMIT;

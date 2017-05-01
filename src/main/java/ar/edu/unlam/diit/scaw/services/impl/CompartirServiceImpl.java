@@ -71,5 +71,27 @@ public class CompartirServiceImpl implements CompartirService {
 		}		
 		return flag;
 	}
+	
+	
+	
+	//GETTERS Y SETTERS
+
+	public CompartirDao getCompartirDao() {
+		return compartirDao;
+	}
+
+	public void setCompartirDao(CompartirDao compartirDao) {
+		this.compartirDao = compartirDao;
+	}
+
+	public UsuarioDao getUsuarioDao() {
+		return usuarioDao;
+	}
+
+	public void setUsuarioDao(UsuarioDao usuarioDao) {
+		this.usuarioDao = usuarioDao;
+	}
+	
+	
 
 }
