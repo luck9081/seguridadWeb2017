@@ -13,6 +13,7 @@ public class ColaboradorBean implements Serializable {
 
 	private String nombreInvitado;
 	private boolean estadoInvitado;
+	private Integer privilegio;
 	
 	
 	public String getNombreInvitado() {
@@ -27,5 +28,12 @@ public class ColaboradorBean implements Serializable {
 	public void setEstadoInvitado(boolean estadoInvitado) {
 		this.estadoInvitado = estadoInvitado;
 	}
+	public Integer getPrivilegio() {
+		return privilegio;
+	}
+	public void setPrivilegio(Integer privilegio) {
+		this.privilegio = privilegio;
+	}
+	
 	
 }

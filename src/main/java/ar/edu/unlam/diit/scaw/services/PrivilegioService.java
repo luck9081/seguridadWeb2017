@@ -2,12 +2,12 @@ package ar.edu.unlam.diit.scaw.services;
 
 import java.util.LinkedList;
 
-import ar.edu.unlam.diit.scaw.entities.Usuario;
+import ar.edu.unlam.diit.scaw.beans.ColaboradorBean;
 
 public interface PrivilegioService {
 	
-	public LinkedList<Usuario> listarUsuariosColaboradores(Integer idTarea);
+	public LinkedList<ColaboradorBean> listarColaboradoresYPrivilegios(Integer idTarea);
 
-	public void cambiarPrivilegio(Integer idTarea,String nombreUsuario);
+	public boolean cambiarPrivilegio(Integer idTarea,String nombreUsuario,Integer nuevoPrivilegio);
 
 }

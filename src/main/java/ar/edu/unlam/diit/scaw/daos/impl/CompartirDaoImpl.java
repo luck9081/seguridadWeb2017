@@ -72,9 +72,9 @@ public class CompartirDaoImpl implements CompartirDao {
 
 		public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
 			
-			Integer listadoIdColaboradores = rs.getInt("id_usuario");	
+			Integer colaborador = rs.getInt("id_usuario");	
 			
-			return listadoIdColaboradores;
+			return colaborador;
 		}
 	}
 

@@ -4,19 +4,45 @@ import java.util.LinkedList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ar.edu.unlam.diit.scaw.entities.Usuario;
+import ar.edu.unlam.diit.scaw.beans.ColaboradorBean;
+import ar.edu.unlam.diit.scaw.daos.CompartirDao;
+import ar.edu.unlam.diit.scaw.daos.PrivilegioDao;
+import ar.edu.unlam.diit.scaw.daos.UsuarioDao;
+import ar.edu.unlam.diit.scaw.entities.TareaPorUsuario;
 import ar.edu.unlam.diit.scaw.services.PrivilegioService;
 
 public class PrivilegioServiceImpl implements PrivilegioService {
 
+	@Autowired
+	PrivilegioDao privilegioDao;
+	
+	@Autowired
+	UsuarioDao usuarioDao;
+	
 	@Override
-	public LinkedList<Usuario> listarUsuariosColaboradores(Integer idTarea){
-		return new LinkedList<Usuario>();
+	public LinkedList<ColaboradorBean> listarColaboradoresYPrivilegios(Integer idTarea){ // se busca listar solamente aquellos que colaboran con esta tarea y sus privilegios
+		
+		ColaboradorBean colaborador = new ColaboradorBean();
+		LinkedList<ColaboradorBean> listaColaboradores = new LinkedList<ColaboradorBean>();		
+		
+		for(TareaPorUsuario item : privilegioDao.colaboradoresYPrivilegios(idTarea)){
+			if(item.getIdPrivilegio().equals(1))
+				colaborador.setPrivilegio(1);
+			else
+				colaborador.setPrivilegio(2);
+			
+			colaborador.setNombreInvitado(usuarioDao.buscarNombreUsuario(item.getIdUsuario()));
+			listaColaboradores.add(colaborador);
+		}
+		
+		return listaColaboradores;
 	}
 	
 	@Override
-	public void cambiarPrivilegio(Integer idTarea,String nombreUsuario){
-		
+	public boolean cambiarPrivilegio(Integer idTarea,String nombreUsuario,Integer nuevoPrivilegio){
+		// NOTA: (REALIZAR) consumir servicio de usuario que, a partir del nombre de usuario, obtenga el ID
+		Integer idUsuario = 0;
+		return privilegioDao.cambiarPrivilegio(idTarea,idUsuario,nuevoPrivilegio);
 	}
 
 }
