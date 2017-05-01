@@ -154,7 +154,12 @@
                   <h3 class="span_h2">Pendientes</h3>
 
                   <ul class="collection subcategories-list">
+                     
+                     <c:forEach var="tareaBean" items="${controller.listarTareas(2)}" varstatus="true">
+                     
+                    <h:outputText value="#{tareaBean.getDescripcion()}" />
 
+                      </c:forEach>
                
 
                     <!--  <li class="collection-item avatar grey lighten-4">

@@ -90,9 +90,9 @@ public class Controller implements Serializable {
 		
 	}
 	
-	public List<Tarea> listarTareas(Integer id_usuario){
+	public List<TareaBean> listarTareas(Integer id_usuario){
 		
-		List<Tarea> lista = tareaService.listarTareas(id_usuario);
+		List<TareaBean> lista = tareaService.listarTareas(id_usuario);
 		
 		return lista;
 		

@@ -16,6 +16,7 @@ public class TareaBean implements Serializable {
 	
 	private String descripcion;
 	private boolean id_modo_acceso;
+	private Integer id_modo_acceso_int;
 	private Integer id_estado_tarea;
 	
 	public TareaBean() {
@@ -71,6 +72,16 @@ public class TareaBean implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public Integer getId_modo_acceso_int() {
+		return id_modo_acceso_int;
+	}
+
+	public void setId_modo_acceso_int(Integer id_modo_acceso_int) {
+		this.id_modo_acceso_int = id_modo_acceso_int;
+	}
+	
+	
 	
 	
 	

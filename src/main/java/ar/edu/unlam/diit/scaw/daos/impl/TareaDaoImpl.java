@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
+import ar.edu.unlam.diit.scaw.beans.TareaBean;
 import ar.edu.unlam.diit.scaw.daos.TareaDao;
 import ar.edu.unlam.diit.scaw.entities.Tarea;
 import ar.edu.unlam.diit.scaw.entities.Usuario;
@@ -38,15 +39,15 @@ public class TareaDaoImpl implements TareaDao {
 		
 	}
 	
-	public List<Tarea> listarTareas(Integer id){
+	public List<TareaBean> listarTareas(Integer id){
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 
-		String sql = "SELECT * FROM Tarea WHERE id_usuario=:id";
+		String sql = "SELECT * FROM Tarea WHERE id_usuario=:id_usuario";
 		
 		params.put("id_usuario", id);
 
-		List<Tarea> result = jdbcTemplate.query(sql, params, new PersonMapper());
+		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());
 
 		return result;
 		
@@ -63,15 +64,15 @@ public class TareaDaoImpl implements TareaDao {
 	}
 	
 
-	private static final class PersonMapper implements RowMapper<Tarea> {
+	private static final class PersonMapper implements RowMapper<TareaBean> {
 
-		public Tarea mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Tarea tarea = new Tarea();
-			tarea.setDescripcion(rs.getString("descripcion"));
-			tarea.setId_modo_acceso(rs.getInt("id_modo_acceso"));
+		public TareaBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+			TareaBean tareaBean = new TareaBean();
+			tareaBean.setDescripcion(rs.getString("descripcion"));
+			tareaBean.setId_modo_acceso_int(rs.getInt("id_modo_acceso"));
 
 	
-			return tarea;
+			return tareaBean;
 		}
 	}
 

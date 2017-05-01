@@ -2,6 +2,7 @@ package ar.edu.unlam.diit.scaw.services.impl;
 
 import java.util.List;
 
+import ar.edu.unlam.diit.scaw.beans.TareaBean;
 import ar.edu.unlam.diit.scaw.daos.TareaDao;
 import ar.edu.unlam.diit.scaw.entities.Tarea;
 import ar.edu.unlam.diit.scaw.entities.Usuario;
@@ -20,7 +21,7 @@ public class TareaServiceImpl implements TareaService {
 	}
 	
 	@Override
-	public List<Tarea> listarTareas(Integer id) {
+	public List<TareaBean> listarTareas(Integer id) {
 		return tareaDao.listarTareas(id);
 	}
 	
