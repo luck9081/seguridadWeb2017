@@ -70,7 +70,7 @@ public class TareaDaoImpl implements TareaDao {
 	public List<TareaBean> listarTareasGlobales() {
 		Map<String, Object> params = new HashMap<String, Object>();
 
-		String sql = "SELECT * FROM Tarea";
+		String sql = "SELECT * FROM Tarea WHERE id_modo_acceso=1";
 	
 		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());
 

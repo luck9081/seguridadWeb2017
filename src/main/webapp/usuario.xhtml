@@ -157,7 +157,7 @@
                      
                      <c:forEach var="tareaBean" items="${controller.listarTareasPendientes(2)}" varstatus="true">
                      
-                    <h:outputText value="#{tareaBean.getDescripcion()}" />
+                    <h:outputText value="#{tareaBean.getDescripcion()}" /><br />
 
                       </c:forEach>
                
@@ -217,7 +217,7 @@
                      
                      <c:forEach var="tareaBean" items="${controller.listarTareasCompletas(2)}" varstatus="true">
                      
-                    <h:outputText value="#{tareaBean.getDescripcion()}" />
+                    <h:outputText value="#{tareaBean.getDescripcion()}" /><br />
 
                       </c:forEach>
                
