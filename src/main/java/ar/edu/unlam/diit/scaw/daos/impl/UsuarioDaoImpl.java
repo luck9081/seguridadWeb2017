@@ -34,6 +34,14 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	}
 	
+	@Override
+	public boolean loguear(Usuario usuario) {
+		
+		this.findAll().equals(usuario);
+		
+		return true;
+	}
+	
 	//No borra el user, le cambia el estado a 'baja'
 	@Override
 	public boolean borrar(Integer idUsuario){

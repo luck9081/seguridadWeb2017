@@ -31,9 +31,8 @@ public class UsuarioBean implements Serializable {
 		super();
 	}
 	
-	public String save() {
+	public String save(UsuarioBean usuario) {
 		
-		Usuario usuario = buildPerson();
 		
 		service.save(usuario);
 		
@@ -61,13 +60,6 @@ public class UsuarioBean implements Serializable {
 		return list;
 	}
 	
-	private Usuario buildPerson() {
-		Usuario usuario = new Usuario();
-		usuario.setNombre(this.nombre);
-		usuario.setPass(this.pass);
-
-		return usuario;
-	}
 
 	public UsuarioBean(String nombre, String pass) {
 		super();

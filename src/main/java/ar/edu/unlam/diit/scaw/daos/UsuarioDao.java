@@ -6,7 +6,9 @@ import ar.edu.unlam.diit.scaw.entities.Usuario;
 
 public interface UsuarioDao {
 
-	public void save(Usuario person);
+	public void save(Usuario usuario);
+	
+	public boolean loguear(Usuario usuario);
 	
 	public boolean borrar(Integer idUsuario);
 	
