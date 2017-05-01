@@ -6,7 +6,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 
 import ar.edu.unlam.diit.scaw.entities.Tarea;
-import ar.edu.unlam.diit.scaw.entities.Usuario;
 
 @ManagedBean(name = "tareaBean", eager = true)
 @RequestScoped
@@ -14,10 +13,12 @@ public class TareaBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	private Integer id_tarea;
 	private String descripcion;
 	private boolean id_modo_acceso;
 	private Integer id_modo_acceso_int;
 	private Integer id_estado_tarea;
+	private Integer id_usuario;
 	
 	public TareaBean() {
 		super();
@@ -43,6 +44,15 @@ public class TareaBean implements Serializable {
 		}
 
 		return tarea;
+	}
+	
+
+	public Integer getId_tarea() {
+		return id_tarea;
+	}
+
+	public void setId_tarea(Integer id_tarea) {
+		this.id_tarea = id_tarea;
 	}
 
 	public String getDescripcion() {
@@ -80,11 +90,13 @@ public class TareaBean implements Serializable {
 	public void setId_modo_acceso_int(Integer id_modo_acceso_int) {
 		this.id_modo_acceso_int = id_modo_acceso_int;
 	}
-	
-	
-	
-	
-	
 
+	public Integer getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(Integer id_usuario) {
+		this.id_usuario = id_usuario;
+	}	
 	
 }

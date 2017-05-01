@@ -8,6 +8,9 @@ public class Tarea {
 	private String descripcion;
 	private Integer id_modo_acceso;
 	private Integer id_estado_tarea;
+	private Integer id_usuario;
+	
+	
 	public Integer getId_tarea() {
 		return id_tarea;
 	}
@@ -35,7 +38,12 @@ public class Tarea {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
+	public Integer getId_usuario() {
+		return id_usuario;
+	}
+	public void setId_usuario(Integer id_usuario) {
+		this.id_usuario = id_usuario;
+	}
 	
 	
 }
