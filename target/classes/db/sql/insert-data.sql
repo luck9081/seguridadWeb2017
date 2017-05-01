@@ -27,5 +27,8 @@ VALUES('rodrigo','peperino',1,1),
 		('carlos','menem',1,1);
 
 INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
-VALUES ('tarea nro 1',1,1,2);*/
+VALUES ('tarea nro 1',1,1,2);
+
+INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
+VALUES ('tarea nro 3',1,2,2);*/
 --COMMIT;

@@ -39,11 +39,11 @@ public class TareaDaoImpl implements TareaDao {
 		
 	}
 	
-	public List<TareaBean> listarTareas(Integer id){
+	public List<TareaBean> listarTareasPendientes(Integer id){
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 
-		String sql = "SELECT * FROM Tarea WHERE id_usuario=:id_usuario";
+		String sql = "SELECT * FROM Tarea WHERE id_usuario=:id_usuario AND id_estado_tarea=1";
 		
 		params.put("id_usuario", id);
 
@@ -52,6 +52,44 @@ public class TareaDaoImpl implements TareaDao {
 		return result;
 		
 	}
+	
+	@Override
+	public List<TareaBean> listarTareasCompletas(Integer id) {
+		Map<String, Object> params = new HashMap<String, Object>();
+
+		String sql = "SELECT * FROM Tarea WHERE id_usuario=:id_usuario AND id_estado_tarea=2";
+		
+		params.put("id_usuario", id);
+
+		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());
+
+		return result;
+	}
+	
+	@Override
+	public List<TareaBean> listarTareasGlobales() {
+		Map<String, Object> params = new HashMap<String, Object>();
+
+		String sql = "SELECT * FROM Tarea";
+	
+		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());
+
+		return result;
+	}
+	
+	
+	
+	@Override
+	public void modificarEstadoTareaACompleto(Integer id_tarea) {
+		
+		String sql = "UPDATE FROM Tarea SET id_estado_tarea=2 WHERE id_tarea=:id_tarea ";
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id_tarea", id_tarea);
+		jdbcTemplate.update(sql, params);
+		
+	}
+
 
 
 	public NamedParameterJdbcTemplate getJdbcTemplate() {
@@ -75,6 +113,14 @@ public class TareaDaoImpl implements TareaDao {
 			return tareaBean;
 		}
 	}
+
+
+	
+
+
+
+
+
 
 
 }

@@ -90,12 +90,34 @@ public class Controller implements Serializable {
 		
 	}
 	
-	public List<TareaBean> listarTareas(Integer id_usuario){
+	public List<TareaBean> listarTareasPendientes(Integer id_usuario){
 		
-		List<TareaBean> lista = tareaService.listarTareas(id_usuario);
+		List<TareaBean> lista = tareaService.listarTareasPendientes(id_usuario);
 		
 		return lista;
 		
+	}
+	
+	public List<TareaBean> listarTareasCompletas(Integer id_usuario){
+		
+		List<TareaBean> lista = tareaService.listarTareasCompletas(id_usuario);
+		
+		return lista;
+		
+	}
+	
+	public List<TareaBean> listarTareasGlobales(){
+		
+		List<TareaBean> lista = tareaService.listarTareasGlobales();
+		
+		return lista;
+		
+	}
+	
+	public String modificarEstadoTareaACompleto(Integer id_tarea){
+		tareaService.modificarEstadoTareaACompleto(id_tarea);
+		
+		return "usuario";
 	}
 	
 	public LinkedList<ColaboradorBean> listarUsuariosParaCompartir(Integer idTarea,Integer idAutor){

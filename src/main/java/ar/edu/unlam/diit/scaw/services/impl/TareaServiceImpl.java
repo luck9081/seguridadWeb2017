@@ -21,8 +21,25 @@ public class TareaServiceImpl implements TareaService {
 	}
 	
 	@Override
-	public List<TareaBean> listarTareas(Integer id) {
-		return tareaDao.listarTareas(id);
+	public List<TareaBean> listarTareasPendientes(Integer id) {
+		return tareaDao.listarTareasPendientes(id);
+	}
+	
+	@Override
+	public List<TareaBean> listarTareasCompletas(Integer id) {
+		
+		return tareaDao.listarTareasCompletas(id);
+
+	}
+	
+	@Override
+	public List<TareaBean> listarTareasGlobales() {
+		return tareaDao.listarTareasGlobales();
+	}
+	
+	@Override
+	public void modificarEstadoTareaACompleto(Integer id_tarea) {
+		tareaDao.modificarEstadoTareaACompleto(id_tarea);
 	}
 	
 	
@@ -34,6 +51,12 @@ public class TareaServiceImpl implements TareaService {
 	public void setTareaDao(TareaDao tareaDao) {
 		this.tareaDao = tareaDao;
 	}
+
+	
+
+
+
+	
 
 
 	
