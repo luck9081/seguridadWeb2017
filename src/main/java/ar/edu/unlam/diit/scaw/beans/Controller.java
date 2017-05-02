@@ -71,7 +71,7 @@ public class Controller implements Serializable {
 	public String login(UsuarioBean usuario){
 		if(usuarioService.loguear(usuario) == true){
 			
-			sesion.setIdUsuario(usuario.getNombre());
+			sesion.setNombreUsuario(usuario.getNombre());
 			
 			/*SessionBean nuevaSesion = new SessionBean();
 			nuevaSesion.setIdUsuario(usuario.getNombre());
