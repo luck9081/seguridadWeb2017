@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.edu.unlam.diit.scaw.beans.ColaboradorBean;
-import ar.edu.unlam.diit.scaw.daos.CompartirDao;
 import ar.edu.unlam.diit.scaw.daos.PrivilegioDao;
 import ar.edu.unlam.diit.scaw.daos.UsuarioDao;
 import ar.edu.unlam.diit.scaw.entities.TareaPorUsuario;
