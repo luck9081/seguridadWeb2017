@@ -1,6 +1,6 @@
 package ar.edu.unlam.diit.scaw.daos;
 
-import java.util.LinkedList;
+
 import java.util.List;
 
 import ar.edu.unlam.diit.scaw.entities.Usuario;
@@ -29,7 +29,9 @@ public interface UsuarioDao {
 	
 	public String buscarNombreUsuario(Integer idUsuario);
 
-	public LinkedList<String> listarUsuariosPorNombre(String Nombre);
+	public List<String> listarUsuariosPorNombre(String Nombre);
+	
+	public List<String> listarAdminPorNombre(String Nombre);
 	
 	
 }

@@ -89,14 +89,17 @@
 
          <!-- Dropdown Structure -->
          <ul id="dropdown1" class="dropdown-content">
-            <li><a class="blue-text span_h2" href="">
+            <!-- <li><a class="blue-text span_h2" href="">
                <i class="material-icons prefix">mode_edit</i> Perfil
             </a></li>
-            <li class="divider"></li>
+            <li class="divider"></li> -->
             <li>
-            	<h:commandButton class="blue-text span_h2" action="#{controller.logout()}">
-               		<i class="material-icons orange-text">power_settings_new</i> Salir
-               	</h:commandButton>
+           		<h:form>
+		            <h:commandLink styleClass="blue-text span_h2" action="#{controller.logout()}">
+		               <i class="material-icons orange-text">power_settings_new</i>Salir
+		            </h:commandLink>
+	            </h:form>
+
             </li>
          </ul>
 
@@ -113,7 +116,7 @@
                      <div class="right hide-on-med-and-down espaciado-izquierda">
                         <!-- Dropdown Trigger -->
                         <a class="dropdown-button blue-text span_h2" href="" data-activates="dropdown1">
-                           ¡Hola, Luck9081! <i class="fa fa-user-o fa-2x"></i>
+                           ¡Hola, #{controller.getSesion().getNombre()}! <i class="fa fa-user-o fa-2x"></i>
                         </a>
                      </div>
 

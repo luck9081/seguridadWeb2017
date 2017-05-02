@@ -7,8 +7,6 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -73,35 +71,25 @@ public class Controller implements Serializable {
 	}
 	
 	public String login(UsuarioBean usuario){
-		//if(usuarioService.loguear(usuario) == true){
+		if(usuarioService.loguear(usuario) == true){
 			
 			sesion.setIdUsuario(usuarioService.buscarIdUsuario(usuario.getNombre()));
-			
-			/*SessionBean nuevaSesion = new SessionBean();
-			nuevaSesion.setIdUsuario(usuario.getNombre());
-			setSesion(nuevaSesion);*/
-			
-			//FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario","pablito");
-			
-			
-			/*FacesContext facesContext = FacesContext.getCurrentInstance();
-			HttpSession sesiones = (HttpSession) facesContext.getExternalContext().getSession(false);
-			sesiones.setAttribute("usuario", usuario.getNombre());*/
+			sesion.setNombre(usuario.getNombre());
 			
 			return usuarioHome();
-		//}
-		//else{
-			//return index();
-		//}
+		}
+		else{
+			return validarAdmin(usuario);
+		}
 	}
 	
 	public String logout(){
 		
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
-		session.removeAttribute("usuario");
 		
-		return "index";
+		sesion.setIdUsuario(null);
+		sesion.setNombre(null);
+		
+		return index();
 	}
 	
 	public String editar(UsuarioBean usuario){
@@ -123,6 +111,7 @@ public class Controller implements Serializable {
 		
 		if(usuarioService.validarAdmin(usuario) == true){
 			
+			sesion.setNombre(usuario.getNombre());
 			return adminHome();
 		}
 		else{
