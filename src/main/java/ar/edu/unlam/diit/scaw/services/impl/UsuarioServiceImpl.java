@@ -31,13 +31,50 @@ public class UsuarioServiceImpl implements UsuarioService {
 		user2.setNombre(usuario.getNombre());
 		user2.setPass(usuario.getPass());
 		usuarioDao.loguear(user2);
-		return true;
+		if(usuarioDao.loguear(user2) == true){
+			return true;
+		}
+		else{
+			return false;
+		}
 		
+	}
+	@Override
+	public boolean validarAdmin(UsuarioBean usuario){
+		
+		Usuario admin = new Usuario();
+		admin.setNombre(usuario.getNombre());
+		admin.setPass(usuario.getPass());
+		usuarioDao.validarAdmin(admin);
+		if(usuarioDao.validarAdmin(admin) == true){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+	}
+	
+	@Override
+	public List<Usuario> listarUsuariosPendientes() {
+		return usuarioDao.listarUsuariosPendientes();
 	}
 
 	@Override
 	public List<Usuario> findAll() {
 		return usuarioDao.findAll();
+	}
+	
+
+	public void aceptarUsuario(Integer idUsuario){
+		
+		usuarioDao.aceptarUsuario(idUsuario);
+	}
+	
+
+	public void denegarUsuario(Integer idUsuario){
+		
+		usuarioDao.denegarUsuario(idUsuario);
 	}
 	
 	@Override
@@ -47,8 +84,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 	
 	@Override
-	public boolean editar(Integer idUsuario) {
-		usuarioDao.editar(idUsuario);
+	public boolean editar(UsuarioBean usuario) {
+		
+		Usuario userEdit = new Usuario();
+		userEdit.setNombre(usuario.getNombre());
+		userEdit.setPass(usuario.getPass());
+		usuarioDao.editar(userEdit);
 		return true;
 	}
 	

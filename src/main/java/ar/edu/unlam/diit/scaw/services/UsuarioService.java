@@ -16,9 +16,17 @@ public interface UsuarioService {
 	
 	public boolean borrar(Integer idUsuario);
 	
-	public boolean editar(Integer idUsuario);
+	public boolean editar(UsuarioBean usuario);
 
 	public boolean loguear(UsuarioBean usuario);
+	
+	public boolean validarAdmin(UsuarioBean usuario);
+	
+	public void aceptarUsuario(Integer idUsuario);
+	
+	public void denegarUsuario(Integer idUsuario);
+	
+	public List<Usuario> listarUsuariosPendientes();
 
 
 

@@ -1,8 +1,8 @@
-
 /*
 INSERT INTO Estado_De_Usuario
 VALUES (1,'Pendiente'),
-		(2,'Aceptada');
+		(2,'Aceptada'),
+		(3,'Baja');
 
 						
 INSERT INTO Tipo_Usuario

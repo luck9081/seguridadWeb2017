@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	>
 
 	<head>
@@ -140,46 +141,29 @@
                <div class="tarjeta grey lighten-4 animated zoomIn">
 
                   <h3 class="span_h2">Moderar Usuarios</h3>
-
-                  <ul class="collection subcategories-list">
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle blue darken-2">face</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                        <a class="secondary-content">
-                           <i class="material-icons green-text waves-effect waves-green accept-user">done</i>
-                           <i class="material-icons red-text delete-user waves-effect">clear</i>
-                        </a>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle blue darken-2">face</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                        <div class="secondary-content">
-                           <a href="#modal1"><i class="material-icons blue-text waves-effect" href="#modal1">mode_edit</i></a>
-                           <i class="material-icons red-text delete-user waves-effect">clear</i>
-                        </div>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle blue darken-2">face</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                        <div class="secondary-content">
-                           <a href="#modal1"><i class="material-icons blue-text waves-effect" href="#modal1">mode_edit</i></a>
-                           <i class="material-icons red-text delete-user waves-effect">clear</i>
-                        </div>
-                     </li>
-                  </ul>
-
+					<ul class="collection subcategories-list">
+						<c:forEach var="ListaUsers" items="${controller.listarUsuariosPendientes()}" varstatus="true">
+							<li class="collection-item avatar grey lighten-4">
+							   <i class="material-icons circle blue darken-2">face</i>
+							   <span class="title">
+								  <h:outputText value="#{ListaUsers.getNombre()}" />
+							   </span>
+							   <p>Está solicitando acceso!</p>
+							   <div class="secondary-content">
+							   		<h:form>
+							       		<h:commandLink action="#{controller.aceptarUsuario(ListaUsers.getIdUsuario())}">
+							       			<i class="material-icons green-text waves-effect waves-green accept-user">done</i>
+							       		</h:commandLink>
+							       		<h:commandLink action="#{controller.denegarUsuario(ListaUsers.getIdUsuario())}">
+							       			<i class="material-icons red-text delete-user waves-effect">clear</i>
+							       		</h:commandLink>
+							   		</h:form>
+							   </div>
+							</li>
+						</c:forEach>
+					</ul>
                </div>
             </div>
-
          </div>
 
 

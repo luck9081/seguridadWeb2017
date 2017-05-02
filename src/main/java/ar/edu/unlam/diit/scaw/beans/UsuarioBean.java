@@ -54,6 +54,10 @@ public class UsuarioBean implements Serializable {
 		return "metodo no implementando";
 	}
 	
+	public List<Usuario> getListarUsuariosPendientes() {
+		List<Usuario> list = service.listarUsuariosPendientes();
+		return list;
+	}
 	
 	public List<Usuario> getFindAll() {
 		List<Usuario> list = service.findAll();

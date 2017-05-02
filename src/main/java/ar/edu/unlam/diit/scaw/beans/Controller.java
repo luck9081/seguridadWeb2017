@@ -7,6 +7,7 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -14,6 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 import ar.edu.unlam.diit.scaw.entities.Tarea;
+import ar.edu.unlam.diit.scaw.entities.Usuario;
 import ar.edu.unlam.diit.scaw.services.CompartirService;
 import ar.edu.unlam.diit.scaw.services.PrivilegioService;
 import ar.edu.unlam.diit.scaw.services.TareaService;
@@ -64,7 +66,10 @@ public class Controller implements Serializable {
 	
 	public String login(UsuarioBean usuario){
 		if(usuarioService.loguear(usuario) == true){
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user",usuario.getNombre());
+			
+			FacesContext facesContext = FacesContext.getCurrentInstance();
+			HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+			session.setAttribute("usuario", usuario.getNombre());
 			return usuarioHome();
 		}
 		else{
@@ -72,9 +77,20 @@ public class Controller implements Serializable {
 		}
 	}
 	
-	public void logout(){
+	public String logout(){
 		
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+		session.removeAttribute("usuario");
+		
+		return "index";
 	}
+	
+	public String editar(UsuarioBean usuario){
+			
+		usuarioService.editar(usuario);
+		return "usuario";
+		}
 	
 	public String registro(UsuarioBean usuario){
 		
@@ -84,6 +100,35 @@ public class Controller implements Serializable {
 	
 	/* -------------------------------------------------------- */
 	/* -------------------------------------------------------- */
+	
+	public String validarAdmin(UsuarioBean usuario){
+		
+		if(usuarioService.validarAdmin(usuario) == true){
+			
+			return adminHome();
+		}
+		else{
+			return index();
+		}
+	}
+	
+	public List<Usuario> listarUsuariosPendientes(){
+		
+		List<Usuario> lista = usuarioService.listarUsuariosPendientes();
+		
+		return lista;
+		
+	}
+	
+	public void aceptarUsuario(Integer idUsuario){
+		
+		usuarioService.aceptarUsuario(idUsuario);
+	}
+	
+	public void denegarUsuario(Integer idUsuario){
+		
+		usuarioService.denegarUsuario(idUsuario);
+	}
 	
 	public String crearTarea(TareaBean tareaBean){
 	
