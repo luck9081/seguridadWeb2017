@@ -3,6 +3,7 @@ package ar.edu.unlam.diit.scaw.daos.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -36,13 +37,31 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	}
 	
 	@Override
+	public LinkedList<String> listarUsuariosPorNombre(String nombre) {
+		
+		String sql = "SELECT pass FROM Usuario where nombre = :nombre";
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("nombre", nombre);
+		
+
+		LinkedList<String> result = (LinkedList<String>) jdbcTemplate.query(sql, params, new UserMapper());
+
+		return result;
+	}
+	
+	@Override
 	public boolean loguear(Usuario usuario) {
-		if(usuario.getId_estado_usuario() == 2 ){
-			return true;
-		}
-		else{
-			return false;
-		}
+		
+		LinkedList<String> lista = listarUsuariosPorNombre(usuario.getNombre());
+		boolean flag = false;
+		for (String item : lista){
+			if(item.equals(usuario.getPass())){
+				flag = true;
+			}
+		}		
+		return flag;
+
 	}
 	
 	//No borra el user, le cambia el estado a 'baja'
@@ -59,12 +78,17 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	
 	@Override
 	public boolean validarAdmin(Usuario admin){
-		if((this.findAll().equals(admin)) && admin.getId_tipo_usuario() == 1 ){
-			return true;
+		
+		List<Usuario> listaAdmin = findAll();
+		boolean flag = false;
+		for(Usuario item : listaAdmin){
+			
+			if(item.equals(admin)){
+				flag = true;
+			}
 		}
-		else{
-			return false;
-		}
+		
+	return flag;
 		
 	}
 	
@@ -142,6 +166,16 @@ public class UsuarioDaoImpl implements UsuarioDao {
 			usuario.setId_tipo_usuario(rs.getInt("id_tipo_usuario"));
 	
 			return usuario;
+		}
+	}
+	
+	private static final class UserMapper implements RowMapper<String> {
+
+		public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+			
+			String user = rs.getString("pass");	
+			
+			return user;
 		}
 	}
 
