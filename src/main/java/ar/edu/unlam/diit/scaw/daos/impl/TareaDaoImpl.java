@@ -25,8 +25,7 @@ public class TareaDaoImpl implements TareaDao {
 	
 
 	@Override
-	public void crearTarea(Tarea tarea) {
-		
+	public void crearTarea(Tarea tarea) {		
 		
 		String sql = "INSERT INTO Tarea (descripcion,id_modo_acceso,id_estado_tarea,id_usuario) VALUES (:descripcion, :id_modo_acceso,:id_estado_tarea,:id_autor)";
 
@@ -106,21 +105,14 @@ public class TareaDaoImpl implements TareaDao {
 
 		public TareaBean mapRow(ResultSet rs, int rowNum) throws SQLException {
 			TareaBean tareaBean = new TareaBean();
+			
+			tareaBean.setId_tarea(rs.getInt("id_tarea"));
 			tareaBean.setDescripcion(rs.getString("descripcion"));
 			tareaBean.setId_modo_acceso_int(rs.getInt("id_modo_acceso"));
-
+			tareaBean.setId_usuario(rs.getInt("id_usuario"));
 	
 			return tareaBean;
 		}
 	}
-
-
-	
-
-
-
-
-
-
 
 }
