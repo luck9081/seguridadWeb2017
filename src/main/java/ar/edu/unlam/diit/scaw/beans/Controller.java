@@ -211,5 +211,15 @@ public class Controller implements Serializable {
 		// si es por ajax, no hace falta refrescar la pagina, esto se ejecuta por checkbox
 	}
 
+	public SessionBean getSesion() {
+		return sesion;
+	}
+
+	public void setSesion(SessionBean sesion) {
+		this.sesion = sesion;
+	}
+	
+	
+
 
 }
