@@ -25,7 +25,7 @@ public class TareaDaoImpl implements TareaDao {
 	
 
 	@Override
-	public void crearTarea(Tarea tarea) {		
+	public void crearTarea(Tarea tarea,Integer id_usuario) {		
 		
 		String sql = "INSERT INTO Tarea (descripcion,id_modo_acceso,id_estado_tarea,id_usuario) VALUES (:descripcion, :id_modo_acceso,:id_estado_tarea,:id_autor)";
 
@@ -33,7 +33,7 @@ public class TareaDaoImpl implements TareaDao {
 		params.put("descripcion", tarea.getDescripcion());
 		params.put("id_modo_acceso", tarea.getId_modo_acceso());
 		params.put("id_estado_tarea", tarea.getId_estado_tarea());
-		params.put("id_autor", tarea.getId_usuario());
+		params.put("id_autor", id_usuario);
 		jdbcTemplate.update(sql, params);
 		
 	}

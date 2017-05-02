@@ -88,7 +88,7 @@ public class Controller implements Serializable {
 			HttpSession sesiones = (HttpSession) facesContext.getExternalContext().getSession(false);
 			sesiones.setAttribute("usuario", usuario.getNombre());*/
 			
-			return usuarioHome();
+			return "usuario";
 		//}
 		//else{
 			//return index();
@@ -148,11 +148,11 @@ public class Controller implements Serializable {
 		usuarioService.denegarUsuario(idUsuario);
 	}
 	
-	public String crearTarea(TareaBean tareaBean){
+	public String crearTarea(TareaBean tareaBean,Integer id_usuario){
 	
 		Tarea tarea=tareaBean.buildTarea();
 		
-		tareaService.crearTarea(tarea);
+		tareaService.crearTarea(tarea,id_usuario);
 		
 		return usuarioHome();
 		
