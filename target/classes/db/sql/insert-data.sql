@@ -1,6 +1,6 @@
 
-
-/*INSERT INTO Estado_De_Usuario
+/*
+INSERT INTO Estado_De_Usuario
 VALUES (1,'Pendiente'),
 		(2,'Aceptada');
 
@@ -36,5 +36,20 @@ INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
 VALUES ('tarea nro 4',2,2,2);
 
 INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
-VALUES ('tarea nro 5',1,2,2);*/
+VALUES ('tarea nro 5',1,2,2);
+
+INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
+VALUES ('tarea nro 20',1,1,2);
+
+INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
+VALUES ('tarea nro 30',1,1,3);
+
+INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
+VALUES ('tarea nro 49',1,2,3);
+
+INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
+VALUES ('tarea nro 31',1,1,2);
+
+INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
+VALUES ('tarea nro 50',1,2,2);*/
 --COMMIT;

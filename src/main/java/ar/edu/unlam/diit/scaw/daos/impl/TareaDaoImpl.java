@@ -66,10 +66,11 @@ public class TareaDaoImpl implements TareaDao {
 	}
 	
 	@Override
-	public List<TareaBean> listarTareasGlobales() {
+	public List<TareaBean> listarTareasGlobales(Integer id_usuario) {
 		Map<String, Object> params = new HashMap<String, Object>();
 
-		String sql = "SELECT * FROM Tarea WHERE id_modo_acceso=1";
+		String sql = "SELECT * FROM Tarea WHERE id_modo_acceso=1 AND id_usuario!=:id_usuario ";
+		params.put("id_usuario", id_usuario);
 	
 		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());
 
@@ -79,13 +80,15 @@ public class TareaDaoImpl implements TareaDao {
 	
 	
 	@Override
-	public void modificarEstadoTareaACompleto(Integer id_tarea) {
+	public void modificarEstadoTareaACompleto(Integer id) {
 		
-		String sql = "UPDATE FROM Tarea SET id_estado_tarea=2 WHERE id_tarea=:id_tarea ";
+		String sql = "UPDATE Tarea SET id_estado_tarea=2 WHERE id_tarea=:id_tarea";
 
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("id_tarea", id_tarea);
+		params.put("id_tarea", id);
 		jdbcTemplate.update(sql, params);
+		
+		
 		
 	}
 

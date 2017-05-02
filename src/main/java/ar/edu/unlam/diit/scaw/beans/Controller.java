@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
+
 import ar.edu.unlam.diit.scaw.entities.Tarea;
 import ar.edu.unlam.diit.scaw.services.CompartirService;
 import ar.edu.unlam.diit.scaw.services.PrivilegioService;
@@ -110,9 +111,9 @@ public class Controller implements Serializable {
 		
 	}
 	
-	public List<TareaBean> listarTareasGlobales(){
+	public List<TareaBean> listarTareasGlobales(Integer id_usuario){
 		
-		List<TareaBean> lista = tareaService.listarTareasGlobales();
+		List<TareaBean> lista = tareaService.listarTareasGlobales(id_usuario);
 		
 		return lista;
 		
@@ -121,7 +122,7 @@ public class Controller implements Serializable {
 	public String modificarEstadoTareaACompleto(Integer id_tarea){
 		tareaService.modificarEstadoTareaACompleto(id_tarea);
 		
-		return usuarioHome();
+		return "usuario";
 	}
 	
 	public LinkedList<ColaboradorBean> listarUsuariosParaCompartir(Integer idTarea,Integer idAutor){

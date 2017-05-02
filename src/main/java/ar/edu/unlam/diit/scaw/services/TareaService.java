@@ -12,7 +12,7 @@ public interface TareaService {
 	public List<TareaBean> listarTareasPendientes(Integer id);
 	public void modificarEstadoTareaACompleto(Integer id_tarea);
 	public List<TareaBean> listarTareasCompletas(Integer id_usuario);
-	public List<TareaBean> listarTareasGlobales();
+	public List<TareaBean> listarTareasGlobales(Integer id_usuario);
 
 
 }

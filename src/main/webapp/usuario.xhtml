@@ -164,7 +164,7 @@
                             </p>
                             <div class="secondary-content">
                                <h:form>
-                                   <a><i class="material-icons green-text accept-user">done</i></a>
+                                   <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
                                    <h:commandLink action="#{controller.compartir(tareaBean.getId_usuario())}"><i class="material-icons blue-text">share</i></h:commandLink>
                                    <h:commandLink action="#{controller.privilegios(tareaBean.getId_usuario())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
                                    <a><i class="material-icons grey-text delete">delete</i></a>
@@ -267,7 +267,7 @@
 
                   <h3 class="span_h2">Tareas globales</h3>
                      
-                     <c:forEach var="tareaBean" items="${controller.listarTareasGlobales()}" varstatus="true">
+                     <c:forEach var="tareaBean" items="${controller.listarTareasGlobales(2)}" varstatus="true">
                      
                     <h:outputText value="#{tareaBean.getDescripcion()}" /> <br />
 

@@ -33,8 +33,8 @@ public class TareaServiceImpl implements TareaService {
 	}
 	
 	@Override
-	public List<TareaBean> listarTareasGlobales() {
-		return tareaDao.listarTareasGlobales();
+	public List<TareaBean> listarTareasGlobales(Integer id_usuario) {
+		return tareaDao.listarTareasGlobales(id_usuario);
 	}
 	
 	@Override
