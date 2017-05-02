@@ -28,6 +28,8 @@ public interface UsuarioService {
 	
 	public List<Usuario> listarUsuariosPendientes();
 
-
+	public Integer buscarIdUsuario(String nombreUsuario);
+	
+	public String buscarNombreUsuario(Integer idUsuario);
 
 }

@@ -26,27 +26,31 @@ import ar.edu.unlam.diit.scaw.services.UsuarioService;
 @RequestScoped
 public class Controller implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;	
 		
-	//Spring Inject
+	
+	/* ---- Spring Inject ---- */
 	ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"beans.xml"});
 	
-	//Servicios
 	
+	/* ---- Servicios ---- */
 	UsuarioService usuarioService = (UsuarioService) context.getBean("usuarioService");
 	TareaService tareaService = (TareaService) context.getBean("tareaService");
 	CompartirService compartirService = (CompartirService) context.getBean("compartirService");
 	PrivilegioService privilegioService = (PrivilegioService) context.getBean("privilegioService");
 	
+	
+	/* ---- Propiedades ---- */
 	@ManagedProperty(value = "#{miSesion}")
 	private SessionBean sesion;
+	
 	
 	public Controller() {
 		super();
 	}
 	
-	/* ---- VISTAS ---- */
+	
+	/* ---- Vistas ---- */
 	
 	public String index(){
 		return "index?faces-redirect=true";
@@ -61,7 +65,7 @@ public class Controller implements Serializable {
 	}
 	
 	public String compartir(Integer idTarea){
-		return "compartir?faces-redirect=true&id="+idTarea;
+		return "compartir?faces-redirect=true&id="+sesion.getIdUsuario();
 	}
 	
 	public String privilegios(Integer idTarea){
@@ -69,23 +73,26 @@ public class Controller implements Serializable {
 	}
 	
 	public String login(UsuarioBean usuario){
-		if(usuarioService.loguear(usuario) == true){
+		//if(usuarioService.loguear(usuario) == true){
 			
-			sesion.setNombreUsuario(usuario.getNombre());
+			sesion.setIdUsuario(usuarioService.buscarIdUsuario(usuario.getNombre()));
 			
 			/*SessionBean nuevaSesion = new SessionBean();
 			nuevaSesion.setIdUsuario(usuario.getNombre());
 			setSesion(nuevaSesion);*/
 			
+			//FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario","pablito");
+			
+			
 			/*FacesContext facesContext = FacesContext.getCurrentInstance();
-			HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
-			session.setAttribute("usuario", usuario.getNombre());*/
+			HttpSession sesiones = (HttpSession) facesContext.getExternalContext().getSession(false);
+			sesiones.setAttribute("usuario", usuario.getNombre());*/
 			
 			return usuarioHome();
-		}
-		else{
-			return index();
-		}
+		//}
+		//else{
+			//return index();
+		//}
 	}
 	
 	public String logout(){
@@ -219,7 +226,4 @@ public class Controller implements Serializable {
 		this.sesion = sesion;
 	}
 	
-	
-
-
 }

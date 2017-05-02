@@ -6,6 +6,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	>
 
 	<head>
@@ -140,10 +141,28 @@
                <div class="tarjeta grey lighten-4">
 
                   <div class="row center">
-	               <h3 class="span_h2 orange-text">Compartir</h3>
-	            </div>
+                    <h3 class="span_h2 orange-text">Compartir</h3>
+                  </div>
 
                   <ul class="collection subcategories-list">
+                     <c:forEach var="colaboradorBean" items="${controller.listarUsuariosParaCompartir(param['id'],controller.getSesion().getIdUsuario())}" varstatus="true">
+                        
+                        <li class="collection-item avatar grey lighten-4">
+	                        <i class="material-icons circle green">insert_chart</i>
+	                        <span class="title">Title</span>
+	                        <p>
+	                           <h:outputText value="#{colaboradorBean.getNombreInvitado()}"/>
+	                        </p>
+	                        <div class="secondary-content">
+	                           <h:form>
+	                               <h:commandLink action=""><i class="material-icons green-text waves-effect waves-green accept-user">done</i></h:commandLink>
+	                               <h:commandLink action=""><i class="material-icons red-text delete-user waves-effect">clear</i></h:commandLink>
+	                           </h:form>
+	                        </div>
+	                     </li>
+                        
+                     </c:forEach>
+                     
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle green">insert_chart</i>
                         <span class="title">Title</span>
@@ -153,7 +172,7 @@
                         <div class="secondary-content">
                            <a href=""><i class="material-icons green-text waves-effect waves-green accept-user">done</i></a>
                            <a href=""><i class="material-icons red-text delete-user waves-effect">clear</i></a>
-				</div>
+				        </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle">folder</i>
@@ -164,7 +183,7 @@
                         <div class="secondary-content">
                            <a href=""><i class="material-icons green-text waves-effect waves-green accept-user">done</i></a>
                            <a href=""><i class="material-icons red-text delete-user waves-effect">clear</i></a>
-				</div>
+				        </div>
                      </li>
                      <li class="collection-item avatar grey lighten-4">
                         <i class="material-icons circle red">play_arrow</i>
@@ -175,7 +194,7 @@
                         <div class="secondary-content">
                            <a href=""><i class="material-icons green-text waves-effect waves-green accept-user">done</i></a>
                            <a href=""><i class="material-icons red-text delete-user waves-effect">clear</i></a>
-				</div>
+				        </div>
                      </li>
                   </ul>
 

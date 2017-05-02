@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.edu.unlam.diit.scaw.beans.UsuarioBean;
 import ar.edu.unlam.diit.scaw.daos.UsuarioDao;
-import ar.edu.unlam.diit.scaw.entities.Tarea;
 import ar.edu.unlam.diit.scaw.entities.Usuario;
 import ar.edu.unlam.diit.scaw.services.UsuarioService;
 
@@ -65,6 +64,15 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return usuarioDao.findAll();
 	}
 	
+	@Override
+	public Integer buscarIdUsuario(String nombreUsuario){
+		return usuarioDao.buscarIdUsuario(nombreUsuario);
+	}
+	
+	@Override
+	public String buscarNombreUsuario(Integer idUsuario){
+		return usuarioDao.buscarNombreUsuario(idUsuario);
+	}
 
 	public void aceptarUsuario(Integer idUsuario){
 		

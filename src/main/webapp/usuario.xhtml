@@ -6,7 +6,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-   xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	>
 
 	<head>
@@ -163,10 +163,7 @@
                             <i class="material-icons circle">folder</i>
                             <p>
                                 <h:outputText value="#{tareaBean.getDescripcion()}"/>
-	                            #{controller.getSesion().getNombreUsuario()}
-	                            #{miSesion.getNombreUsuario()}
-	                            #{miSesion.nombreUsuario}
-	                            #{controller.sesion.getNombreUsuario()}                                
+	                            #{controller.getSesion().getIdUsuario()}
                             </p>
                             <div class="secondary-content">
                                <h:form>

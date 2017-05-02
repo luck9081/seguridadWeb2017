@@ -24,5 +24,9 @@ public interface UsuarioDao {
 	
 	public List<Usuario> findAll();
 	
+	public Integer buscarIdUsuario(String nombreUsuario);
+	
+	public String buscarNombreUsuario(Integer idUsuario);
+	
 	
 }

@@ -11,7 +11,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import ar.edu.unlam.diit.scaw.daos.UsuarioDao;
-import ar.edu.unlam.diit.scaw.entities.Tarea;
 import ar.edu.unlam.diit.scaw.entities.Usuario;
 
 public class UsuarioDaoImpl implements UsuarioDao {
@@ -121,6 +120,30 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		List<Usuario> result = jdbcTemplate.query(sql, params, new PersonMapper());
 
 		return result;
+	}
+	
+	@Override
+	public Integer buscarIdUsuario(String nombreUsuario){
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("nombreUsuario", nombreUsuario);
+
+		String sql = "SELECT * FROM Usuario WHERE nombre = :nombreUsuario";
+
+		List<Usuario> result = jdbcTemplate.query(sql, params, new PersonMapper());
+
+		return result.get(0).getIdUsuario();
+	}
+	
+	@Override
+	public String buscarNombreUsuario(Integer idUsuario){
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("idUsuario", idUsuario);
+
+		String sql = "SELECT * FROM Usuario WHERE nombre = :idUsuario";
+
+		List<Usuario> result = jdbcTemplate.query(sql, params, new PersonMapper());
+
+		return result.get(0).getNombre();
 	}
 
 	public NamedParameterJdbcTemplate getJdbcTemplate() {
