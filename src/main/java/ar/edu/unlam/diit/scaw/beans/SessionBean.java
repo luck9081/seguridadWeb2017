@@ -10,14 +10,15 @@ import javax.faces.bean.SessionScoped;
 public class SessionBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;	
-	private String idUsuario;
+	private String nombreUsuario;
 	
-	public String getIdUsuario() {
-		return idUsuario;
+	public String getNombreUsuario() {
+		return nombreUsuario;
 	}
-
-	public void setIdUsuario(String idUsuario) {
-		this.idUsuario = idUsuario;
-	}	
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
 	
+	
+
 }

@@ -160,6 +160,12 @@
                      <c:forEach var="tareaBean" items="${controller.listarTareasPendientes(2)}" varstatus="true">
                         
                         <li class="collection-item avatar grey lighten-4">
+                            <h:outputText value="#{tareaBean.getDescripcion()}"/>
+                            #{controller.getSesion().getNombreUsuario()}
+                            #{miSesion.getNombreUsuario()}
+                            #{miSesion.nombreUsuario}
+                            #{controller.sesion.getNombreUsuario()}
+                            
                             <i class="material-icons circle">folder</i>
                             <p>
                                 <h:outputText value="#{tareaBean.getDescripcion()}" />                                

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
@@ -38,6 +39,9 @@ public class Controller implements Serializable {
 	CompartirService compartirService = (CompartirService) context.getBean("compartirService");
 	PrivilegioService privilegioService = (PrivilegioService) context.getBean("privilegioService");
 	
+	@ManagedProperty(value = "#{miSesion}")
+	private SessionBean sesion;
+	
 	public Controller() {
 		super();
 	}
@@ -67,9 +71,16 @@ public class Controller implements Serializable {
 	public String login(UsuarioBean usuario){
 		if(usuarioService.loguear(usuario) == true){
 			
-			FacesContext facesContext = FacesContext.getCurrentInstance();
+			sesion.setIdUsuario(usuario.getNombre());
+			
+			/*SessionBean nuevaSesion = new SessionBean();
+			nuevaSesion.setIdUsuario(usuario.getNombre());
+			setSesion(nuevaSesion);*/
+			
+			/*FacesContext facesContext = FacesContext.getCurrentInstance();
 			HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
-			session.setAttribute("usuario", usuario.getNombre());
+			session.setAttribute("usuario", usuario.getNombre());*/
+			
 			return usuarioHome();
 		}
 		else{
