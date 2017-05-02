@@ -76,11 +76,13 @@ public class Controller implements Serializable {
 			sesion.setIdUsuario(usuarioService.buscarIdUsuario(usuario.getNombre()));
 			sesion.setNombre(usuario.getNombre());
 			
+
 			return usuarioHome();
 		}
 		else{
 			return validarAdmin(usuario);
 		}
+
 	}
 	
 	public String logout(){
@@ -137,11 +139,11 @@ public class Controller implements Serializable {
 		usuarioService.denegarUsuario(idUsuario);
 	}
 	
-	public String crearTarea(TareaBean tareaBean){
+	public String crearTarea(TareaBean tareaBean,Integer id_usuario){
 	
 		Tarea tarea=tareaBean.buildTarea();
 		
-		tareaService.crearTarea(tarea);
+		tareaService.crearTarea(tarea,id_usuario);
 		
 		return usuarioHome();
 		

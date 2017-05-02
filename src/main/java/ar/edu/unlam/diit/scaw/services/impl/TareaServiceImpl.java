@@ -14,9 +14,9 @@ public class TareaServiceImpl implements TareaService {
 	
 	TareaDao tareaDao;
 	
-	public void crearTarea( Tarea tarea){
+	public void crearTarea( Tarea tarea,Integer id_usuario){
 		
-		tareaDao.crearTarea(tarea);
+		tareaDao.crearTarea(tarea,id_usuario);
 		
 	}
 	

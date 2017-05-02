@@ -160,13 +160,13 @@
 
                   <ul class="collection subcategories-list">
                      
-                     <c:forEach var="tareaBean" items="${controller.listarTareasPendientes(2)}" varstatus="true">
+                     <c:forEach var="tareaBean" items="${controller.listarTareasPendientes(controller.getSesion().getIdUsuario())}" varstatus="true">
                         
                         <li class="collection-item avatar grey lighten-4">
                             <i class="material-icons circle">folder</i>
                             <p>
                                 <h:outputText value="#{tareaBean.getDescripcion()}"/>
-	                            #{controller.getSesion().getIdUsuario()}
+	                            
                             </p>
                             <div class="secondary-content">
                                <h:form>
@@ -234,7 +234,10 @@
 
                   <h3 class="span_h2">Completas</h3>
                      
-                     <c:forEach var="tareaBean" items="${controller.listarTareasCompletas(2)}" varstatus="true">
+                  
+                  
+
+                     <c:forEach var="tareaBean" items="${controller.listarTareasCompletas(controller.getSesion().getIdUsuario())}" varstatus="true">
                      
                     <h:outputText value="#{tareaBean.getDescripcion()}" /><br />
 
@@ -273,7 +276,7 @@
 
                   <h3 class="span_h2">Tareas globales</h3>
                      
-                     <c:forEach var="tareaBean" items="${controller.listarTareasGlobales(2)}" varstatus="true">
+                     <c:forEach var="tareaBean" items="${controller.listarTareasGlobales(controller.getSesion().getIdUsuario())}" varstatus="true">
                      
                     <h:outputText value="#{tareaBean.getDescripcion()}" /> <br />
 
@@ -349,7 +352,7 @@
 
                <div class="center">
                   
-                  <h:commandButton action="#{controller.crearTarea(tareaBean)}" type="submit" class="btn btn-large orange waves-effect waves-light" value="Crear Tarea"/>
+                  <h:commandButton action="#{controller.crearTarea(tareaBean,controller.getSesion().getIdUsuario())}" type="submit" class="btn btn-large orange waves-effect waves-light" value="Crear Tarea"/>
 
                <!--    <button class="btn btn-floating btn-large orange waves-effect waves-light" type="submit" name="">
                       <i class="large material-icons">done</i>
