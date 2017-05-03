@@ -157,19 +157,18 @@
 
                   <ul class="collection subcategories-list">
                      
-                     <c:forEach var="tareaBean" items="${controller.listarTareasPendientes(2)}" varstatus="true">
+                     <c:forEach var="tareaBean" items="${controller.listarTareasPendientes(controller.getSesion().getIdUsuario())}" varstatus="true">
                         
                         <li class="collection-item avatar grey lighten-4">
                             <i class="material-icons circle">folder</i>
                             <p>
                                 <h:outputText value="#{tareaBean.getDescripcion()}"/>
-	                            #{controller.getSesion().getIdUsuario()}
                             </p>
                             <div class="secondary-content">
                                <h:form>
                                    <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
-                                   <h:commandLink action="#{controller.compartir(tareaBean.getId_usuario())}"><i class="material-icons blue-text">share</i></h:commandLink>
-                                   <h:commandLink action="#{controller.privilegios(tareaBean.getId_usuario())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
+                                   <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
+                                   <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
                                    <a><i class="material-icons grey-text delete">delete</i></a>
                                </h:form>
                             </div>

@@ -145,57 +145,30 @@
                   </div>
 
                   <ul class="collection subcategories-list">
-                     <c:forEach var="colaboradorBean" items="${controller.listarUsuariosParaCompartir(param['id'],controller.getSesion().getIdUsuario())}" varstatus="true">
+                     <c:forEach var="colaboradorBean" items="${controller.listarUsuariosParaCompartir(param['idTarea'])}" varstatus="true">
                         
                         <li class="collection-item avatar grey lighten-4">
 	                        <i class="material-icons circle green">insert_chart</i>
-	                        <span class="title">Title</span>
 	                        <p>
 	                           <h:outputText value="#{colaboradorBean.getNombreInvitado()}"/>
 	                        </p>
 	                        <div class="secondary-content">
 	                           <h:form>
-	                               <h:commandLink action=""><i class="material-icons green-text waves-effect waves-green accept-user">done</i></h:commandLink>
-	                               <h:commandLink action=""><i class="material-icons red-text delete-user waves-effect">clear</i></h:commandLink>
+	                               <c:choose>
+		                               <c:when test="${colaboradorBean.isEstadoInvitado()}">
+		                                  <a ><i class="material-icons red-text delete-user waves-effect">clear</i></a>
+		                               </c:when>
+		                               <c:otherwise>
+		                                  <h:commandLink action="#{controller.compartirTarea(param['idTarea'],colaboradorBean.getNombreInvitado())}"><i class="material-icons green-text waves-effect waves-green accept-user">done</i></h:commandLink>
+		                               </c:otherwise>
+	                               </c:choose>
 	                           </h:form>
 	                        </div>
 	                     </li>
                         
                      </c:forEach>
                      
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle green">insert_chart</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                        <div class="secondary-content">
-                           <a href=""><i class="material-icons green-text waves-effect waves-green accept-user">done</i></a>
-                           <a href=""><i class="material-icons red-text delete-user waves-effect">clear</i></a>
-				        </div>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle">folder</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                        <div class="secondary-content">
-                           <a href=""><i class="material-icons green-text waves-effect waves-green accept-user">done</i></a>
-                           <a href=""><i class="material-icons red-text delete-user waves-effect">clear</i></a>
-				        </div>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle red">play_arrow</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                        <div class="secondary-content">
-                           <a href=""><i class="material-icons green-text waves-effect waves-green accept-user">done</i></a>
-                           <a href=""><i class="material-icons red-text delete-user waves-effect">clear</i></a>
-				        </div>
-                     </li>
+                     
                   </ul>
 
                </div>

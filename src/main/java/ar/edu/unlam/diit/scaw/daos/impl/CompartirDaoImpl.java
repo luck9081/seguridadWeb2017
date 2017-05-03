@@ -3,7 +3,7 @@ package ar.edu.unlam.diit.scaw.daos.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class CompartirDaoImpl implements CompartirDao {
 	@Override
 	public boolean insertarColaborador(Integer idTarea,Integer idUsuario){
 		
-		String sql = "INSERT INTO Usuario_Privilegio_Tarea (id_usuario,id_tarea) VALUES (:id_usuario,:id_tarea)";
+		String sql = "INSERT INTO Usuario_Privilegio_Tarea (id_usuario,id_tarea,id_privilegio) VALUES (:id_usuario,:id_tarea,1)";
 		
 		Map<String, Object> params = new HashMap<String, Object>();		
 		params.put("id_usuario",idUsuario);
@@ -49,13 +49,13 @@ public class CompartirDaoImpl implements CompartirDao {
 	}
 	
 	@Override
-	public LinkedList<Integer> obtenerColaboradores(Integer idTarea){
-		String sql = "SELECT id_usuario FROM Usuario_Tarea_Privilegio WHERE id_tarea = :id_tarea";
+	public List<Integer> obtenerColaboradores(Integer idTarea){
+		String sql = "SELECT id_usuario FROM Usuario_Privilegio_Tarea WHERE id_tarea = :id_tarea";
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id_tarea",idTarea);
 		
-		LinkedList<Integer> result = (LinkedList<Integer>)jdbcTemplate.query(sql,params,new PersonMapper());
+		List<Integer> result = jdbcTemplate.query(sql,params,new PersonMapper());
 
 		return result;
 	}
@@ -72,7 +72,7 @@ public class CompartirDaoImpl implements CompartirDao {
 
 		public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
 			
-			Integer colaborador = rs.getInt("id_usuario");	
+			Integer colaborador = rs.getInt("id_usuario");
 			
 			return colaborador;
 		}

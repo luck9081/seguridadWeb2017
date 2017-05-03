@@ -65,7 +65,7 @@ public class Controller implements Serializable {
 	}
 	
 	public String compartir(Integer idTarea){
-		return "compartir?faces-redirect=true&id="+sesion.getIdUsuario();
+		return "compartir?faces-redirect=true&idTarea="+idTarea;
 	}
 	
 	public String privilegios(Integer idTarea){
@@ -76,17 +76,6 @@ public class Controller implements Serializable {
 		//if(usuarioService.loguear(usuario) == true){
 			
 			sesion.setIdUsuario(usuarioService.buscarIdUsuario(usuario.getNombre()));
-			
-			/*SessionBean nuevaSesion = new SessionBean();
-			nuevaSesion.setIdUsuario(usuario.getNombre());
-			setSesion(nuevaSesion);*/
-			
-			//FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario","pablito");
-			
-			
-			/*FacesContext facesContext = FacesContext.getCurrentInstance();
-			HttpSession sesiones = (HttpSession) facesContext.getExternalContext().getSession(false);
-			sesiones.setAttribute("usuario", usuario.getNombre());*/
 			
 			return usuarioHome();
 		//}
@@ -184,22 +173,22 @@ public class Controller implements Serializable {
 	
 	public String modificarEstadoTareaACompleto(Integer id_tarea){
 		tareaService.modificarEstadoTareaACompleto(id_tarea);
-		
 		return "usuario";
 	}
 	
-	public LinkedList<ColaboradorBean> listarUsuariosParaCompartir(Integer idTarea,Integer idAutor){
-		return compartirService.listarUsuariosParaCompartir(idTarea,idAutor);	// te muestra los usuarios compartidos y no compartidos, no debe mostrar usuario creador
+	public LinkedList<ColaboradorBean> listarUsuariosParaCompartir(Integer idTarea){
+		return compartirService.listarUsuariosParaCompartir(idTarea,getSesion().getIdUsuario());	// te muestra los usuarios compartidos y no compartidos, no debe mostrar usuario creador
 	}
 	
-	public void compartirTarea(Integer idTarea,String nombreUsuario){
+	public String compartirTarea(Integer idTarea,String nombreUsuario){
 		compartirService.compartirTarea(idTarea,nombreUsuario);	// aÃ±adir usuario y tarea a la ternaria
+		
+		return compartir(idTarea);
 		
 		// posibilidad de hacerlo por ajax por cada usuario
 	}
 	
-	public void eliminarColaborador(Integer idTarea,String nombreUsuario){
-		
+	public void eliminarColaborador(Integer idTarea,String nombreUsuario){		
 		compartirService.eliminarColaborador(idTarea,nombreUsuario);	// el usuario ya no colaborarÃ¡ con la tarea, o sea, estado de la ternaria "false"
 		
 		// el privilegio debe regresar a "solo lectura"

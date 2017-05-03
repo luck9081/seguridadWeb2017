@@ -1,6 +1,7 @@
 package ar.edu.unlam.diit.scaw.daos;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public interface CompartirDao {
 
@@ -8,6 +9,6 @@ public interface CompartirDao {
 	
 	public boolean eliminarColaborador(Integer idTarea,Integer idUsuario);
 	
-	public LinkedList<Integer> obtenerColaboradores(Integer idTarea);
+	public List<Integer> obtenerColaboradores(Integer idTarea);
 	
 }

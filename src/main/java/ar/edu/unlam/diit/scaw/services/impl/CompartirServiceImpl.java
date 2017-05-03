@@ -25,11 +25,11 @@ public class CompartirServiceImpl implements CompartirService {
 		// Traemos a todos los usuarios
 		List<Usuario> listaUsuarios = usuarioDao.findAll();
 		
-		// Armamos una lista que los contendrá a todos (menos a mí) formateados con InvitadoBean, y un objeto InvitadoBean que servirá para añadirlos a la lista
+		// Armamos una lista que los contendrá a todos (menos a mí) formateados con ColaboradorBean, y un objeto InvitadoBean que servirá para añadirlos a la lista
 		LinkedList<ColaboradorBean> listaCompartidos = new LinkedList<ColaboradorBean>();	// acá iría un linkedlist invitado o algo así con dos campos por fila
 		ColaboradorBean colaborador = new ColaboradorBean();
 		
-		for (Usuario item : listaUsuarios){		    
+		for (Usuario item : listaUsuarios){
 			if(!item.getIdUsuario().equals(miIdUsuario)){ // Si en el listado aparece mi usuario, no lo añado (no puedo compartir mi tarea conmigo)
 				
 				// Si ya se ha compartido la tarea con este usuario, seteamos "estadoInvitado" del item InvitadoBean en True
@@ -39,30 +39,26 @@ public class CompartirServiceImpl implements CompartirService {
 			    else{
 			    	colaborador.setEstadoInvitado(false);
 			    }
-				colaborador.setNombreInvitado(item.getNombre());				
+				colaborador.setNombreInvitado(item.getNombre());
 				listaCompartidos.add(colaborador);
+				colaborador = new ColaboradorBean();
 			}
 		}
-		
 		return listaCompartidos;
 	}
 
 	@Override
 	public boolean compartirTarea(Integer idTarea,String nombreUsuario){
-		// NOTA: (REALIZAR) consumir servicio de usuario que, a partir del nombre de usuario, obtenga el ID
-		Integer idUsuario = 0;
-		return compartirDao.insertarColaborador(idTarea, idUsuario);
+		return compartirDao.insertarColaborador(idTarea,usuarioDao.buscarIdUsuario(nombreUsuario));
 	}
 	
 	@Override
 	public boolean eliminarColaborador(Integer idTarea,String nombreUsuario){
-		// NOTA: (REALIZAR) consumir servicio de usuario que, a partir del nombre de usuario, obtenga el ID
-		Integer idUsuario = 0;
-		return compartirDao.eliminarColaborador(idTarea, idUsuario);
+		return compartirDao.eliminarColaborador(idTarea,usuarioDao.buscarIdUsuario(nombreUsuario));
 	}
 	
 	public boolean comprobarColaboradores(Integer idTarea,Integer idUsuario){
-		LinkedList<Integer> listadoColaboradores = compartirDao.obtenerColaboradores(idTarea);
+		List<Integer> listadoColaboradores = compartirDao.obtenerColaboradores(idTarea);
 		boolean flag = false;
 		for (Integer item : listadoColaboradores){
 			if(item.equals(idUsuario)){
