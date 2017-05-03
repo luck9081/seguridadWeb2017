@@ -3,7 +3,7 @@ package ar.edu.unlam.diit.scaw.daos.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +23,13 @@ public class PrivilegioDaoImpl implements PrivilegioDao {
 	}
 	
 	@Override
-	public LinkedList<TareaPorUsuario> colaboradoresYPrivilegios(Integer idTarea){
+	public List<TareaPorUsuario> colaboradoresYPrivilegios(Integer idTarea){
 		String sql = "SELECT id_usuario,id_privilegio FROM Usuario_Tarea_Privilegio WHERE id_tarea = :id_tarea";
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id_tarea",idTarea);
 		
-		LinkedList<TareaPorUsuario> result = (LinkedList<TareaPorUsuario>)jdbcTemplate.query(sql,params,new PersonMapper());
+		List<TareaPorUsuario> result = jdbcTemplate.query(sql,params,new PersonMapper());
 
 		return result;
 	}

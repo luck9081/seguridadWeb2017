@@ -1,6 +1,5 @@
 package ar.edu.unlam.diit.scaw.daos;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public interface CompartirDao {
