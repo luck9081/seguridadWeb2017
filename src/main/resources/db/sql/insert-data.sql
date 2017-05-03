@@ -51,5 +51,11 @@ INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
 VALUES ('tarea nro 31',1,1,2);
 
 INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
-VALUES ('tarea nro 50',1,2,2);*/
+VALUES ('tarea nro 50',1,2,2);
+
+INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
+VALUES ('tarea nro 52',1,2,1);
+
+INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
+VALUES ('tarea nro 53',1,1,1);*/
 --COMMIT;

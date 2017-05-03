@@ -3,7 +3,6 @@ package ar.edu.unlam.diit.scaw.daos.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,16 +34,30 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	}
 	
-	@Override
-	public LinkedList<String> listarUsuariosPorNombre(String nombre) {
+
+	public List<String> listarUsuariosPorNombre(String nombre) {
 		
-		String sql = "SELECT pass FROM Usuario where nombre = :nombre";
+		String sql = "SELECT pass FROM Usuario where nombre = :nombre and id_tipo_usuario = 2 and id_estado_usuario = 2";
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("nombre", nombre);
 		
 
-		LinkedList<String> result = (LinkedList<String>) jdbcTemplate.query(sql, params, new UserMapper());
+		List<String> result =  jdbcTemplate.query(sql, params, new UserMapper());
+
+		return result;
+	}
+	
+	
+	public List<String> listarAdminPorNombre(String nombre) {
+		
+		String sql = "SELECT pass FROM Usuario where nombre = :nombre and id_tipo_usuario = 1 and id_estado_usuario = 2";
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("nombre", nombre);
+		
+
+		List<String> result =  jdbcTemplate.query(sql, params, new UserMapper());
 
 		return result;
 	}
@@ -52,7 +65,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public boolean loguear(Usuario usuario) {
 		
-		LinkedList<String> lista = listarUsuariosPorNombre(usuario.getNombre());
+		List<String> lista = listarUsuariosPorNombre(usuario.getNombre());
 		boolean flag = false;
 		for (String item : lista){
 			if(item.equals(usuario.getPass())){
@@ -78,16 +91,14 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public boolean validarAdmin(Usuario admin){
 		
-		List<Usuario> listaAdmin = findAll();
+		List<String> lista = listarAdminPorNombre(admin.getNombre());
 		boolean flag = false;
-		for(Usuario item : listaAdmin){
-			
-			if(item.equals(admin)){
+		for (String item : lista){
+			if(item.equals(admin.getPass())){
 				flag = true;
 			}
-		}
-		
-	return flag;
+		}		
+		return flag;
 		
 	}
 	

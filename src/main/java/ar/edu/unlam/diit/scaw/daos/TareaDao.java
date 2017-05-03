@@ -6,7 +6,7 @@ import ar.edu.unlam.diit.scaw.beans.TareaBean;
 import ar.edu.unlam.diit.scaw.entities.Tarea;
 
 public interface TareaDao {
-	public void crearTarea(Tarea tarea);
+	public void crearTarea(Tarea tarea,Integer id_usuario);
 	public List<TareaBean> listarTareasPendientes(Integer id);
 	public void modificarEstadoTareaACompleto(Integer id_tarea);
 	public List<TareaBean> listarTareasCompletas(Integer id);
