@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ar.edu.unlam.diit.scaw.beans.ColaboradorBean;
 import ar.edu.unlam.diit.scaw.daos.PrivilegioDao;
 import ar.edu.unlam.diit.scaw.daos.UsuarioDao;
-import ar.edu.unlam.diit.scaw.entities.TareaPorUsuario;
+import ar.edu.unlam.diit.scaw.entities.Usuario_Privilegio_Tarea;
 import ar.edu.unlam.diit.scaw.services.PrivilegioService;
 
 public class PrivilegioServiceImpl implements PrivilegioService {
@@ -24,14 +24,15 @@ public class PrivilegioServiceImpl implements PrivilegioService {
 		ColaboradorBean colaborador = new ColaboradorBean();
 		LinkedList<ColaboradorBean> listaColaboradores = new LinkedList<ColaboradorBean>();		
 		
-		for(TareaPorUsuario item : privilegioDao.colaboradoresYPrivilegios(idTarea)){
-			if(item.getIdPrivilegio().equals(1))
-				colaborador.setPrivilegio(1);
+		for(Usuario_Privilegio_Tarea item : privilegioDao.colaboradoresYPrivilegios(idTarea)){
+			if(item.getId_privilegio().equals(1))
+				colaborador.setPrivilegioEdicion(true);
 			else
-				colaborador.setPrivilegio(2);
-			
-		//	colaborador.setNombreInvitado(usuarioDao.buscarNombreUsuario(item.getIdUsuario()));
+				colaborador.setPrivilegioEdicion(false);
+
+			colaborador.setNombreColaborador(usuarioDao.buscarNombreUsuario(item.getId_usuario()));
 			listaColaboradores.add(colaborador);
+			colaborador = new ColaboradorBean();
 		}
 		
 		return listaColaboradores;
@@ -45,7 +46,7 @@ public class PrivilegioServiceImpl implements PrivilegioService {
 	}
 	
 	
-//GETTERS Y SETTERS
+	//GETTERS Y SETTERS
 	public PrivilegioDao getPrivilegioDao() {
 		return privilegioDao;
 	}

@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import ar.edu.unlam.diit.scaw.daos.PrivilegioDao;
-import ar.edu.unlam.diit.scaw.entities.TareaPorUsuario;
+import ar.edu.unlam.diit.scaw.entities.Usuario_Privilegio_Tarea;
 
 public class PrivilegioDaoImpl implements PrivilegioDao {
 
@@ -23,13 +23,13 @@ public class PrivilegioDaoImpl implements PrivilegioDao {
 	}
 	
 	@Override
-	public List<TareaPorUsuario> colaboradoresYPrivilegios(Integer idTarea){
-		String sql = "SELECT id_usuario,id_privilegio FROM Usuario_Tarea_Privilegio WHERE id_tarea = :id_tarea";
+	public List<Usuario_Privilegio_Tarea> colaboradoresYPrivilegios(Integer idTarea){
+		String sql = "SELECT id_usuario,id_privilegio,id_tarea,estado_colaborador FROM Usuario_Privilegio_Tarea WHERE id_tarea = 1 AND estado_colaborador = TRUE";
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id_tarea",idTarea);
 		
-		List<TareaPorUsuario> result = jdbcTemplate.query(sql,params,new PersonMapper());
+		List<Usuario_Privilegio_Tarea> result = jdbcTemplate.query(sql,params,new PersonMapper());
 
 		return result;
 	}
@@ -56,13 +56,15 @@ public class PrivilegioDaoImpl implements PrivilegioDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	private static final class PersonMapper implements RowMapper<TareaPorUsuario> {
+	private static final class PersonMapper implements RowMapper<Usuario_Privilegio_Tarea> {
 
-		public TareaPorUsuario mapRow(ResultSet rs, int rowNum) throws SQLException {
+		public Usuario_Privilegio_Tarea mapRow(ResultSet rs, int rowNum) throws SQLException {
 			
-			TareaPorUsuario colaborador = new TareaPorUsuario();
-			colaborador.setIdUsuario(rs.getInt("id_usuario"));
-			colaborador.setIdPrivilegio(rs.getInt("id_privilegio"));
+			Usuario_Privilegio_Tarea colaborador = new Usuario_Privilegio_Tarea();
+			colaborador.setId_usuario(rs.getInt("id_usuario"));
+			colaborador.setId_privilegio(rs.getInt("id_privilegio"));
+			colaborador.setId_tarea(rs.getInt("id_tarea"));
+			colaborador.setEstado_colaborador(rs.getBoolean("estado_colaborador"));
 			
 			return colaborador;
 		}

@@ -68,7 +68,7 @@ public class Controller implements Serializable {
 	}
 	
 	public String privilegios(Integer idTarea){
-		return "privilegios?faces-redirect=true&id="+idTarea;
+		return "privilegios?faces-redirect=true&idTarea="+idTarea;
 	}
 	
 	public String login(UsuarioBean usuario){

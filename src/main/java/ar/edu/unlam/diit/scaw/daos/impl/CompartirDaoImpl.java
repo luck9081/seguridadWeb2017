@@ -49,6 +49,37 @@ public class CompartirDaoImpl implements CompartirDao {
 	}
 	
 	@Override
+	public boolean actualizarColaborador(Integer idTarea,Integer idUsuario,Boolean nuevoEstado){
+		String sql = "UPDATE Usuario_Privilegio_Tarea SET estado_colaborador = :nuevoEstado WHERE id_usuario = :id_usuario AND id_tarea = :id_tarea";
+		
+		Map<String, Object> params = new HashMap<String, Object>();		
+		params.put("id_usuario",idUsuario);
+		params.put("id_tarea",idTarea);
+		params.put("nuevoEstado",nuevoEstado);
+		
+		jdbcTemplate.update(sql, params);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean existeColaborador(Integer idTarea,Integer idUsuario){
+		String sql = "SELECT estado_colaborador FROM Usuario_Privilegio_Tarea WHERE id_usuario = :id_usuario AND id_tarea = :id_tarea";
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id_tarea",idTarea);
+		params.put("id_usuario",idUsuario);
+		
+		List<Boolean> resultado = jdbcTemplate.query(sql,params,new PersonMapperColaborador());
+		
+		// Si la consulta devuelve un resultado, retorna TRUE (quiere decir que ya existía este usuario como colaborador)
+		if(resultado != null && !resultado.isEmpty())
+			return true;
+		else
+			return false;
+	}
+	
+	@Override
 	public List<Integer> obtenerColaboradores(Integer idTarea){
 		String sql = "SELECT id_usuario FROM Usuario_Privilegio_Tarea WHERE id_tarea = :id_tarea AND estado_colaborador = TRUE";
 		
@@ -75,6 +106,16 @@ public class CompartirDaoImpl implements CompartirDao {
 			Integer colaborador = rs.getInt("id_usuario");
 			
 			return colaborador;
+		}
+	}
+	
+	private static final class PersonMapperColaborador implements RowMapper<Boolean> {
+
+		public Boolean mapRow(ResultSet rs, int rowNum) throws SQLException {
+			
+			Boolean estado = rs.getBoolean("estado_colaborador");
+			
+			return estado;
 		}
 	}
 

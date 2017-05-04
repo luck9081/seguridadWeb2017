@@ -1,0 +1,61 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <!-- NAVIGATION LARGE -->
+	<div class="navbar-fixed animated fadeInDown">
+	
+	   <!-- Dropdown Structure -->
+	   <ul id="dropdown1" class="dropdown-content">
+	      <!-- <li><a class="blue-text span_h2" href="">
+	         <i class="material-icons prefix">mode_edit</i> Perfil
+	      </a></li>
+	      <li class="divider"></li> -->
+	      <h:form>
+	       <li>
+               <h:commandLink styleClass="blue-text span_h2" action="#{controller.usuarioHome()}">
+                   <i class="material-icons prefix">account_circle</i>Perfil
+               </h:commandLink>
+           </li>
+           <li>
+	           <h:commandLink styleClass="blue-text span_h2" action="#{controller.logout()}">
+	               <i class="material-icons orange-text">power_settings_new</i>Salir
+	           </h:commandLink>
+	       </li>
+	      </h:form>
+	   </ul>
+	
+	   <!-- Nav Structure -->
+	   <nav id="nav_f" class="grey lighten-5" role="navigation">
+	      <div class="row center">
+	         <div class="container">
+	            <div class="nav-wrapper">
+	
+	               <a id="logo-container" class="brand-logo hide-on-med-and-down">
+	                  <span class="black-text">Organize</span><span class="orange-text span_h1">Me</span>
+	               </a>
+	
+	               <div class="right hide-on-med-and-down espaciado-izquierda">
+	                  <!-- Dropdown Trigger -->
+	                  <a class="dropdown-button blue-text span_h2" href="" data-activates="dropdown1">
+	                     ¡Hora de Organizar, #{controller.getSesion().getNombre()}! <i class="fa fa-user-o fa-2x"></i>
+	                  </a>
+	               </div>
+	
+	            </div>
+	         </div>
+	         <a href="#" data-activates="nav-mobile" class="button-collapse blue-text"><i class="fa fa-bars fa-2x"></i></a>
+	         <a id="logo-container" class="brand-logo-small hide-on-large-only">
+	            <span class="black-text">Organize</span>
+	            <span class="orange-text span_h1">Me</span>
+	         </a>
+	      </div>
+	   </nav>
+	</div>
+	
+	<!-- NAVIGATION SMALL -->
+	<ul id="nav-mobile" class="side-nav hide-on-large-only">
+	
+	</ul>
+</ui:composition>

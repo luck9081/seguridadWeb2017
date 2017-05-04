@@ -6,6 +6,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	>
 
 	<head>
@@ -31,104 +32,8 @@
 
    <body id="top" class="scrollspy sin-espaciado-inferior">
 
-      <!-- PRELOADER -->
-      <div class="preloader-background">
-         <div class="preloader-wrapper big active">
-            <div class="spinner-layer spinner-blue">
-               <div class="circle-clipper left">
-                  <div class="circle"></div>
-               </div>
-               <div class="gap-patch">
-                  <div class="circle"></div>
-               </div>
-               <div class="circle-clipper right">
-                  <div class="circle"></div>
-               </div>
-            </div>
-
-            <div class="spinner-layer spinner-red">
-               <div class="circle-clipper left">
-                  <div class="circle"></div>
-               </div>
-               <div class="gap-patch">
-                  <div class="circle"></div>
-               </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-               </div>
-            </div>
-
-            <div class="spinner-layer spinner-yellow">
-               <div class="circle-clipper left">
-                  <div class="circle"></div>
-               </div>
-               <div class="gap-patch">
-                  <div class="circle"></div>
-               </div>
-               <div class="circle-clipper right">
-                  <div class="circle"></div>
-               </div>
-            </div>
-
-            <div class="spinner-layer spinner-green">
-               <div class="circle-clipper left">
-                  <div class="circle"></div>
-               </div>
-               <div class="gap-patch">
-                  <div class="circle"></div>
-               </div>
-               <div class="circle-clipper right">
-                  <div class="circle"></div>
-               </div>
-            </div>
-         </div>
-      </div>
-
-      <!-- NAVIGATION LARGE -->
-      <div class="navbar-fixed animated fadeInDown">
-
-         <!-- Dropdown Structure -->
-         <ul id="dropdown1" class="dropdown-content">
-            <li><a class="blue-text span_h2" href="">
-               <i class="material-icons prefix">mode_edit</i> Perfil
-            </a></li>
-            <li class="divider"></li>
-            <li><a class="orange-text span_h2" href="index.php">
-               <i class="material-icons orange-text">power_settings_new</i> Salir
-            </a></li>
-         </ul>
-
-         <!-- Nav Structure -->
-         <nav id="nav_f" class="grey lighten-5" role="navigation">
-            <div class="row center">
-               <div class="container">
-                  <div class="nav-wrapper">
-
-                     <a href="index.xhtml" id="logo-container" class="brand-logo hide-on-med-and-down">
-                        <span class="black-text">Organize</span><span class="orange-text span_h1">Me</span>
-                     </a>
-
-                     <div class="right hide-on-med-and-down espaciado-izquierda">
-                        <!-- Dropdown Trigger -->
-                        <a class="dropdown-button blue-text span_h2" href="" data-activates="dropdown1">
-                           ¡Hola, Luck9081! <i class="fa fa-user-o fa-2x"></i>
-                        </a>
-                     </div>
-
-                  </div>
-               </div>
-               <a href="#" data-activates="nav-mobile" class="button-collapse blue-text"><i class="fa fa-bars fa-2x"></i></a>
-               <a id="logo-container" class="brand-logo-small hide-on-large-only">
-                  <span class="black-text">Organize</span>
-                  <span class="orange-text span_h1">Me</span>
-               </a>
-            </div>
-         </nav>
-      </div>
-
-      <!-- NAVIGATION SMALL -->
-      <ul id="nav-mobile" class="side-nav hide-on-large-only">
-
-      </ul>
+      <ui:include src="includes/preloader.xhtml" />
+      <ui:include src="includes/nav.xhtml" />
 
       <!-- SECTION MAIN -->
       <div class="section scrollspy">
@@ -144,60 +49,27 @@
 	            </div>
 
                   <ul class="collection subcategories-list">
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle green">insert_chart</i>
-                        <span class="title">Juan Carlos</span>
-                        <p>15-0001-0002<br/>
-                           juanca_looser@hotmail.com
-                        </p>
-                        <div class="secondary-content">
-                           <!-- Switch -->
-                           <div class="switch">
-                           	<label class="black-text">
-                           		<i class="material-icons grey-text waves-effect waves-green accept-user">remove_red_eye</i>
-                           		<h:selectBooleanCheckbox type="checkbox"/>
-                           		<span class="lever"></span>
-                           		<i class="material-icons blue-text waves-effect waves-green accept-user">mode_edit</i>
-                           	</label>
-                           </div>
-				</div>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle">folder</i>
-                        <span class="title">Pepe</span>
-                        <p>15-0004-0007<br/>
-                           pepito_master@gmail.com
-                        </p>
-                        <div class="secondary-content">
-                           <!-- Switch -->
-                           <div class="switch">
-                           	<label class="black-text">
-                           		<i class="material-icons grey-text waves-effect waves-green accept-user">remove_red_eye</i>
-                           		<h:selectBooleanCheckbox type="checkbox"/>
-                           		<span class="lever"></span>
-                           		<i class="material-icons blue-text waves-effect waves-green accept-user">mode_edit</i>
-                           	</label>
-                           </div>
-				</div>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle red">play_arrow</i>
-                        <span class="title">Tomas</span>
-                        <p>15-0008-0009<br/>
-                           tomatela@yahoo.com.ar
-                        </p>
-                        <div class="secondary-content">
-                           <!-- Switch -->
-                           <div class="switch">
-                           	<label class="black-text">
-                           		<i class="material-icons grey-text waves-effect waves-green accept-user">remove_red_eye</i>
-                           		<h:selectBooleanCheckbox type="checkbox"/>
-                           		<span class="lever"></span>
-                           		<i class="material-icons blue-text waves-effect waves-green accept-user">mode_edit</i>
-                           	</label>
-                           </div>
-				</div>
-                     </li>
+                     <c:forEach var="colaboradorBean" items="${controller.listaUsuariosPrivilegios(param['idTarea'])}" varstatus="true">
+                        <li class="collection-item avatar grey lighten-4">
+	                        <i class="material-icons circle green">insert_chart</i>
+	                        <p>
+	                           <h:outputText value="colaboradorBean.getNombreColaborador()"/>
+	                        </p>
+	                        <div class="secondary-content">
+	                           <!-- Switch -->
+	                           <div class="switch">
+	                            <h:form>
+	                               <label class="black-text">
+	                                   <i class="material-icons grey-text waves-effect waves-green accept-user">remove_red_eye</i>
+	                                   <h:selectBooleanCheckbox type="checkbox" value="colaboradorBean.getPrivilegioEdicion()"/>
+	                                   <span class="lever"></span>
+	                                   <i class="material-icons blue-text waves-effect waves-green accept-user">mode_edit</i>
+	                                </label>
+	                            </h:form>
+	                           </div>
+	                        </div>
+	                     </li>
+                     </c:forEach>
                   </ul>
 
                </div>

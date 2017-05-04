@@ -34,12 +34,12 @@ public class CompartirServiceImpl implements CompartirService {
 				
 				// Si ya se ha compartido la tarea con este usuario, seteamos "estadoInvitado" del item InvitadoBean en True
 				if(comprobarColaborador(idTarea,item.getIdUsuario())){ // "comprobarColaboradores" es un método local
-					colaborador.setEstadoInvitado(true);
+					colaborador.setEstadoColaborador(true);
 			    }
 			    else{
-			    	colaborador.setEstadoInvitado(false);
+			    	colaborador.setEstadoColaborador(false);
 			    }
-				colaborador.setNombreInvitado(item.getNombre());
+				colaborador.setNombreColaborador(item.getNombre());
 				listaCompartidos.add(colaborador);
 				colaborador = new ColaboradorBean();
 			}
@@ -49,12 +49,21 @@ public class CompartirServiceImpl implements CompartirService {
 
 	@Override
 	public boolean compartirTarea(Integer idTarea,String nombreUsuario){
-		return compartirDao.insertarColaborador(idTarea,usuarioDao.buscarIdUsuario(nombreUsuario));
+		Integer idUsuario = usuarioDao.buscarIdUsuario(nombreUsuario);
+		
+		if(compartirDao.existeColaborador(idTarea,idUsuario)) // Si este método es llamado y el colaborador ya estaba registrado, quiere decir que estaba con estado FALSE
+			return compartirDao.actualizarColaborador(idTarea,idUsuario,true); // Por lo que simplemente se lo actualiza a TRUE
+		else
+			return compartirDao.insertarColaborador(idTarea,idUsuario); // Por el contrario, si el colaborador no estaba registrado en la tabla, se hace un INSERT
 	}
 	
 	@Override
 	public boolean eliminarColaborador(Integer idTarea,String nombreUsuario){
-		return compartirDao.eliminarColaborador(idTarea,usuarioDao.buscarIdUsuario(nombreUsuario));
+		Integer idUsuario = usuarioDao.buscarIdUsuario(nombreUsuario);
+		
+		// Para des-compartir un usuario, primeramente debe haber estado compartido
+		// por lo que ya habia sido registrado en la ternaria. Solo se actualiza a FALSE
+		return compartirDao.actualizarColaborador(idTarea,idUsuario,false);
 	}
 	
 	public boolean comprobarColaborador(Integer idTarea,Integer idUsuario){

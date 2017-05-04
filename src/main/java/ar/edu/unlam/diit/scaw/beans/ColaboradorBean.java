@@ -11,29 +11,30 @@ public class ColaboradorBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String nombreInvitado;
-	private boolean estadoInvitado;
-	private Integer privilegio;
+	private String nombreColaborador;
+	private boolean estadoColaborador;
+	private boolean privilegioEdicion;
 	
 	
-	public String getNombreInvitado() {
-		return nombreInvitado;
+	public String getNombreColaborador() {
+		return nombreColaborador;
 	}
-	public void setNombreInvitado(String nombreInvitado) {
-		this.nombreInvitado = nombreInvitado;
+	public void setNombreColaborador(String nombreInvitado) {
+		this.nombreColaborador = nombreInvitado;
 	}
-	public boolean isEstadoInvitado() {
-		return estadoInvitado;
+	public boolean isEstadoColaborador() {
+		return estadoColaborador;
 	}
-	public void setEstadoInvitado(boolean estadoInvitado) {
-		this.estadoInvitado = estadoInvitado;
+	public void setEstadoColaborador(boolean estadoInvitado) {
+		this.estadoColaborador = estadoInvitado;
 	}
-	public Integer getPrivilegio() {
-		return privilegio;
+	public boolean isPrivilegioEdicion() {
+		return privilegioEdicion;
 	}
-	public void setPrivilegio(Integer privilegio) {
-		this.privilegio = privilegio;
+	public void setPrivilegioEdicion(boolean privilegioEdicion) {
+		this.privilegioEdicion = privilegioEdicion;
 	}
+	
 	
 	
 }
