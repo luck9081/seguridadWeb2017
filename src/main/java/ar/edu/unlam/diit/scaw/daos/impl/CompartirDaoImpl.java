@@ -24,9 +24,9 @@ public class CompartirDaoImpl implements CompartirDao {
 	@Override
 	public boolean insertarColaborador(Integer idTarea,Integer idUsuario){
 		
-		String sql = "INSERT INTO Usuario_Privilegio_Tarea (id_usuario,id_tarea,id_privilegio) VALUES (:id_usuario,:id_tarea,1)";
+		String sql = "INSERT INTO Usuario_Privilegio_Tarea (id_usuario,id_tarea,id_privilegio) VALUES (:id_usuario,:id_tarea,2)";
 		
-		Map<String, Object> params = new HashMap<String, Object>();		
+		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id_usuario",idUsuario);
 		params.put("id_tarea",idTarea);
 		
@@ -37,7 +37,7 @@ public class CompartirDaoImpl implements CompartirDao {
 	
 	@Override
 	public boolean eliminarColaborador(Integer idTarea,Integer idUsuario){
-		String sql = "UPDATE Usuario_Privilegio_Tarea SET estado = FALSE WHERE id_usuario = :id_usuario AND id_tarea = :id_tarea";
+		String sql = "UPDATE Usuario_Privilegio_Tarea SET estado_colaborador = FALSE WHERE id_usuario = :id_usuario AND id_tarea = :id_tarea";
 		
 		Map<String, Object> params = new HashMap<String, Object>();		
 		params.put("id_usuario",idUsuario);
@@ -50,7 +50,7 @@ public class CompartirDaoImpl implements CompartirDao {
 	
 	@Override
 	public List<Integer> obtenerColaboradores(Integer idTarea){
-		String sql = "SELECT id_usuario FROM Usuario_Privilegio_Tarea WHERE id_tarea = :id_tarea";
+		String sql = "SELECT id_usuario FROM Usuario_Privilegio_Tarea WHERE id_tarea = :id_tarea AND estado_colaborador = TRUE";
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id_tarea",idTarea);

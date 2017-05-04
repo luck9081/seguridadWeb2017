@@ -7,6 +7,7 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -177,26 +178,41 @@ public class Controller implements Serializable {
 		return "usuario";
 	}
 	
+	
+	
+	
+	/* ----------------- COMPARTIR ----------------- */
+	
 	public LinkedList<ColaboradorBean> listarUsuariosParaCompartir(Integer idTarea){
 		return compartirService.listarUsuariosParaCompartir(idTarea,getSesion().getIdUsuario());	// te muestra los usuarios compartidos y no compartidos, no debe mostrar usuario creador
 	}
 	
-	public String compartirTarea(Integer idTarea,String nombreUsuario){
-		compartirService.compartirTarea(idTarea,nombreUsuario);	// aÃ±adir usuario y tarea a la ternaria
+	public String compartirTarea(){
+		Integer idTarea = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idTarea"));
+		String nombreUsuario = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("nombreUsuario");
 		
+		compartirService.compartirTarea(idTarea,nombreUsuario);	// agregar usuario y tarea a la ternaria		
 		return compartir(idTarea);
 		
 		// posibilidad de hacerlo por ajax por cada usuario
 	}
 	
-	public void eliminarColaborador(Integer idTarea,String nombreUsuario){		
-		compartirService.eliminarColaborador(idTarea,nombreUsuario);	// el usuario ya no colaborarÃ¡ con la tarea, o sea, estado de la ternaria "false"
+	public String eliminarColaborador(){		
+		Integer idTarea = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idTarea"));
+		String nombreUsuario = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("nombreUsuario");
 		
+		compartirService.eliminarColaborador(idTarea,nombreUsuario);	// el usuario ya no colaborarÃ¡ con la tarea, o sea, estado de la ternaria "false"		
+		return compartir(idTarea);
 		// el privilegio debe regresar a "solo lectura"
 		// redirigir a vista "compartir"
 		
 		// posibilidad de hacerlo por ajax por cada usuario
 	}
+	
+	
+	
+	
+	/* ----------------- PRIVILEGIOS ----------------- */
 	
 	public LinkedList<ColaboradorBean> listaUsuariosPrivilegios(Integer idTarea){
 		return privilegioService.listarColaboradoresYPrivilegios(idTarea);	// te muestra los usuarios invitados a esta tarea

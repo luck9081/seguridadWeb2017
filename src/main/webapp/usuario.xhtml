@@ -163,7 +163,7 @@
                      <c:forEach var="tareaBean" items="${controller.listarTareasPendientes(controller.getSesion().getIdUsuario())}" varstatus="true">
                         
                         <li class="collection-item avatar grey lighten-4">
-                            <i class="material-icons circle">folder</i>
+                            <i class="material-icons circle red">label</i>
                             <p>
                                 <h:outputText value="#{tareaBean.getDescripcion()}"/>
                             </p>
@@ -178,50 +178,6 @@
                         </li>
                         
                      </c:forEach>
-               
-
-                    <!--  <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle green">insert_chart</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                        <div class="secondary-content">
-                           <a href=""><i class="material-icons green-text accept-user">done</i></a>
-                           <a href="compartir.xhtml"><i class="material-icons blue-text">share</i></a>
-                           <a href="privilegios.xhtml"><i class="material-icons orange-text">person_pin</i></a>
-                           <a><i class="material-icons grey-text delete">delete</i></a>
-                        </div>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle">folder</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                        <div class="secondary-content">
-                           <a href=""><i class="material-icons green-text accept-user">done</i></a>
-                           <a href="compartir.xhtml"><i class="material-icons blue-text">share</i></a>
-                           <a href="privilegios.xhtml"><i class="material-icons orange-text">person_pin</i></a>
-                           <a><i class="material-icons grey-text delete">delete</i></a>
-                        </div>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle red">play_arrow</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                        <div class="secondary-content">
-                           <a href=""><i class="material-icons green-text accept-user">done</i></a>
-                           <a href="compartir.xhtml"><i class="material-icons blue-text">share</i></a>
-                           <a href="privilegios.xhtml"><i class="material-icons orange-text">person_pin</i></a>
-                           <a><i class="material-icons grey-text delete">delete</i></a>
-                        </div>
-                     </li> -->
-
-
-
 
                   </ul>
 
@@ -232,86 +188,47 @@
                <div class="tarjeta grey lighten-4">
 
                   <h3 class="span_h2">Completas</h3>
-                     
                   
-                  
-
-                     <c:forEach var="tareaBean" items="${controller.listarTareasCompletas(controller.getSesion().getIdUsuario())}" varstatus="true">
-                     
-                    <h:outputText value="#{tareaBean.getDescripcion()}" /><br />
-
-                      </c:forEach>
-               
-
-                 <!--  <ul class="collection subcategories-list">
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle green">insert_chart</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle">folder</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle red">play_arrow</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                     </li>
-                  </ul> -->
+                    <ul class="collection subcategories-list">
+                        <c:forEach var="tareaBean" items="${controller.listarTareasCompletas(controller.getSesion().getIdUsuario())}" varstatus="true">                    
+	                        <li class="collection-item avatar grey lighten-4">
+	                            <i class="material-icons circle green">check_circle</i>
+	                            <p>
+	                                <h:outputText value="#{tareaBean.getDescripcion()}" /><br />
+	                            </p>
+	                        </li>
+	                    </c:forEach>
+                    </ul>
 
                </div>
             </div>
-
-                       <div class="col s12 m12 l12">
+            
+         </div>
+         
+         <!-- Tareas Públicas -->
+         <div class="row container animated zoomIn">
+            <div class="col s12 m12 l12">
                <div class="tarjeta grey lighten-4">
 
                   <h3 class="span_h2">Tareas globales</h3>
                      
-                     <c:forEach var="tareaBean" items="${controller.listarTareasGlobales(controller.getSesion().getIdUsuario())}" varstatus="true">
-                     
-                    <h:outputText value="#{tareaBean.getDescripcion()}" /> <br />
-
-                      </c:forEach>
-               
-
-                 <!--  <ul class="collection subcategories-list">
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle green">insert_chart</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle">folder</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                     </li>
-                     <li class="collection-item avatar grey lighten-4">
-                        <i class="material-icons circle red">play_arrow</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br/>
-                           Second Line
-                        </p>
-                     </li>
-                  </ul> -->
+                     <ul class="collection subcategories-list">
+                        <c:forEach var="tareaBean" items="${controller.listarTareasGlobales(controller.getSesion().getIdUsuario())}" varstatus="true">
+	                        <li class="collection-item avatar grey lighten-4">
+		                        <i class="material-icons circle blue">bookmark</i>
+		                        <span class="title">Title</span>
+		                        <p>
+		                           <h:outputText value="#{tareaBean.getDescripcion()}" /> <br />
+		                        </p>
+		                     </li>
+	                     </c:forEach>
+                     </ul>
 
                </div>
             </div>
-
             
-
-         </div><!-- container -->
+        </div>            
+         
 
          <!-- Modal Nueva Tarea -->
          <div id="modal1" class="modal center">

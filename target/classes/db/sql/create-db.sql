@@ -1,4 +1,5 @@
-/*DROP TABLE Usuario_Privilegio_Tarea IF EXISTS   ;
+/*
+DROP TABLE Usuario_Privilegio_Tarea IF EXISTS   ;
 DROP TABLE Tarea IF EXISTS  ;
 DROP TABLE Usuario IF EXISTS  ;
 DROP TABLE Estado_De_Usuario IF EXISTS ;
@@ -65,7 +66,8 @@ CREATE TABLE Tarea(
 CREATE TABLE Usuario_Privilegio_Tarea(
 	id_usuario INTEGER,
 	id_tarea INTEGER,
-	id_privilegio INTEGER,
+	id_privilegio INTEGER DEFAULT 2,
+	estado_colaborador BOOLEAN DEFAULT TRUE,
 	PRIMARY KEY (id_usuario,id_tarea),
 	FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
 	FOREIGN KEY (id_tarea) REFERENCES Tarea(id_tarea),

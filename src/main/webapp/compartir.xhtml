@@ -156,16 +156,23 @@
 	                           <h:form>
 	                               <c:choose>
 		                               <c:when test="${colaboradorBean.isEstadoInvitado()}">
-		                                  <a ><i class="material-icons red-text delete-user waves-effect">clear</i></a>
+		                                  <h:commandLink action="#{controller.eliminarColaborador()}">
+                                              <i class="material-icons red-text delete-user waves-effect">clear</i>
+                                              <f:param name="idTarea" value="#{param['idTarea']}"/>
+                                              <f:param name="nombreUsuario" value="#{colaboradorBean.getNombreInvitado()}"/>
+                                          </h:commandLink>
 		                               </c:when>
 		                               <c:otherwise>
-		                                  <h:commandLink action="#{controller.compartirTarea(param['idTarea'],colaboradorBean.getNombreInvitado())}"><i class="material-icons green-text waves-effect waves-green accept-user">done</i></h:commandLink>
+		                                  <h:commandLink action="#{controller.compartirTarea()}">
+		                                      <i class="material-icons green-text waves-effect waves-green accept-user">done</i>
+		                                      <f:param name="idTarea" value="#{param['idTarea']}"/>
+		                                      <f:param name="nombreUsuario" value="#{colaboradorBean.getNombreInvitado()}"/>
+		                                  </h:commandLink>
 		                               </c:otherwise>
 	                               </c:choose>
 	                           </h:form>
 	                        </div>
 	                     </li>
-                        
                      </c:forEach>
                      
                      

@@ -33,7 +33,7 @@ public class CompartirServiceImpl implements CompartirService {
 			if(!item.getIdUsuario().equals(miIdUsuario)){ // Si en el listado aparece mi usuario, no lo añado (no puedo compartir mi tarea conmigo)
 				
 				// Si ya se ha compartido la tarea con este usuario, seteamos "estadoInvitado" del item InvitadoBean en True
-				if(comprobarColaboradores(idTarea,item.getIdUsuario())){ // "comprobarColaboradores" es un método local
+				if(comprobarColaborador(idTarea,item.getIdUsuario())){ // "comprobarColaboradores" es un método local
 					colaborador.setEstadoInvitado(true);
 			    }
 			    else{
@@ -57,12 +57,17 @@ public class CompartirServiceImpl implements CompartirService {
 		return compartirDao.eliminarColaborador(idTarea,usuarioDao.buscarIdUsuario(nombreUsuario));
 	}
 	
-	public boolean comprobarColaboradores(Integer idTarea,Integer idUsuario){
+	public boolean comprobarColaborador(Integer idTarea,Integer idUsuario){
+		// Devuelve un listado de colaboradores (registros en ternaria con campo "estado_colaborador = TRUE"
 		List<Integer> listadoColaboradores = compartirDao.obtenerColaboradores(idTarea);
+		
 		boolean flag = false;
+		
 		for (Integer item : listadoColaboradores){
+			// Si el usuario a corroborar figura en la ternaria, flag es TRUE
 			if(item.equals(idUsuario)){
 				flag = true;
+				break;
 			}
 		}		
 		return flag;
