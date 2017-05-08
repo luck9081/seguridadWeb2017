@@ -24,6 +24,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 	
 	@Override
+	public void saveAdmin(UsuarioBean usuario) {
+		Usuario user = new Usuario();
+		user.setNombre(usuario.getNombre());
+		user.setPass(usuario.getPass());
+		usuarioDao.saveAdmin(user);
+	}
+	
+	@Override
 	public boolean loguear(UsuarioBean usuario){
 		
 		Usuario user2 = new Usuario();

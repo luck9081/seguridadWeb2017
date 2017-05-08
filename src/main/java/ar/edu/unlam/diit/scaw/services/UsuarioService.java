@@ -12,6 +12,8 @@ public interface UsuarioService {
 
 	public void save(UsuarioBean usuario);
 	
+	public void saveAdmin(UsuarioBean usuario);
+	
 	public List<Usuario> findAll();
 	
 	public boolean borrar(Integer idUsuario);

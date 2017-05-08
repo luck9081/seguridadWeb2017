@@ -137,6 +137,17 @@
 
       <!-- SECTION MAIN -->
       <div class="section scrollspy">
+      
+      	<!-- Nuevo Admin -->
+         <div class="row container">
+            <div class="col s12 m12 l6 offset-l3">
+               <a href="#modal1">
+                  <div class="tarjeta-new light-blue darken-1 waves-effect waves-light animated fadeInLeft">
+                     <h4 class="span_h2 white-text">Nuevo Admin</h4>
+                  </div>
+               </a>
+            </div>
+         </div>
 
          <!-- Moderador -->
          <div class="row container animated fadeIn">
@@ -173,37 +184,23 @@
 
 
          <!-- Modal Registro -->
-         <div id="modal1" class="modal center">
+         <div id="modal1" class="modal">
             <div class="modal-content espaciado-superior">
-               <h4 class="orange-text finito">Editar Usuario</h4>
+               <h4 class="orange-text finito">Registrar nuevo Administrador</h4>
             </div>
-            <form class="container left-align espaciado-inferior">
+            <h:form class="container left-align espaciado-inferior">
                <div class="input-field">
-                  <input id="first_name" type="text" class="validate"/>
-                  <label for="first_name">Nombre</label>
-               </div>
-               <div class="input-field">
-                  <input id="last_name" type="text" class="validate"/>
-                  <label for="last_name">Apellido</label>
+                  <h:inputText id="first_name" name="nombre" type="text" class="validate" value="#{usuarioBean.nombre}"/>
+                  <label for="first_name">Nombre de Usuario</label>
                </div>
                <div class="input-field">
-                  <input id="email" type="email" class="validate"/>
-                  <label for="email">Email</label>
+                  <h:inputSecret id="password1" name="pass" type="password" class="validate" value="#{usuarioBean.pass}"/>
+                  <label for="password1">Password</label>                  
                </div>
-               <div class="input-field">
-                  <input id="password" type="password" class="validate"/>
-                  <label for="password">Password</label>
+               <div class="center input-field">
+                  <h:commandButton action="#{controller.nuevoAdmin(usuarioBean)}" type="submit" class="btn btn-large orange waves-effect waves-light" value="Confirmar"/>
                </div>
-               <div class="input-field">
-                  <input id="password" type="password" class="validate"/>
-                  <label for="password">Confirmación Password</label>
-               </div>
-               <div class="center">
-                  <button class="btn btn-floating btn-large orange waves-effect waves-light" type="submit" name="">
-                      <i class="large material-icons">done</i>
-                  </button>
-               </div>
-            </form>
+            </h:form>
          </div>
 
       </div>

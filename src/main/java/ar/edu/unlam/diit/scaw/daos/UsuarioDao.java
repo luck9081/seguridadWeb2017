@@ -9,6 +9,8 @@ public interface UsuarioDao {
 
 	public void save(Usuario usuario);
 	
+	public void saveAdmin(Usuario usuario);
+	
 	public boolean loguear(Usuario usuario);
 	
 	public boolean borrar(Integer idUsuario);

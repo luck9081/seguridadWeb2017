@@ -34,6 +34,18 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
 	}
 	
+	@Override
+	public void saveAdmin(Usuario usuario) {
+
+		String sql = "INSERT INTO Usuario (nombre, pass, id_estado_usuario, id_tipo_usuario) VALUES (:nombre, :pass,2,1)";
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("nombre", usuario.getNombre());
+		params.put("pass", usuario.getPass());
+		jdbcTemplate.update(sql, params);
+
+	}
+	
 
 	public List<String> listarUsuariosPorNombre(String nombre) {
 		

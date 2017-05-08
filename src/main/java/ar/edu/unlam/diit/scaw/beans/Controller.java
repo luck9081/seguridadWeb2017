@@ -106,6 +106,12 @@ public class Controller implements Serializable {
 		return index();
 	}
 	
+	public String nuevoAdmin(UsuarioBean usuario){
+		
+		usuarioService.saveAdmin(usuario);
+		return index();
+	}
+	
 	/* -------------------------------------------------------- */
 	/* -------------------------------------------------------- */
 	
