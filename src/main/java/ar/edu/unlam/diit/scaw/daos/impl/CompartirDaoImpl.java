@@ -118,5 +118,17 @@ public class CompartirDaoImpl implements CompartirDao {
 			return estado;
 		}
 	}
+	
+	@Override
+	public void autoasignarUsuarioATareaGlobal(Integer idUsuario,Integer idTarea) {
+			
+		String sql = "INSERT INTO Usuario_Privilegio_Tarea (id_usuario,id_tarea,id_privilegio) VALUES (:id_usuario,:id_tarea,2)";
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id_usuario",idUsuario);
+		params.put("id_tarea",idTarea);
+		
+		jdbcTemplate.update(sql, params);
+	}
 
 }

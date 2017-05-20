@@ -12,4 +12,5 @@ public interface CompartirService {
 	
 	public boolean eliminarColaborador(Integer idTarea,String nombreUsuario);
 
+	public void autoasignarUsuarioATareaGlobal(Integer idUsuario, Integer idTarea);
 }

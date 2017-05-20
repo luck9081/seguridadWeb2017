@@ -11,6 +11,6 @@ public interface TareaDao {
 	public void modificarEstadoTareaACompleto(Integer id_tarea);
 	public List<TareaBean> listarTareasCompletas(Integer id);
 	public List<TareaBean> listarTareasGlobales(Integer id_usuario);
-
-
+	public TareaBean obtenerTarea(Integer id);
+	public int actualizarTarea(TareaBean tarea, Integer idUsuario);
 }

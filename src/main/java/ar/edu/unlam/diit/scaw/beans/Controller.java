@@ -112,6 +112,11 @@ public class Controller implements Serializable {
 		return index();
 	}
 	
+	public void autoasignarUsuarioATareaGlobal(Integer idUsuario,Integer idTarea){
+		compartirService.autoasignarUsuarioATareaGlobal(idUsuario, idTarea);
+	
+	}
+	
 	/* -------------------------------------------------------- */
 	/* -------------------------------------------------------- */
 	

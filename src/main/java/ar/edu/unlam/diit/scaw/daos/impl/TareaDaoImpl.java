@@ -53,6 +53,35 @@ public class TareaDaoImpl implements TareaDao {
 	}
 	
 	@Override
+	public int actualizarTarea(TareaBean tarea, Integer idUsuario){
+		Map<String, Object> params = new HashMap<String, Object>();
+
+		String sql = "INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario) VALUES (:descripcion,:idModoAcceso,:idEstadoTarea,:idUsuario);";
+		
+		params.put("descripcion", tarea.getDescripcion());
+		params.put("idModoAcceso", 1);
+		params.put("idEstadoTarea", 1);
+		params.put("idUsuario", idUsuario);
+
+		return jdbcTemplate.update(sql, params);
+
+
+	}
+	
+	@Override
+	public TareaBean obtenerTarea(Integer id){
+		Map<String, Object> params = new HashMap<String, Object>();
+
+		String sql = "SELECT * FROM Tarea where id_tarea=:id_tarea";
+		
+		params.put("id_tarea", id);
+
+		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());
+
+		return result.get(0);
+	}
+	
+	@Override
 	public List<TareaBean> listarTareasCompletas(Integer id) {
 		Map<String, Object> params = new HashMap<String, Object>();
 

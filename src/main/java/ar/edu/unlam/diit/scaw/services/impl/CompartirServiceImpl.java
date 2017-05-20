@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.edu.unlam.diit.scaw.beans.ColaboradorBean;
+import ar.edu.unlam.diit.scaw.beans.TareaBean;
 import ar.edu.unlam.diit.scaw.daos.CompartirDao;
+import ar.edu.unlam.diit.scaw.daos.TareaDao;
 import ar.edu.unlam.diit.scaw.daos.UsuarioDao;
 import ar.edu.unlam.diit.scaw.entities.Usuario;
 import ar.edu.unlam.diit.scaw.services.CompartirService;
@@ -18,6 +20,9 @@ public class CompartirServiceImpl implements CompartirService {
 	
 	@Autowired
 	UsuarioDao usuarioDao;
+	
+	@Autowired
+	TareaDao tareaDao;
 	
 	@Override
 	public LinkedList<ColaboradorBean> listarUsuariosParaCompartir(Integer idTarea,Integer miIdUsuario){
@@ -51,6 +56,8 @@ public class CompartirServiceImpl implements CompartirService {
 	public boolean compartirTarea(Integer idTarea,String nombreUsuario){
 		Integer idUsuario = usuarioDao.buscarIdUsuario(nombreUsuario);
 		
+		TareaBean tarea = tareaDao.obtenerTarea(idTarea);
+		int x = tareaDao.actualizarTarea(tarea, idUsuario);
 		if(compartirDao.existeColaborador(idTarea,idUsuario)) // Si este método es llamado y el colaborador ya estaba registrado, quiere decir que estaba con estado FALSE
 			return compartirDao.actualizarColaborador(idTarea,idUsuario,true); // Por lo que simplemente se lo actualiza a TRUE
 		else
@@ -82,7 +89,11 @@ public class CompartirServiceImpl implements CompartirService {
 		return flag;
 	}
 	
-	
+	@Override
+	public void autoasignarUsuarioATareaGlobal(Integer idUsuario,Integer idTarea) {
+		compartirDao.autoasignarUsuarioATareaGlobal(idUsuario, idTarea);
+		
+	}
 	
 	//GETTERS Y SETTERS
 

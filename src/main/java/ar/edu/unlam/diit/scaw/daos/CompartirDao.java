@@ -14,4 +14,6 @@ public interface CompartirDao {
 	
 	public List<Integer> obtenerColaboradores(Integer idTarea);
 	
+	public void autoasignarUsuarioATareaGlobal(Integer idUsuario,Integer idTarea);
+	
 }
