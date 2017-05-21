@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	>
+
+	<head>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+      <meta name="theme-color" content="#2196F3"/>
+
+      <!-- FAVICON -->
+      <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+
+      <!-- TITLE  -->
+      <title>OrganizeMe</title>
+
+      <!-- CSS  -->
+      <link type="text/css" rel="stylesheet" href="fonts/material-design-icons/material-icons.css"/>
+      <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"/>
+      <link type="text/css" rel="stylesheet" href="css/animate.css"/>
+      <link type="text/css" rel="stylesheet" href="css/estilo.css"/>
+
+   </head>
+
+   <body id="top" class="scrollspy sin-espaciado-inferior">
+
+      <ui:include src="includes/preloader.xhtml" />
+      <!-- NAVIGATION LARGE -->
+      <div class="navbar-fixed animated fadeInDown">
+	  	   <!-- Nav Structure -->
+		   <nav id="nav_f" class="grey lighten-5" role="navigation">
+		      <div class="row center">
+		         <div class="container">
+		            <div class="nav-wrapper">
+		               <a id="logo-container" class="brand-logo hide-on-med-and-down">
+		                  <span class="black-text">Organize</span><span class="orange-text span_h1">Me</span>
+		               </a>
+		            </div>
+		         </div>
+		         <a href="#" data-activates="nav-mobile" class="button-collapse blue-text"><i class="fa fa-bars fa-2x"></i></a>
+		         <a id="logo-container" class="brand-logo-small hide-on-large-only">
+		            <span class="black-text">Organize</span>
+		            <span class="orange-text span_h1">Me</span>
+		         </a>
+		      </div>
+		   </nav>
+	  </div>
+      <!-- SECTION MAIN -->
+      <div class="section scrollspy">
+
+         <!-- Tareas Públicas -->
+         <div class="row container animated zoomIn">
+            <div class="col s12 m12 l12">
+               <div class="tarjeta grey lighten-4">
+
+                  <h3 class="span_h2">Tareas Publicas</h3>
+
+                     <ul class="collection subcategories-list">
+
+                        <c:forEach var="tareaBean" items="${controller.listarTareasGlobales(controller.getSesion().getIdUsuario())}" varstatus="true">
+
+	                        <li class="collection-item avatar grey lighten-4">
+
+		                        <i class="material-icons circle blue">bookmark</i>
+
+		                        <p>
+		                           <h:outputText value="#{tareaBean.getDescripcion()}" /> <br />
+		                        </p>
+		                        
+								<div class="secondary-content">
+									<h:form>
+										<!-- Compartir a usuarios -->
+									    <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}">
+									    	<i class="material-icons blue-text waves-effect waves-blue">share</i>
+									    </h:commandLink>
+									    <!-- compartirme a mi -->
+								    	<h:commandLink action="#{controller.autoasignarUsuarioATareaGlobal(controller.getSesion().getIdUsuario(),tareaBean.getId_tarea())}">
+								    		<i class="material-icons blue-text waves-effect waves-blue">person_add</i>
+								    	</h:commandLink>
+									</h:form>
+								</div>
+		                     </li>
+	                     </c:forEach>
+                     </ul>
+
+               </div>
+            </div>
+
+        </div>
+                  
+      </div>
+
+   </body>
+
+   <!-- SCRIPTS -->
+   <script src="js/jquery-2.1.1.min.js"></script>
+   <script src="js/materialize.min.js"></script>
+   <script src="js/pre-loader.js"></script>
+   <script src="js/init.js"></script>
+   <script src="js/funciones.js"></script>
+
+</html>

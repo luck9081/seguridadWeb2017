@@ -106,10 +106,10 @@ public class Controller implements Serializable {
 		return index();
 	}
 	
-	public String nuevoAdmin(UsuarioBean usuario){
+	public void nuevoAdmin(UsuarioBean usuario){
 		
 		usuarioService.saveAdmin(usuario);
-		return index();
+		return;
 	}
 	
 	public void autoasignarUsuarioATareaGlobal(Integer idUsuario,Integer idTarea){

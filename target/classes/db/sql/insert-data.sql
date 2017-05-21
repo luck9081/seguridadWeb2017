@@ -1,4 +1,4 @@
-
+/*
 INSERT INTO Estado_De_Usuario
 VALUES (1,'Pendiente'),
 		(2,'Aceptada'),
@@ -22,10 +22,12 @@ VALUES (1,'Edicion'),
 		(2,'Solo Lectura');
 		
 INSERT INTO Usuario(nombre,pass,id_estado_usuario,id_tipo_usuario)
-VALUES('rodrigo','peperino',1,1),
+VALUES('rodrigo','peperino',2,1),
+		('admin','1234',2,1),
 		('cristian','ismael',2,2),
 		('carlos','menem',1,1),
-		('kari','kari',1,1);
+		('kari','kari',1,1),
+		('pepe','pepito',1,1);
 
 INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
 VALUES ('tarea nro 1',1,1,2);
@@ -58,5 +60,5 @@ INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
 VALUES ('tarea nro 52',1,2,1);
 
 INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario)
-VALUES ('tarea nro 53',1,1,1);
+VALUES ('tarea nro 53',1,1,1);*/
 --COMMIT;
