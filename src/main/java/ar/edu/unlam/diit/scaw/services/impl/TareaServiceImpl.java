@@ -42,6 +42,20 @@ public class TareaServiceImpl implements TareaService {
 		tareaDao.modificarEstadoTareaACompleto(id_tarea);
 	}
 	
+	@Override
+	public List<TareaBean> listarTareasPendientesCompartidas(Integer id) {
+		
+		return tareaDao.listarTareasPendientesCompartidas(id);
+		
+	}
+	
+	@Override
+	public List<TareaBean> listarTareasCompletasCompartidas(Integer id) {
+		
+		return tareaDao.listarTareasCompletasCompartidas(id);
+	}
+
+	
 	
 	//GETTERS Y SETTERS
 	public TareaDao getTareaDao() {
@@ -51,6 +65,8 @@ public class TareaServiceImpl implements TareaService {
 	public void setTareaDao(TareaDao tareaDao) {
 		this.tareaDao = tareaDao;
 	}
+
+
 
 	
 

@@ -13,4 +13,7 @@ public interface TareaDao {
 	public List<TareaBean> listarTareasGlobales(Integer id_usuario);
 	public TareaBean obtenerTarea(Integer id);
 	public int actualizarTarea(TareaBean tarea, Integer idUsuario);
+	public List<TareaBean> listarTareasPendientesCompartidas(Integer id);
+	public List<TareaBean> listarTareasCompletasCompartidas(Integer id);
+
 }

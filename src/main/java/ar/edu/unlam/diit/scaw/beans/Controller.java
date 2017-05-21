@@ -168,6 +168,14 @@ public class Controller implements Serializable {
 		
 	}
 	
+	public List<TareaBean> listarTareasPendientesCompartidas(Integer id_usuario){
+		
+		List<TareaBean> lista = tareaService.listarTareasPendientesCompartidas(id_usuario);
+		
+		return lista;
+		
+	}
+	
 	public List<TareaBean> listarTareasCompletas(Integer id_usuario){
 		
 		List<TareaBean> lista = tareaService.listarTareasCompletas(id_usuario);
@@ -175,6 +183,14 @@ public class Controller implements Serializable {
 		return lista;
 		
 	}
+
+	public List<TareaBean> listarTareasCompletasCompartidas(Integer id_usuario){
+		
+		List<TareaBean> lista = tareaService.listarTareasCompletasCompartidas(id_usuario);
+		
+		return lista;
+		
+	}	
 	
 	public List<TareaBean> listarTareasGlobales(Integer id_usuario){
 		

@@ -52,16 +52,28 @@ public class TareaDaoImpl implements TareaDao {
 		
 	}
 	
+	public List<TareaBean> listarTareasPendientesCompartidas(Integer id){
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+
+		String sql = "SELECT TAR.id_tarea,TAR.descripcion,TAR.id_modo_acceso,UPT.id_usuario FROM Usuario_Privilegio_Tarea UPT JOIN Tarea TAR ON UPT.id_tarea=TAR.id_tarea  WHERE UPT.id_usuario=:id_usuario AND TAR.id_estado_tarea=1;";
+		
+		params.put("id_usuario", id);
+
+		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());
+
+		return result;
+		
+	}
+	
 	@Override
 	public int actualizarTarea(TareaBean tarea, Integer idUsuario){
 		Map<String, Object> params = new HashMap<String, Object>();
 
-		String sql = "INSERT INTO Tarea(descripcion,id_modo_acceso,id_estado_tarea,id_usuario) VALUES (:descripcion,:idModoAcceso,:idEstadoTarea,:idUsuario);";
+		String sql = "INSERT INTO Usuario_Privilegio_Tarea(id_usuario,id_tarea,id_privilegio) VALUES (:id_usuario,:id_tarea,2);";
 		
-		params.put("descripcion", tarea.getDescripcion());
-		params.put("idModoAcceso", 1);
-		params.put("idEstadoTarea", 1);
-		params.put("idUsuario", idUsuario);
+		params.put("id_usuario", idUsuario);
+		params.put("id_tarea", tarea.getId_tarea());
 
 		return jdbcTemplate.update(sql, params);
 
@@ -92,6 +104,21 @@ public class TareaDaoImpl implements TareaDao {
 		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());
 
 		return result;
+	}
+	
+	
+	public List<TareaBean> listarTareasCompletasCompartidas(Integer id){
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+
+		String sql = "SELECT TAR.id_tarea,TAR.descripcion,TAR.id_modo_acceso,UPT.id_usuario FROM Usuario_Privilegio_Tarea UPT JOIN Tarea TAR ON UPT.id_tarea=TAR.id_tarea  WHERE UPT.id_usuario=:id_usuario AND TAR.id_estado_tarea=2;";
+		
+		params.put("id_usuario", id);
+
+		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());
+
+		return result;
+		
 	}
 	
 	@Override

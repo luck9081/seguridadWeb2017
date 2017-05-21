@@ -2,6 +2,8 @@ package ar.edu.unlam.diit.scaw.daos;
 
 import java.util.List;
 
+import ar.edu.unlam.diit.scaw.beans.TareaBean;
+
 public interface CompartirDao {
 
 	public boolean insertarColaborador(Integer idTarea,Integer idUsuario);
@@ -15,5 +17,6 @@ public interface CompartirDao {
 	public List<Integer> obtenerColaboradores(Integer idTarea);
 	
 	public void autoasignarUsuarioATareaGlobal(Integer idUsuario,Integer idTarea);
+	
 	
 }
