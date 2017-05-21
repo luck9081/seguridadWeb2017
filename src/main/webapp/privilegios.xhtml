@@ -53,17 +53,17 @@
                         <li class="collection-item avatar grey lighten-4">
 	                        <i class="material-icons circle green">insert_chart</i>
 	                        <p>
-	                           <h:outputText value="colaboradorBean.getNombreColaborador()"/>
+	                           <h:outputText value="#{colaboradorBean.getNombreColaborador()}"/>
 	                        </p>
 	                        <div class="secondary-content">
 	                           <!-- Switch -->
 	                           <div class="switch">
 	                            <h:form>
 	                               <label class="black-text">
-	                                   <i class="material-icons grey-text waves-effect waves-green accept-user">remove_red_eye</i>
-	                                   <h:selectBooleanCheckbox type="checkbox" value="colaboradorBean.getPrivilegioEdicion()"/>
-	                                   <span class="lever"></span>
-	                                   <i class="material-icons blue-text waves-effect waves-green accept-user">mode_edit</i>
+	                                   <i class="material-icons grey-text waves-effect waves-light">remove_red_eye</i>
+	                                   <h:selectBooleanCheckbox id="hola" styleClass="hola" type="checkbox" value="colaboradorBean.getPrivilegioEdicion()"/>
+	                                   <span class='lever'/>
+	                                   <i class="material-icons blue-text waves-effect waves-light">mode_edit</i>
 	                                </label>
 	                            </h:form>
 	                           </div>

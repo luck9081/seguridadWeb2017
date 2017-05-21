@@ -24,7 +24,7 @@ public class PrivilegioServiceImpl implements PrivilegioService {
 		ColaboradorBean colaborador = new ColaboradorBean();
 		LinkedList<ColaboradorBean> listaColaboradores = new LinkedList<ColaboradorBean>();		
 		
-		for(Usuario_Privilegio_Tarea item : privilegioDao.colaboradoresYPrivilegios(idTarea)){
+		for(Usuario_Privilegio_Tarea item : privilegioDao.colaboradoresYPrivilegios(idTarea)){ // El método trae los colaboradores de esta tarea, y sus privilegios
 			if(item.getId_privilegio().equals(1))
 				colaborador.setPrivilegioEdicion(true);
 			else

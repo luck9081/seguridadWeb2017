@@ -31,58 +31,8 @@
 
    <h:body class="altura-total" style="padding-top:15%">
 
-      <!-- PRELOADER -->
-      <div class="preloader-background">
-         <div class="preloader-wrapper big active">
-            <div class="spinner-layer spinner-blue">
-               <div class="circle-clipper left">
-                  <div class="circle"></div>
-               </div>
-               <div class="gap-patch">
-                  <div class="circle"></div>
-               </div>
-               <div class="circle-clipper right">
-                  <div class="circle"></div>
-               </div>
-            </div>
-
-            <div class="spinner-layer spinner-red">
-               <div class="circle-clipper left">
-                  <div class="circle"></div>
-               </div>
-               <div class="gap-patch">
-                  <div class="circle"></div>
-               </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-               </div>
-            </div>
-
-            <div class="spinner-layer spinner-yellow">
-               <div class="circle-clipper left">
-                  <div class="circle"></div>
-               </div>
-               <div class="gap-patch">
-                  <div class="circle"></div>
-               </div>
-               <div class="circle-clipper right">
-                  <div class="circle"></div>
-               </div>
-            </div>
-
-            <div class="spinner-layer spinner-green">
-               <div class="circle-clipper left">
-                  <div class="circle"></div>
-               </div>
-               <div class="gap-patch">
-                  <div class="circle"></div>
-               </div>
-               <div class="circle-clipper right">
-                  <div class="circle"></div>
-               </div>
-            </div>
-         </div>
-      </div>
-
+      <ui:include src="includes/preloader.xhtml" />
+      
       <!-- MAIN SECTION -->
       <div class="row container center">
          <h3 class="finito animated fadeInDown">Bienvenido a</h3>
@@ -106,7 +56,7 @@
                   <label for="first_name">Usuario</label>
                </div>
                <div class="input-field">
-                  <h:inputText id="password" type="password" value="#{usuarioBean.pass}" class="validate"/>
+                  <h:inputSecret id="password" value="#{usuarioBean.pass}" class="validate"/>
                   <label for="password">Password</label>
                </div>
                <!-- Switch -->

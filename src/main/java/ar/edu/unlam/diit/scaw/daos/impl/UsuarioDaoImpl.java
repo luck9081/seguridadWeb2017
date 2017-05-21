@@ -186,7 +186,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("idUsuario", idUsuario);
 
-		String sql = "SELECT * FROM Usuario WHERE nombre = :idUsuario";
+		String sql = "SELECT * FROM Usuario WHERE id_usuario = :idUsuario";
 
 		List<Usuario> result = jdbcTemplate.query(sql, params, new PersonMapper());
 
