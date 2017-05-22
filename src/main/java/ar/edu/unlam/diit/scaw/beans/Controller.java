@@ -221,6 +221,15 @@ public class Controller implements Serializable {
 		return "usuario";
 	}
 	
+	public String modificarModoAccesoAPublico(Integer idTarea){
+		tareaService.modificarModoAccesoAPublico(idTarea);
+		return "usuario";
+	}
+	
+	public String modificarModoAccesoAPrivado(Integer idTarea){
+		tareaService.modificarModoAccesoAPrivado(idTarea);
+		return "usuario";
+	}
 	
 	
 	

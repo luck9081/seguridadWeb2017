@@ -69,6 +69,10 @@
 
                      <c:forEach var="tareaBean" items="${controller.listarTareasPendientes(controller.getSesion().getIdUsuario())}" varstatus="true">
 
+                     <c:choose>
+
+                       <c:when test="#{tareaBean.id_modo_acceso_int==2}">
+
                         <li class="collection-item avatar grey lighten-4">
                             <i class="material-icons circle red">label</i>
                             <p>
@@ -82,9 +86,41 @@
                                     <h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
                                       <i class="material-icons grey-text delete">delete</i>
                                     </h:commandLink>
+                                     <h:commandLink action="#{controller.modificarModoAccesoAPublico(tareaBean.getId_tarea())}">
+                                    <i class="material-icons blue-text">public</i>
+                                    </h:commandLink>
+
                                </h:form>
                             </div>
                         </li>
+                        </c:when>
+
+                        <c:otherwise>
+                             <li class="collection-item avatar grey lighten-4">
+                            <i class="material-icons circle red">label</i>
+                            <p>
+                                <h:outputText value="#{tareaBean.getDescripcion()}"/>
+                            </p>
+                            <div class="secondary-content">
+                               <h:form>
+                                   <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
+                                   <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
+                                   <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
+                                    <h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
+                                      <i class="material-icons grey-text delete">delete</i>
+                                    </h:commandLink>
+                                    <h:commandLink action="#{controller.modificarModoAccesoAPrivado(tareaBean.getId_tarea())}">
+                                     <i class="material-icons blue-text">vpn_key</i>
+                                    </h:commandLink>
+
+                               </h:form>
+                            </div>
+                        </li>
+                        </c:otherwise>
+
+                   </c:choose>
+
+                  
 
                      </c:forEach>
 
@@ -95,24 +131,55 @@
                           <c:choose>
 
                                  <c:when test="#{tareaBean.id_privilegio==1}">
-                  
-                                    <li class="collection-item avatar grey lighten-4">
-                                      <i class="material-icons circle red">label</i>
-                                        <p>
-                                            <h:outputText value="#{tareaBean.getDescripcion()}"/>
-                                        </p>
-                                        <div class="secondary-content">
-                                           <h:form>
-                                               <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
-                                               <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
-                                               <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
-                                                <h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
-                                               <i class="material-icons grey-text delete">delete</i>
-                                               </h:commandLink>
+                                  <c:choose>
+                                   <c:when test="#{tareaBean.id_modo_acceso_int==2}">
+                                        <li class="collection-item avatar grey lighten-4">
+                                            <i class="material-icons circle red">label</i>
+                                            <p>
+                                                <h:outputText value="#{tareaBean.getDescripcion()}"/>
+                                            </p>
+                                            <div class="secondary-content">
+                                               <h:form>
+                                                   <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
+                                                   <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
+                                                   <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
+                                                    <h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
+                                                      <i class="material-icons grey-text delete">delete</i>
+                                                    </h:commandLink>
+                                                    <h:commandLink action="#{controller.modificarModoAccesoAPublico(tareaBean.getId_tarea())}">
+                                                    <i class="material-icons blue-text">public</i>
+                                                    </h:commandLink>
 
-                                           </h:form>
-                                        </div>
-                                      </li>
+                                               </h:form>
+                                            </div>
+                                        </li>
+                                    </c:when>
+                                    <c:otherwise>
+
+
+                                      <li class="collection-item avatar grey lighten-4">
+                                        <i class="material-icons circle red">label</i>
+                                          <p>
+                                              <h:outputText value="#{tareaBean.getDescripcion()}"/>
+                                          </p>
+                                          <div class="secondary-content">
+                                             <h:form>
+                                                 <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
+                                                 <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
+                                                 <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
+                                                  <h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
+                                                 <i class="material-icons grey-text delete">delete</i>
+                                                 </h:commandLink>
+
+                                                  <h:commandLink action="#{controller.modificarModoAccesoAPrivado(tareaBean.getId_tarea())}">
+                                     <i class="material-icons blue-text">vpn_key</i>
+                                    </h:commandLink>
+
+                                             </h:form>
+                                          </div>
+                                        </li>
+                                    </c:otherwise>
+                                  </c:choose>
 
                                   </c:when>
 

@@ -62,6 +62,16 @@ public class TareaServiceImpl implements TareaService {
 	}
 
 
+	@Override
+	public void modificarModoAccesoAPublico(Integer idTarea) {
+		tareaDao.modificarModoAccesoAPublico(idTarea);
+		
+	}
+	
+	public void modificarModoAccesoAPrivado(Integer idTarea) {
+		tareaDao.modificarModoAccesoAPrivado(idTarea);
+		
+	}
 	
 	
 	//GETTERS Y SETTERS
@@ -72,6 +82,8 @@ public class TareaServiceImpl implements TareaService {
 	public void setTareaDao(TareaDao tareaDao) {
 		this.tareaDao = tareaDao;
 	}
+
+	
 
 
 

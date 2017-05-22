@@ -159,6 +159,31 @@ public class TareaDaoImpl implements TareaDao {
 		jdbcTemplate.update(sql, params);
 		
 	}
+	
+	@Override
+	public void modificarModoAccesoAPublico(Integer idTarea) {
+		
+		String sql = "UPDATE Tarea SET id_modo_acceso=1 WHERE id_tarea=:id_tarea";
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id_tarea", idTarea);
+		jdbcTemplate.update(sql, params);
+		
+		
+		
+	}
+	
+	public void modificarModoAccesoAPrivado(Integer idTarea) {
+		
+		String sql = "UPDATE Tarea SET id_modo_acceso=2 WHERE id_tarea=:id_tarea";
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id_tarea", idTarea);
+		jdbcTemplate.update(sql, params);
+		
+		
+		
+	}
 
 
 

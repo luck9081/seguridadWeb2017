@@ -16,5 +16,7 @@ public interface TareaDao {
 	public List<TareaBean> listarTareasPendientesCompartidas(Integer id);
 	public List<TareaBean> listarTareasCompletasCompartidas(Integer id);
 	public void eliminarTarea(Integer idTarea);
+	public void modificarModoAccesoAPublico(Integer idTarea);
+	public void modificarModoAccesoAPrivado(Integer idTarea);
 
 }
