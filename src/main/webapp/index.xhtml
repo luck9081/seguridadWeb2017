@@ -56,7 +56,7 @@
                   <label for="first_name">Usuario</label>
                </div>
                <div class="input-field">
-                  <h:inputSecret id="password" value="#{usuarioBean.pass}" class="validate"/>
+                  <h:inputSecret id="password" autocomplete="off" value="#{usuarioBean.pass}" class="validate"/>
                   <label for="password">Password</label>
                </div>
                <!-- Switch -->
@@ -86,11 +86,11 @@
                   <label for="first_name">Nombre de Usuario</label>
                </div>
                <div class="input-field">
-                  <h:inputSecret id="password1" name="pass" type="password" class="validate" value="#{usuarioBean.pass}"/>
+                  <h:inputSecret id="password1" autocomplete="off" name="pass" type="password" class="validate" value="#{usuarioBean.pass}"/>
                   <label for="password1">Password</label>                  
                </div>
                <div class="input-field">
-                  <input id="password2" type="password" class="validate"/>
+                  <input id="password2" autocomplete="off" type="password" class="validate"/>
                   <label for="password2">Confirmación Password</label>
                </div>
                <div class="center input-field">
