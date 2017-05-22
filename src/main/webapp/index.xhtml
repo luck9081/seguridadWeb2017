@@ -32,7 +32,7 @@
    <h:body class="altura-total" style="padding-top:15%">
 
       <ui:include src="includes/preloader.xhtml" />
-      
+
       <!-- MAIN SECTION -->
       <div class="row container center">
          <h3 class="finito animated fadeInDown">Bienvenido a</h3>
@@ -42,7 +42,8 @@
          <h1 class="span_h1 finito animated fadeInDown hide-on-med-and-up">
             <span>Organize</span><span class="orange-text">Me</span>
          </h1>
-         <a href="#modal1" class="btn btn-large waves-effect waves-light blue animated fadeInUp">Ingresar</a>
+         <a href="publicas.xhtml" class="btn btn-large waves-effect waves-light teal animated fadeInUp">Ver Tareas Públicas</a><br/><br/>
+			<a href="#modal1" class="btn btn-large waves-effect waves-light blue animated fadeInUp">Ingresar</a>
          <a href="#modal2" class="btn btn-large waves-effect waves-light orange animated fadeInUp">¿Eres nuevo?</a>
 
          <!-- Modal Login -->
@@ -87,7 +88,7 @@
                </div>
                <div class="input-field">
                   <h:inputSecret id="password1" autocomplete="off" name="pass" type="password" class="validate" value="#{usuarioBean.pass}"/>
-                  <label for="password1">Password</label>                  
+                  <label for="password1">Password</label>
                </div>
                <div class="input-field">
                   <input id="password2" autocomplete="off" type="password" class="validate"/>
