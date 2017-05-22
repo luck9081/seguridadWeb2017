@@ -79,7 +79,9 @@
                                    <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
                                    <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
                                    <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
-                                   <a><i class="material-icons grey-text delete">delete</i></a>
+                                    <h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
+                                      <i class="material-icons grey-text delete">delete</i>
+                                    </h:commandLink>
                                </h:form>
                             </div>
                         </li>
@@ -90,21 +92,44 @@
 
                          <c:forEach var="tareaBean" items="${controller.listarTareasPendientesCompartidas(controller.getSesion().getIdUsuario())}" varstatus="true">
 
-                        <li class="collection-item avatar grey lighten-4">
-                            <i class="material-icons circle red">label</i>
-                            <p>
-                                <h:outputText value="#{tareaBean.getDescripcion()}"/>
-                            </p>
-                            <div class="secondary-content">
-                               <h:form>
-                                   <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
-                                   <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
-                                   <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
-                                   <a><i class="material-icons grey-text delete">delete</i></a>
-                               </h:form>
-                            </div>
-                        </li>
+                          <c:choose>
 
+                                 <c:when test="#{tareaBean.id_privilegio==1}">
+                  
+                                    <li class="collection-item avatar grey lighten-4">
+                                      <i class="material-icons circle red">label</i>
+                                        <p>
+                                            <h:outputText value="#{tareaBean.getDescripcion()}"/>
+                                        </p>
+                                        <div class="secondary-content">
+                                           <h:form>
+                                               <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
+                                               <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
+                                               <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
+                                                <h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
+                                               <i class="material-icons grey-text delete">delete</i>
+                                               </h:commandLink>
+
+                                           </h:form>
+                                        </div>
+                                      </li>
+
+                                  </c:when>
+
+                                 <c:otherwise>
+
+
+                                      <li class="collection-item avatar grey lighten-4">
+                                        <i class="material-icons circle red">label</i>
+                                        <p>
+                                            <h:outputText value="#{tareaBean.getDescripcion()}"/>
+                                        </p>
+                                    </li>
+
+                                  </c:otherwise>
+                        </c:choose>
+
+                 
                      </c:forEach>
 
 

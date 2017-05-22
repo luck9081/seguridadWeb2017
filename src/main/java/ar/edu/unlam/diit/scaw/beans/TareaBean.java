@@ -19,7 +19,16 @@ public class TareaBean implements Serializable {
 	private Integer id_modo_acceso_int;
 	private Integer id_estado_tarea;
 	private Integer id_usuario;
+	private Integer id_privilegio;
 	
+	public Integer getId_privilegio() {
+		return id_privilegio;
+	}
+
+	public void setId_privilegio(Integer id_privilegio) {
+		this.id_privilegio = id_privilegio;
+	}
+
 	public TareaBean() {
 		super();
 	}

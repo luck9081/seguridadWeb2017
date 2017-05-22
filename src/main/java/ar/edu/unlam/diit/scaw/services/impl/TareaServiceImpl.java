@@ -54,6 +54,13 @@ public class TareaServiceImpl implements TareaService {
 		
 		return tareaDao.listarTareasCompletasCompartidas(id);
 	}
+	
+	@Override
+	public void eliminarTarea(Integer idTarea) {
+		tareaDao.eliminarTarea(idTarea);
+		
+	}
+
 
 	
 	
@@ -65,6 +72,7 @@ public class TareaServiceImpl implements TareaService {
 	public void setTareaDao(TareaDao tareaDao) {
 		this.tareaDao = tareaDao;
 	}
+
 
 
 

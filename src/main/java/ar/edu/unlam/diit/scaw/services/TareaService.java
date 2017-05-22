@@ -15,6 +15,7 @@ public interface TareaService {
 	public List<TareaBean> listarTareasGlobales(Integer id_usuario);
 	public List<TareaBean> listarTareasPendientesCompartidas(Integer id);
 	public List<TareaBean> listarTareasCompletasCompartidas(Integer id);
+	public void eliminarTarea(Integer idTarea);
 
 
 

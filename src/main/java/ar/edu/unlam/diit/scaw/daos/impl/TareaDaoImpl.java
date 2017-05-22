@@ -52,15 +52,15 @@ public class TareaDaoImpl implements TareaDao {
 		
 	}
 	
-	public List<TareaBean> listarTareasPendientesCompartidas(Integer id){
+	public List<TareaBean> listarTareasPendientesCompartidas(Integer idUsuario){
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 
-		String sql = "SELECT TAR.id_tarea,TAR.descripcion,TAR.id_modo_acceso,UPT.id_usuario FROM Usuario_Privilegio_Tarea UPT JOIN Tarea TAR ON UPT.id_tarea=TAR.id_tarea  WHERE UPT.id_usuario=:id_usuario AND TAR.id_estado_tarea=1;";
+		String sql = "SELECT TAR.id_tarea,TAR.descripcion,TAR.id_modo_acceso,UPT.id_usuario,UPT.id_privilegio FROM Usuario_Privilegio_Tarea UPT JOIN Tarea TAR ON UPT.id_tarea=TAR.id_tarea  WHERE UPT.id_usuario=:id_usuario AND TAR.id_estado_tarea=1;";
 		
-		params.put("id_usuario", id);
+		params.put("id_usuario", idUsuario);
 
-		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());
+		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper2());
 
 		return result;
 		
@@ -147,6 +147,18 @@ public class TareaDaoImpl implements TareaDao {
 		
 		
 	}
+	
+	public void eliminarTarea(Integer idTarea){
+		
+		String sql2 = "DELETE FROM Usuario_Privilegio_Tarea WHERE id_tarea = :id_tarea";
+		String sql = "DELETE FROM Tarea WHERE id_tarea = :id_tarea";
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id_tarea", idTarea);
+		jdbcTemplate.update(sql2, params);
+		jdbcTemplate.update(sql, params);
+		
+	}
 
 
 
@@ -173,5 +185,23 @@ public class TareaDaoImpl implements TareaDao {
 			return tareaBean;
 		}
 	}
+	
+	private static final class PersonMapper2 implements RowMapper<TareaBean> {
+
+		public TareaBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+			TareaBean tareaBean = new TareaBean();
+			
+			tareaBean.setId_tarea(rs.getInt("id_tarea"));
+			tareaBean.setDescripcion(rs.getString("descripcion"));
+			tareaBean.setId_modo_acceso_int(rs.getInt("id_modo_acceso"));
+			tareaBean.setId_usuario(rs.getInt("id_usuario"));
+			tareaBean.setId_privilegio(rs.getInt("id_privilegio"));
+	
+			return tareaBean;
+		}
+	}
+
+	
+	
 
 }

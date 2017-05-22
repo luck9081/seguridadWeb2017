@@ -211,6 +211,11 @@ public class Controller implements Serializable {
 		
 	}
 	
+	public String eliminarTarea(Integer idTarea){
+		tareaService.eliminarTarea(idTarea);
+		return "usuario";
+	}
+	
 	public String modificarEstadoTareaACompleto(Integer id_tarea){
 		tareaService.modificarEstadoTareaACompleto(id_tarea);
 		return "usuario";
