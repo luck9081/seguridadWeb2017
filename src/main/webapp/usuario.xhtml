@@ -71,28 +71,37 @@
 
                      <c:choose>
 
-                       <c:when test="#{tareaBean.id_modo_acceso_int==2}">
+								<c:when test="#{tareaBean.id_modo_acceso_int==2}">
 
-                        <li class="collection-item avatar grey lighten-4">
-                            <i class="material-icons circle red">label</i>
-                            <p>
-                                <h:outputText value="#{tareaBean.getDescripcion()}"/>
-                            </p>
-                            <div class="secondary-content">
-                               <h:form>
-                                   <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
-                                   <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
-                                   <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
-                                    <h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
-                                      <i class="material-icons grey-text delete">delete</i>
+	                        <li class="collection-item avatar grey lighten-4">
+										<i class="material-icons circle red">label</i>
+										<p>
+											<h:outputText value="#{tareaBean.getDescripcion()}"/>
+										</p>
+										<div class="secondary-content">
+											<h:form>
+												<h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}">
+													<i class="material-icons green-text accept-user">done</i>
+												</h:commandLink>
+												<a href="#modalEditarTarea" data-descripcion="#{tareaBean.getDescripcion()}" data-tarea="#{tareaBean.getId_tarea()}" class="modalEditarTarea">
+													<i class="material-icons blue-text">mode_edit</i>
+												</a>
+												<h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}">
+													<i class="material-icons blue-text">share</i>
+												</h:commandLink>
+												<h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}">
+													<i class="material-icons orange-text">person_pin</i>
+												</h:commandLink>
+												<h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
+													<i class="material-icons grey-text delete">delete</i>
+												</h:commandLink>
+												<h:commandLink action="#{controller.modificarModoAccesoAPublico(tareaBean.getId_tarea())}">
+													<i class="material-icons blue-text">public</i>
                                     </h:commandLink>
-                                     <h:commandLink action="#{controller.modificarModoAccesoAPublico(tareaBean.getId_tarea())}">
-                                    <i class="material-icons blue-text">public</i>
-                                    </h:commandLink>
+	                              </h:form>
+	                           </div>
+	                        </li>
 
-                               </h:form>
-                            </div>
-                        </li>
                         </c:when>
 
                         <c:otherwise>
@@ -104,6 +113,9 @@
                             <div class="secondary-content">
                                <h:form>
                                    <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
+											  <a href="#modalEditarTarea" data-descripcion="#{tareaBean.getDescripcion()}" data-tarea="#{tareaBean.getId_tarea()}" class="modalEditarTarea">
+ 												 <i class="material-icons blue-text">mode_edit</i>
+ 											 </a>
                                    <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
                                    <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
                                     <h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
@@ -120,7 +132,7 @@
 
                    </c:choose>
 
-                  
+
 
                      </c:forEach>
 
@@ -141,6 +153,9 @@
                                             <div class="secondary-content">
                                                <h:form>
                                                    <h:commandLink action="#{controller.modificarEstadoTareaACompleto(tareaBean.getId_tarea())}"><i class="material-icons green-text accept-user">done</i></h:commandLink>
+																	<a href="#modalEditarTarea" data-descripcion="#{tareaBean.getDescripcion()}" data-idTarea="#{tareaBean.getId_tarea()}" class="modalEditarTarea">
+																		<i class="material-icons blue-text">mode_edit</i>
+																	</a>
                                                    <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}"><i class="material-icons blue-text">share</i></h:commandLink>
                                                    <h:commandLink action="#{controller.privilegios(tareaBean.getId_tarea())}"><i class="material-icons orange-text">person_pin</i></h:commandLink>
                                                     <h:commandLink action="#{controller.eliminarTarea(tareaBean.getId_tarea())}">
@@ -196,7 +211,7 @@
                                   </c:otherwise>
                         </c:choose>
 
-                 
+
                      </c:forEach>
 
 
@@ -244,55 +259,53 @@
 
          <!-- Modal Nueva Tarea -->
          <div id="modal1" class="modal center">
-
             <h:form class="container left-align espaciado-superior-inferior">
 
-
                <div class="input-field">
-
-
                   <h:outputLabel for="descripcion">Descripcion</h:outputLabel>
                   <h:inputText value="#{tareaBean.descripcion}" id="descripcion" class="validate"></h:inputText>
-
-
                </div><!-- input-field -->
 
-
-
                <div class="switch">
-
                   <label>
                      Publica
-
                      <!--<input type="checkbox"/> -->
                      <h:selectBooleanCheckbox value = "#{tareaBean.id_modo_acceso}" id = "id_modo_acceso" />
-
                      <span class="lever"></span>
-
-
                   </label>
                </div><!-- class swtich -->
 
-
-
-
                <div class="center">
-
                   <h:commandButton action="#{controller.crearTarea(tareaBean,controller.getSesion().getIdUsuario())}" type="submit" class="btn btn-large orange waves-effect waves-light" value="Crear Tarea"/>
-
                <!--    <button class="btn btn-floating btn-large orange waves-effect waves-light" type="submit" name="">
                       <i class="large material-icons">done</i>
                   </button> -->
-
                </div><!-- center -->
 
             </h:form> <!-- FORM -->
-
-
-
          </div>
-         
-         <!-- Modal editar -->
+
+			<!-- Modal Editar Tarea -->
+         <div id="modalEditarTarea" class="modal center">
+            <h:form class="container left-align espaciado-superior-inferior">
+
+               <div class="input-field">
+                  <h:outputLabel for="descripcion">Descripcion</h:outputLabel>
+                  <h:inputText value="#{tareaBean.descripcion}" class="validate descripcion"></h:inputText>
+						<input type="hidden" name="idTarea" class="idTarea"/>
+               </div><!-- input-field -->
+
+               <div class="center">
+                  <h:commandButton action="#{controller.editarTarea(tareaBean)}" type="submit" class="btn btn-large orange waves-effect waves-light" value="Modificar Tarea"/>
+               <!--    <button class="btn btn-floating btn-large orange waves-effect waves-light" type="submit" name="">
+                      <i class="large material-icons">done</i>
+                  </button> -->
+               </div><!-- center -->
+
+            </h:form> <!-- FORM -->
+         </div>
+
+         <!-- Modal Editar Usuario-->
          <div id="modal2" class="modal" style="height:100%">
             <div class="modal-content espaciado-superior">
                <h4 class="orange-text finito">Editar mis datos</h4>
@@ -304,10 +317,10 @@
                </div>
                <div class="input-field">
                   <h:inputSecret id="password1" name="pass" type="password" class="validate" value="#{usuarioBean.pass}"/>
-                  <label for="password1">Password</label>                  
+                  <label for="password1">Password</label>
                </div>
                <div class="center input-field">
-                  <h:commandButton action="#{controller.editar(usuarioBean, controller.getSesion().getIdUsuario())}" type="submit" class="btn btn-large orange waves-effect waves-light" value="Confirmar"/> 
+                  <h:commandButton action="#{controller.editar(usuarioBean, controller.getSesion().getIdUsuario())}" type="submit" class="btn btn-large orange waves-effect waves-light" value="Confirmar"/>
                </div>
              </h:form>
              <h:form styleClass="container left-align espaciado-inferior">

@@ -5,7 +5,6 @@ import java.util.List;
 import ar.edu.unlam.diit.scaw.beans.TareaBean;
 import ar.edu.unlam.diit.scaw.daos.TareaDao;
 import ar.edu.unlam.diit.scaw.entities.Tarea;
-import ar.edu.unlam.diit.scaw.entities.Usuario;
 import ar.edu.unlam.diit.scaw.services.TareaService;
 
 
@@ -14,10 +13,15 @@ public class TareaServiceImpl implements TareaService {
 	
 	TareaDao tareaDao;
 	
-	public void crearTarea( Tarea tarea,Integer id_usuario){
+	public void crearTarea(Tarea tarea,Integer id_usuario){
 		
 		tareaDao.crearTarea(tarea,id_usuario);
 		
+	}
+	
+	@Override
+	public void editarTarea(Tarea tarea){		
+		tareaDao.editarTarea(tarea);		
 	}
 	
 	@Override
