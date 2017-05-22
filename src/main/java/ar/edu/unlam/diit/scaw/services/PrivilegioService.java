@@ -8,6 +8,6 @@ public interface PrivilegioService {
 	
 	public LinkedList<ColaboradorBean> listarColaboradoresYPrivilegios(Integer idTarea);
 
-	public boolean cambiarPrivilegio(Integer idTarea,String nombreUsuario,Integer nuevoPrivilegio);
+	public boolean cambiarPrivilegio(Integer idTarea,String nombreUsuario,boolean nuevoPrivilegio);
 
 }

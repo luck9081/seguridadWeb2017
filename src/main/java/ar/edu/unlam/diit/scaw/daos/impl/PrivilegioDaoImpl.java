@@ -24,7 +24,7 @@ public class PrivilegioDaoImpl implements PrivilegioDao {
 	
 	@Override
 	public List<Usuario_Privilegio_Tarea> colaboradoresYPrivilegios(Integer idTarea){
-		String sql = "SELECT * FROM Usuario_Privilegio_Tarea WHERE id_tarea = :id_tarea AND estado_colaborador = TRUE";
+		String sql = "SELECT * FROM Usuario_Privilegio_Tarea WHERE id_tarea = :id_tarea AND estado_colaborador = TRUE ORDER BY id_usuario";
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id_tarea",idTarea);

@@ -38,7 +38,7 @@
       <!-- SECTION MAIN -->
       <div class="section scrollspy">
 
-         <!-- Compartir Tarea -->
+         <!-- Privilegios Tarea -->
          <div class="row container animated zoomIn">
 
             <div class="col s12 m12 l9 offset-l1">
@@ -58,14 +58,38 @@
 	                        <div class="secondary-content">
 	                           <!-- Switch -->
 	                           <div class="switch">
-	                            <h:form>
-	                               <label class="black-text">
-	                                   <i class="material-icons grey-text waves-effect waves-light">remove_red_eye</i>
-	                                   <h:selectBooleanCheckbox id="hola" styleClass="hola" type="checkbox" value="colaboradorBean.getPrivilegioEdicion()"/>
-	                                   <span class='lever'/>
-	                                   <i class="material-icons blue-text waves-effect waves-light">mode_edit</i>
-	                                </label>
-	                            </h:form>
+	                               <c:choose>         
+                                     <c:when test = "${colaboradorBean.isPrivilegioEdicion() == true}">
+                                      <h:form>
+                                        <label class="black-text">
+                                           <i class="material-icons grey-text waves-effect waves-light">remove_red_eye</i>
+                                           <h:commandLink action="#{controller.cambiarPrivilegio}">
+                                                <f:param name="idTarea" value="#{param['idTarea']}" />
+                                                <f:param name="nombreUsuario" value="#{colaboradorBean.getNombreColaborador()}" />
+                                                <f:param name="nuevoPrivilegioEdicion" value="false" />
+                                               <input type="checkbox" checked='checked'/>
+                                               <span class='lever'/>
+                                           </h:commandLink >
+                                           <i class="material-icons blue-text waves-effect waves-light">mode_edit</i>
+                                        </label>
+                                      </h:form>
+                                     </c:when>
+                                     <c:otherwise>
+                                       <h:form>
+                                            <label class="black-text">
+                                            <i class="material-icons grey-text waves-effect waves-light">remove_red_eye</i>
+                                            <h:commandLink action="#{controller.cambiarPrivilegio}">
+                                                <f:param name="idTarea" value="#{param['idTarea']}" />
+                                                <f:param name="nombreUsuario" value="#{colaboradorBean.getNombreColaborador()}" />
+                                                <f:param name="nuevoPrivilegioEdicion" value="true" />
+                                                <input type="checkbox"/>
+                                                <span class='lever'/>
+                                            </h:commandLink >
+                                            <i class="material-icons blue-text waves-effect waves-light">mode_edit</i>
+                                        </label>
+                                       </h:form>
+                                     </c:otherwise>
+                                    </c:choose>
 	                           </div>
 	                        </div>
 	                     </li>

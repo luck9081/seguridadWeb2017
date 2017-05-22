@@ -3,6 +3,7 @@ package ar.edu.unlam.diit.scaw.beans;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
@@ -245,9 +246,14 @@ public class Controller implements Serializable {
 		return privilegioService.listarColaboradoresYPrivilegios(idTarea);	// te muestra los usuarios invitados a esta tarea
 	}
 	
-	public void cambiarPrivilegio(Integer idTarea,String nombreUsuario,Integer nuevoPrivilegio){
-		privilegioService.cambiarPrivilegio(idTarea, nombreUsuario,nuevoPrivilegio);	// modificar privilegio en la ternaria
+	public String cambiarPrivilegio(){
+		Map<String,String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		Integer idTarea = Integer.parseInt(params.get("idTarea"));
+		String nombreUsuario = params.get("nombreUsuario");
+		boolean nuevoPrivilegioEdicion = Boolean.parseBoolean(params.get("nuevoPrivilegioEdicion"));
 		
+		privilegioService.cambiarPrivilegio(idTarea, nombreUsuario,nuevoPrivilegioEdicion);	// modificar privilegio en la ternaria
+		return privilegios(idTarea);
 		// si es por ajax, no hace falta refrescar la pagina, esto se ejecuta por checkbox
 	}
 

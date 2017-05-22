@@ -39,10 +39,13 @@ public class PrivilegioServiceImpl implements PrivilegioService {
 	}
 	
 	@Override
-	public boolean cambiarPrivilegio(Integer idTarea,String nombreUsuario,Integer nuevoPrivilegio){
+	public boolean cambiarPrivilegio(Integer idTarea,String nombreUsuario,boolean nuevoPrivilegioEdicion){
 		// NOTA: (REALIZAR) consumir servicio de usuario que, a partir del nombre de usuario, obtenga el ID
-		Integer idUsuario = 0;
-		return privilegioDao.cambiarPrivilegio(idTarea,idUsuario,nuevoPrivilegio);
+		Integer idUsuario = usuarioDao.buscarIdUsuario(nombreUsuario);
+		if(nuevoPrivilegioEdicion == true)
+			return privilegioDao.cambiarPrivilegio(idTarea,idUsuario,1);
+		else
+			return privilegioDao.cambiarPrivilegio(idTarea,idUsuario,2);
 	}
 	
 	
