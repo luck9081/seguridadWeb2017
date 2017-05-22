@@ -100,11 +100,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 	
 	@Override
-	public boolean editar(UsuarioBean usuario) {
+	public boolean editar(UsuarioBean usuario, Integer idUsuario) {
 		
 		Usuario userEdit = new Usuario();
 		userEdit.setNombre(usuario.getNombre());
 		userEdit.setPass(usuario.getPass());
+		userEdit.setIdUsuario(idUsuario);
 		usuarioDao.editar(userEdit);
 		return true;
 	}

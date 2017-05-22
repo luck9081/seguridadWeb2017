@@ -95,10 +95,20 @@ public class Controller implements Serializable {
 		return index();
 	}
 	
-	public String editar(UsuarioBean usuario){
+	public String editar(UsuarioBean usuario, Integer idUsuario){
 			
-		usuarioService.editar(usuario);
-		return "usuario";
+		usuarioService.editar(usuario, idUsuario);
+		
+		sesion.setNombre(usuario.getNombre());
+		
+		
+		return usuarioHome();
+		}
+	
+	public String desactivarUsuario(Integer idUsuario){
+		
+		usuarioService.borrar(idUsuario);
+		return logout();
 		}
 	
 	public String registro(UsuarioBean usuario){

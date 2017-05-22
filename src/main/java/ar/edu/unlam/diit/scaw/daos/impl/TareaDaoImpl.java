@@ -125,7 +125,7 @@ public class TareaDaoImpl implements TareaDao {
 	public List<TareaBean> listarTareasGlobales(Integer id_usuario) {
 		Map<String, Object> params = new HashMap<String, Object>();
 
-		String sql = "SELECT * FROM Tarea WHERE id_modo_acceso=1 AND id_usuario!=:id_usuario ";
+		String sql = "SELECT * FROM Tarea WHERE id_modo_acceso=1";
 		params.put("id_usuario", id_usuario);
 	
 		List<TareaBean> result = jdbcTemplate.query(sql, params, new PersonMapper());

@@ -164,8 +164,6 @@
                   <label>
                      Privada
 
-
-
                      <!--<input type="checkbox"/> -->
                      <h:selectBooleanCheckbox value = "#{tareaBean.id_modo_acceso}" id = "id_modo_acceso" />
 
@@ -193,11 +191,31 @@
 
 
          </div>
-
-
-
-
-
+         
+         <!-- Modal editar -->
+         <div id="modal2" class="modal" style="height:100%">
+            <div class="modal-content espaciado-superior">
+               <h4 class="orange-text finito">Editar mis datos</h4>
+            </div>
+            <h:form styleClass="container left-align espaciado-inferior">
+               <div class="input-field">
+                  <h:inputText id="first_name" name="nombre" type="text" class="validate" value="#{usuarioBean.nombre}"/>
+                  <label for="first_name">Nombre de Usuario</label>
+               </div>
+               <div class="input-field">
+                  <h:inputSecret id="password1" name="pass" type="password" class="validate" value="#{usuarioBean.pass}"/>
+                  <label for="password1">Password</label>                  
+               </div>
+               <div class="center input-field">
+                  <h:commandButton action="#{controller.editar(usuarioBean, controller.getSesion().getIdUsuario())}" type="submit" class="btn btn-large orange waves-effect waves-light" value="Confirmar"/> 
+               </div>
+             </h:form>
+             <h:form styleClass="container left-align espaciado-inferior">
+	             <div class="center input-field">
+	               	<h:commandButton action="#{controller.desactivarUsuario(controller.getSesion().getIdUsuario())}" type="submit" class="btn btn-large red waves-effect waves-light" value="Desactivar Cuenta"/>
+	             </div><br></br>
+             </h:form>
+         </div>
       </div>
 
    </body>

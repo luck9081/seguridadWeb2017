@@ -18,7 +18,7 @@ public interface UsuarioService {
 	
 	public boolean borrar(Integer idUsuario);
 	
-	public boolean editar(UsuarioBean usuario);
+	public boolean editar(UsuarioBean usuario, Integer idUsuario);
 
 	public boolean loguear(UsuarioBean usuario);
 	

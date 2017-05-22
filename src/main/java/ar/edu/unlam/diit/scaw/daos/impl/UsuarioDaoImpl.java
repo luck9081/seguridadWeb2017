@@ -92,7 +92,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public boolean borrar(Integer idUsuario){
 		
-		String sql = "UPDATE Usuario SET id_estado_usuario = 3 WHERE id_usuario :idUsuario";
+		String sql = "UPDATE Usuario SET id_estado_usuario = 3 WHERE id_usuario = :idUsuario";
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("idUsuario", idUsuario);
 		jdbcTemplate.update(sql, params);
@@ -117,7 +117,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public boolean editar(Usuario usuario){
 		
-		String sql = "UPDATE Usuario SET (nombre = :nombre,  pass = :pass where id_usuario :id_usuario";
+		String sql = "UPDATE Usuario SET nombre = :nombre,  pass = :pass where id_usuario = :id_usuario";
 
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("nombre", usuario.getNombre());
