@@ -75,18 +75,22 @@
 		                           <h:outputText value="#{tareaBean.getDescripcion()}" /> <br />
 		                        </p>
 		                        
-								<div class="secondary-content">
-									<h:form>
-										<!-- Compartir a usuarios -->
-									    <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}">
-									    	<i class="material-icons blue-text waves-effect waves-blue">share</i>
-									    </h:commandLink>
-									    <!-- compartirme a mi -->
-								    	<h:commandLink action="#{controller.autoasignarUsuarioATareaGlobal(controller.getSesion().getIdUsuario(),tareaBean.getId_tarea())}">
-								    		<i class="material-icons blue-text waves-effect waves-blue">person_add</i>
-								    	</h:commandLink>
-									</h:form>
-								</div>
+		                        <c:choose>
+		                        	<c:when test="${!empty controller.getSesion().getNombre()}">
+										<div class="secondary-content">
+											<h:form>
+												<!-- Compartir a usuarios -->
+											    <h:commandLink action="#{controller.compartir(tareaBean.getId_tarea())}">
+											    	<i class="material-icons blue-text waves-effect waves-blue">share</i>
+											    </h:commandLink>
+											    <!-- compartirme a mi -->
+										    	<h:commandLink action="#{controller.autoasignarUsuarioATareaGlobal(controller.getSesion().getIdUsuario(),tareaBean.getId_tarea())}">
+										    		<i class="material-icons blue-text waves-effect waves-blue">person_add</i>
+										    	</h:commandLink>
+											</h:form>
+										</div>
+									</c:when>
+								</c:choose>
 		                     </li>
 	                     </c:forEach>
                      </ul>
